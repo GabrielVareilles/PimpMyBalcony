@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
     root to: 'pages#home'
     get "profile", to: "pages#profile", as: 'profile'
+    get "inspiration" to: "pages#inspiration", as: 'inspiration'
 
     resources :balconies, except: [:show]
     get "balconies_private/:id", to: "balconies#show_private", as: 'private_balcony'

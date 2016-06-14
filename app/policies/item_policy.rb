@@ -6,7 +6,7 @@ class ItemPolicy < ApplicationPolicy
   end
 
   def show
-    true
+    true # anyone can see an item
   end
 
 end
