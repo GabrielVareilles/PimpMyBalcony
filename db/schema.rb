@@ -11,10 +11,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614085017) do
+ActiveRecord::Schema.define(version: 20160614101416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "balconies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "department"
+    t.integer  "length"
+    t.integer  "width"
+    t.string   "photo"
+    t.integer  "storey"
+    t.string   "orientation"
+    t.string   "house_type"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "balconies", ["user_id"], name: "index_balconies_on_user_id", using: :btree
+
+  create_table "departments", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "temperature_min"
+    t.integer  "temperature_max"
+    t.integer  "pluviometry"
+    t.integer  "sunshine_amount"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.string   "sub_category"
+    t.string   "plant_category"
+    t.integer  "slot"
+    t.integer  "price"
+    t.integer  "volume"
+    t.integer  "length"
+    t.integer  "width"
+    t.integer  "weight"
+    t.string   "photo"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "plants", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "temperature_min"
+    t.integer  "temperature_max"
+    t.integer  "pluviometry"
+    t.integer  "sunshine_amount"
+    t.string   "scientific_name"
+    t.integer  "fertiliser"
+    t.text     "advises"
+    t.integer  "price"
+    t.integer  "slot"
+    t.string   "photo"
+    t.string   "color"
+    t.string   "size"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -42,4 +108,5 @@ ActiveRecord::Schema.define(version: 20160614085017) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "balconies", "users"
 end
