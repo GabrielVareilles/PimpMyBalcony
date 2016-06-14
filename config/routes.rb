@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :balconies, except: [:show]
     get "balconies_private/:id", to: "balconies#show_private", as: 'private_balcony'
     get "balconies_public/:id", to: "balconies#show_public", as: 'public_balcony'
+    get "complete", to: "balconies#complete", as: 'complete'
 
     resources :items, only: [:index, :show]
   end

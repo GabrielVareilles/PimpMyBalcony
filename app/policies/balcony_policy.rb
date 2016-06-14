@@ -17,6 +17,10 @@ class BalconyPolicy < ApplicationPolicy
     true  # Anyone can create a balcony
   end
 
+  def complete
+    record.user == user
+  end
+
   def update?
     record.user == user  # Only balcony creator can update it
   end

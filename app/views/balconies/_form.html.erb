@@ -1,0 +1,9 @@
+<%= simple_form_for @balcony do |f| %>
+  <%= f.input :type, collection: ['Small', 'Medium', 'Large'] %>
+  <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
+  <%= f.input :city, input_html: { id: 'locality' } %>
+  <%= f.input :department, input_html: { id: 'postal_code' } %>
+  <%= f.input :length %>
+  <%= f.input :orientation %>
+  <%= f.button :submit %>
+<% end %>
