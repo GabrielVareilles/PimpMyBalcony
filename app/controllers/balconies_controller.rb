@@ -1,10 +1,10 @@
 class BalconiesController < ApplicationController
 
-  skip_before_action :authenticate_user!
-  before_action :set_balcony, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_balcony, only: [:show_public, :show_private, :edit, :update, :destroy]
 
   def index
-    @balconies = Balcony.all
+    @balconies = policy_scope(Balcony)
   end
 
   def show_public
@@ -19,7 +19,7 @@ class BalconiesController < ApplicationController
 
   def create
     @balcony = current_user.balconies.build(balcony_params)
-    @balcony.user_id = current_user.id if current_user
+    autorize @balcony
     if @balcony.save
       redirect_to private_balcony_path(@balcony)
       flash[:notice] = "Balcony successfuly created"
@@ -54,6 +54,7 @@ class BalconiesController < ApplicationController
 
   def set_balcony
     @balcony = Balcony.find(params[:id])
+    autorize @balcony
   end
 
 end

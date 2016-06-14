@@ -10,11 +10,7 @@ class ApplicationPolicy
     false
   end
 
-  def show_private?
-    scope.where(:id => record.id).exists?
-  end
-
-  def show_public?
+  def show?
     scope.where(:id => record.id).exists?
   end
 
