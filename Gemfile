@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-
-
 gem 'rails', '4.2.6'
 gem 'puma'
 gem 'pg'
@@ -17,9 +15,6 @@ gem 'carrierwave'
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-
-
-
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
