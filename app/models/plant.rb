@@ -3,4 +3,16 @@ class Plant < ActiveRecord::Base
 
   has_and_belongs_to_many :items
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :category, presence: true
+  validates :temperature_min, presence: true
+  validates :temperature_max, presence: true
+  validates :pluviometry, presence: true
+  validates :sunshine_amount, presence: true
+  validates :fertilizer, presence: true
+  validates :advises, presence: true
+  validates :color, presence: true
+  validates :size, presence: true
+
 end

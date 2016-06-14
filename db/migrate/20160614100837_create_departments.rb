@@ -6,6 +6,7 @@ class CreateDepartments < ActiveRecord::Migration
       t.integer :temperature_max
       t.integer :pluviometry
       t.integer :sunshine_amount
+      t.string  :photo
 
       t.timestamps null: false
     end
