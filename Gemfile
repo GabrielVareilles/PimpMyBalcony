@@ -14,6 +14,11 @@ gem 'pundit'
 gem 'omniauth-facebook'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+
 
 gem 'sass-rails'
 gem 'jquery-rails'
