@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     get "balconies_private/:id", to: "balconies#show_private", as: 'private_balcony'
     get "balconies_public/:id", to: "balconies#show_public", as: 'public_balcony'
 
-    resources :item, only: [:index, :show]
+    resources :items, only: [:index, :show]
   end
 end
