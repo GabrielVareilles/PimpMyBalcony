@@ -12,6 +12,8 @@ gem 'devise'
 gem 'redis'
 gem 'pundit'
 gem 'omniauth-facebook'
+gem 'cloudinary'
+gem 'carrierwave'
 
 gem 'sass-rails'
 gem 'jquery-rails'
