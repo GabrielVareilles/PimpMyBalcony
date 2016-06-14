@@ -4,6 +4,11 @@
     <%= image_tag "logo.png" %>
   <% end %>
 
+  <%= link_to "Inspiration", inspiration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <%= link_to "Products", item_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -15,16 +20,18 @@
       </button>
     </form>
 
+
+
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <!-- <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-blue">3</div>
         </div>
-      <% end %>
+      <% end %> -->
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -32,7 +39,7 @@
           <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to "profile" do %>
                 <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
               <% end %>
             </li>
