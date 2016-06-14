@@ -2,7 +2,10 @@ class BalconiesController < ApplicationController
   def index
   end
 
-  def show
+  def show_public
+  end
+
+  def show_private
   end
 
   def new

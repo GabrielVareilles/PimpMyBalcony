@@ -1,45 +1,4 @@
 Rails.application.routes.draw do
-  get 'plants/index'
-
-  get 'plants/show'
-
-  get 'plants/new'
-
-  get 'plants/create'
-
-  get 'plants/edit'
-
-  get 'plants/update'
-
-  get 'plants/destroy'
-
-  get 'items/index'
-
-  get 'items/show'
-
-  get 'items/new'
-
-  get 'items/create'
-
-  get 'items/edit'
-
-  get 'items/update'
-
-  get 'items/destroy'
-
-  get 'balconies/index'
-
-  get 'balconies/show'
-
-  get 'balconies/new'
-
-  get 'balconies/create'
-
-  get 'balconies/edit'
-
-  get 'balconies/update'
-
-  get 'balconies/destroy'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
