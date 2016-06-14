@@ -7,5 +7,11 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @balconies = current_user.balconies.all
+  end
+
+  def inspiration
+    @balconies = Balcony.all
+    @items = Item.all
   end
 end
