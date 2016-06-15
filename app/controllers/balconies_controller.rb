@@ -49,13 +49,13 @@ class BalconiesController < ApplicationController
 
   def destroy
     @balcony.destroy
-    redirect_to balconys_path
+    redirect_to profile_path
   end
 
   private
 
   def balcony_params
-    params.require(:balcony).permit(:model, :address, :city, :department, :length, :orientation)
+    params.require(:balcony).permit(:model, :address, :city, :department, :length, :orientation, :photo, :photo_cache)
   end
 
   def set_balcony
