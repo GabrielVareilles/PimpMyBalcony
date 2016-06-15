@@ -49,7 +49,7 @@ class BalconiesController < ApplicationController
 
   def destroy
     @balcony.destroy
-    redirect_to balconys_path
+    redirect_to profile_path
   end
 
   private

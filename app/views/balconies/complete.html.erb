@@ -1,0 +1,16 @@
+
+<h1>Your balcony</h1>
+
+<p>Department: <%= @balcony.department %></p>
+<p>Lenght: <%= @balcony.length %> (cm)</p>
+
+<h1>Your meteo</h1>
+
+<% Department.all.each do |department| %>
+  <% if department.number == @balcony.department.to_s[0..1].to_i %>
+    <p>Minimum Temperature: <%= department.temperature_min %> (°C)</p>
+    <p>Max Temperature: <%= department.temperature_max %> (°C)</p>
+    <p>Annual Pluviometry: <%= department.pluviometry %> (mm)</p>
+    <p>Annual Sunshine exposure: <%= department.sunshine_amount %> (hours)</p>
+  <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Your Balconies</h1>
+  <% Balcony.all.where(user_id: current_user.id).each do |balcony|%>
+    <%= link_to 'balcony', private_balcony_path(balcony.id), { class: "btn btn-link" } %>
+    <%= link_to "Delete", balcony_path(balcony), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+    <br>
+  <% end %>
+
+
+
