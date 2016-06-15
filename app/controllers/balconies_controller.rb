@@ -15,18 +15,24 @@ class BalconiesController < ApplicationController
 
   def new
     @balcony = Balcony.new
+    authorize @balcony
   end
 
   def create
-    @balcony = current_user.balconies.build(balcony_params)
-    autorize @balcony
+    @balcony = current_user.balconies.new(balcony_params)
+    authorize @balcony
     if @balcony.save
-      redirect_to private_balcony_path(@balcony)
-      flash[:notice] = "Balcony successfuly created"
+      redirect_to complete_path
+      flash[:notice] = "Balcony successfuly created, now pick some plants!"
     else
-      flash[:notice] = "Balcony not created"
+      flash[:alert] = "Balcony not created"
       render :new
     end
+  end
+
+  def complete
+    @balcony = current_user.balconies.last
+    authorize @balcony
   end
 
   def edit
@@ -49,12 +55,12 @@ class BalconiesController < ApplicationController
   private
 
   def balcony_params
-    params.require(:balcony).permit(:name)
+    params.require(:balcony).permit(:model, :address, :city, :department, :length, :orientation)
   end
 
   def set_balcony
     @balcony = Balcony.find(params[:id])
-    autorize @balcony
+    authorize @balcony
   end
 
 end
