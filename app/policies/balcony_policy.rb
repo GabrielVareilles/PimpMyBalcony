@@ -17,7 +17,7 @@ class BalconyPolicy < ApplicationPolicy
     true  # Anyone can create a balcony
   end
 
-  def complete
+  def complete?
     record.user == user
   end
 

@@ -7,7 +7,7 @@ class Balcony < ActiveRecord::Base
   has_and_belongs_to_many :items
   belongs_to :user
 
-  validates :type, inclusion: { in: %w(small medium large)}
+  validates :model, inclusion: { in: ['small', 'medium', 'large']}
   validates :address, presence: true
   validates :city, presence: true
   validates :department, presence: true
