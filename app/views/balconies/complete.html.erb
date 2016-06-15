@@ -25,3 +25,13 @@
     <p>Annual Sunshine exposure: <%= department.sunshine_amount %> (hours)</p>
   <% end %>
 <% end %>
+<h1>Items already attached to your balcony</h1>
+
+<h1>Add Items to your balcony !</h1>
+
+<% Item.all.each do |item| %>
+  <%= item.name %>
+  <%= item.id %>
+  <%= cl_image_tag item.photo, height: 300, width: 400, crop: :fill %>
+  <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
+<% end %>
