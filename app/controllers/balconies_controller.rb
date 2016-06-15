@@ -55,7 +55,7 @@ class BalconiesController < ApplicationController
   private
 
   def balcony_params
-    params.require(:balcony).permit(:model, :address, :city, :department, :length, :orientation)
+    params.require(:balcony).permit(:model, :address, :city, :department, :length, :orientation, :photo, :photo_cache)
   end
 
   def set_balcony

@@ -1,5 +1,10 @@
 <h1>inspiration</h1>
 
-<%= Balcony.all.each do |balcony| %>
+<% Balcony.all.each do |balcony| %>
   <%= cl_image_tag balcony.photo, height: 300, width: 400, crop: :fill %>
+  <%= link_to balcony.name, public_balcony_path(balcony), {class: "btn btn-link"} %>
+  <br>
 <% end %>
+
+
+A lot more to do !
