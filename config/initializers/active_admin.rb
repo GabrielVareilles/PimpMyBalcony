@@ -72,7 +72,7 @@ ActiveAdmin.setup do |config|
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
   # case when Pundit is unable to find suitable policy.
-  config.pundit_default_policy = "MyDefaultPunditPolicy"
+  # config.pundit_default_policy = "MyDefaultPunditPolicy"
   # a mettre à jour !
 
   # You can customize your CanCan Ability class name here.
@@ -152,7 +152,8 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-
+  config.skip_after_action :verify_authorized
+  config.skip_after_action :verify_policy_scoped
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.
