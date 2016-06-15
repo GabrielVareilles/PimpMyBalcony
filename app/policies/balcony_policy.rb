@@ -5,6 +5,10 @@ class BalconyPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    create?
+  end
+
   def show_public?
     true  # Anyone can view a public_balcony
   end
