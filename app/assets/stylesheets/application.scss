@@ -6,8 +6,8 @@
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+// @import "font-awesome-sprockets";
+// @import "font-awesome";
 
 // Your CSS
 @import "layout/index";
@@ -15,24 +15,24 @@
 @import "pages/index";
 @import "vendor/index";
 
-// Neomax CSS
-@import "animate.css";
-@import "animate.min.css";
-@import "flexslider.css";
-@import "font-awesome.css";
-@import "font-awesome.min.css";
-@import "magnific-popup.css";
-@import "owl.carousel.css";
-@import "simple-line-icons.css";
-@import "template-blue.css";
-@import "template-blue.min.css";
-@import "template-dark.css";
-@import "template-dark.min.css";
-@import "template-red.css";
-@import "template-red.min.css";
-@import "template-yellow.css";
-@import "template-yellow.min.css";
-@import "template.css";
-@import "template.min.css";
-@import "vertical.css";
-@import "vertical.min.css";
+// Neomax
+@import "animate";
+@import "animate.min";
+@import "flexslider";
+@import "font-awesome";
+@import "font-awesome.min";
+@import "magnific-popup";
+@import "owl.carousel";
+@import "simple-line-icons";
+@import "template-blue";
+@import "template-blue.min";
+@import "template-dark";
+@import "template-dark.min";
+@import "template-red";
+@import "template-red.min";
+@import "template-yellow";
+@import "template-yellow.min";
+@import "template";
+@import "template.min";
+@import "vertical";
+@import "vertical.min";

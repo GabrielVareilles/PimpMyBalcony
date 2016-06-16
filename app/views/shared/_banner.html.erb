@@ -1,7 +1,25 @@
-<div class="banner" style="background-image: url(<%= asset_path 'banner.jpeg' %>) ">
-  <div class="banner-content">
-    <h1>Pimp My Balcony</h1>
-    <p>Y'a du monde au balcon</p>
-    <%= link_to "Create your Balcony", new_balcony_path , {class: "btn btn-lg btn-success"} %>
-  </div>
-</div>
+<!-- HERO -->
+  <section id="hero" class="module-hero bg-black-alfa-30 color-white fullheight parallax" data-background="assets/images/banner.jpeg">
+    <!-- HERO TEXT -->
+    <div class="hero-caption">
+      <div class="hero-text">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h1 class="montserrat text-uppercase text-xxl m-t-80">PIMP MY BALCONY</h1>
+              <h2 class="text-400">Y'a du monde au balcon </h2>
+              <div class="btn-list m-t-45">
+                <!-- <a href="#about" class="btn btn-base btn-lg video-pop-up smoothscroll">Create your Balcony</a> -->
+                <%= link_to "Create your Balcony", new_balcony_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- END HERO TEXT -->
+  </section>
+  <!-- END HERO -->

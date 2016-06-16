@@ -1,0 +1,101 @@
+<!-- HEADER -->
+<header class="header header-fixed header-transparent">
+  <div class="container">
+
+    <!-- YOUR LOGO HERE -->
+    <div class="inner-header">
+    <%= link_to image_tag("icon.png", class: "inner-brand brand-light", style: "width: 100"), root_path %>
+
+    <% link_to root_path do %>
+      <%= image_tag 'icon.png', width: '100', class: 'inner-brand brand-light' %>
+    <% end %>
+
+    <!-- <a class="inner-brand" href="index.html"> -->
+      <!-- <img class="brand-light" src="../../assets/images/icon.png" width="100" alt=""> -->
+      <!-- <img class="brand-dark" src="assets/images/logo-dark.png" width="100" alt=""> -->
+    <!-- </a>  -->
+    </div>
+
+    <!-- OPEN MOBILE MENU -->
+    <div class="main-nav-toggle">
+      <div class="nav-icon-toggle" data-toggle="collapse" data-target="#custom-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </div>
+    </div>
+
+    <!-- WIDGETS MENU -->
+    <div class="inner-header pull-right">
+      <div class="menu-extras clearfix">
+
+        <!-- SHOP CART -->
+        <div class="menu-item">
+          <div class="extras-cart">
+            <a href="#" id="open-cart">
+              <i class="icon-basket icons"></i>
+              <span class="cart-badge">2</span>
+            </a>
+          </div>
+        </div>
+        <!-- END SHOP CART -->
+
+        <!-- SEARCH -->
+        <div class="menu-item hidden-xxs">
+          <div class="extras-search">
+            <a id="modal-search" href="#"><i class="icon-magnifier icons"></i></a>
+            <form action="#" class="header-search-form">
+              <div class="search-form-inner">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="header-search-form-clouse">
+                        <a href="#" class="form-close-btn">✕</a>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <input type="text" placeholder="Type &amp; hit enter">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- END SEARCH -->
+
+      </div>
+    </div>
+
+    <!-- MAIN MENU -->
+    <nav id="custom-collapse" class="main-nav collapse clearfix">
+      <ul class="inner-nav pull-right">
+
+        <!-- INSPIRATION -->
+        <li class="has-submenu">
+          <a href="#">Inspiration</a>
+        </li>
+        <!-- END -->
+
+        <!-- PRODUCT -->
+        <li class="has-submenu">
+          <a href="#">Product</a>
+        </li>
+        <!-- END -->
+
+        <!-- PROFILE -->
+        <li class="has-submenu">
+          <a href="#">Profile</a>
+          <ul class="submenu">
+            <li><a href="index.html">Home: Default</a></li>
+            <li><a href="index-corporate-1.html">submenu1</a></li>
+            <li><a href="index-corporate-2.html">submenu2</a></li>
+          </ul>
+        </li>
+        <!-- END -->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- END HEADER -->
