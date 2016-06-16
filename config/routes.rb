@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :balconies, except: [:show] do
       member do
         post "add_item"
+        post "remove_item"
       end
     end
 
@@ -19,6 +20,12 @@ Rails.application.routes.draw do
     get "complete", to: "balconies#complete", as: 'complete'
 
 
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show, :destroy] do
+      member do
+        post "add_plant"
+        post "remove_plant"
+        post "duplicate"
+      end
+    end
   end
 end

@@ -1,7 +1,7 @@
 class BalconiesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_balcony, only: [:show_public, :show_private, :edit, :update, :destroy, :add_item]
+  before_action :set_balcony, only: [:show_public, :show_private, :edit, :update, :destroy, :add_item, :remove_item]
 
   def index
     @balconies = policy_scope(Balcony)
@@ -54,8 +54,7 @@ class BalconiesController < ApplicationController
 
   def add_item
     @item = Item.find(params[:item])
-    authorize @balcony
-    # add item to balcony
+    @balcony.add_item(@item)
 
     if @balcony.save
       redirect_to complete_path
@@ -63,6 +62,19 @@ class BalconiesController < ApplicationController
     else
       redirect_to complete_path
       flash[:alert] = "Item not added to your balcony"
+    end
+  end
+
+  def remove_item
+    @item = Item.find(params[:item])
+    @balcony.remove_item(@item)
+
+    if @balcony.save
+      redirect_to complete_path
+      flash[:notice] = "Item removed from your balcony"
+    else
+      redirect_to complete_path
+      flash[:alert] = "Item not removed to your balcony"
     end
   end
 

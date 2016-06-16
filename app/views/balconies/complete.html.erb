@@ -2,7 +2,7 @@
 <h1>Your balcony</h1>
 
 <div class="progress">
-  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+  <div class="progress-bar progress-bar-link progress-bar-striped" role="progressbar"
   aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
     0%
   </div>
@@ -25,13 +25,61 @@
     <p>Annual Sunshine exposure: <%= department.sunshine_amount %> (hours)</p>
   <% end %>
 <% end %>
+
 <h1>Items already attached to your balcony</h1>
+  <%= @balcony.items.size %>
+  <br>
+  <% @balcony.items.all.each do |item| %>
+    <%= item.name %>
+    <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
+    <%= button_to "remove item", remove_item_balcony_path(@balcony, item: item.id), class: "btn btn-link" %>
+  <% end %>
 
 <h1>Add Items to your balcony !</h1>
 
-<% Item.all.each do |item| %>
-  <%= item.name %>
-  <%= item.id %>
-  <%= cl_image_tag item.photo, height: 300, width: 400, crop: :fill %>
-  <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
+<% Item.all.where(category: ["Deco","Pot","Plant"]).each do |item| %>
+  <div class="container text-center">
+    <%= item.name %>
+    <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
+    <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
+    <% if current_user.admin == true %>
+      <%= link_to "Remove item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+    <% end %>
+  </div>
+  <hr>
 <% end %>
+
+<div class="wrapper-grey padded">
+  <div class="container">
+    <h2 class="text-center">Your custom pots</h2>
+    <div class="row">
+    <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= item.name %>
+        <%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %>
+        <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
+        <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
+        <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+        <hr>
+        <% Plant.all.each do |plant|%>
+          <%= plant.name %>
+          <%= cl_image_tag plant.photo, height: 75, width: 100, crop: :fill %>
+          <%= button_to "Add plant", add_plant_item_path(item, plant: plant.id), class: "btn btn-link" %>
+          <%= button_to "Remove plant", remove_plant_item_path(item, plant: plant.id), class: "btn btn-link" %>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+  <hr>
+<h1>Custom</h1>
+<hr>
+<% Item.all.where(category: "Pot").each do |pot| %>
+  <%= cl_image_tag pot.photo, height: 75, width: 100, crop: :fill %>
+  <%= button_to "Pick this pot", duplicate_item_path(pot, name: current_user.first_name), class: "btn btn-success" %>
+<% end %>
+<hr>
+
+
