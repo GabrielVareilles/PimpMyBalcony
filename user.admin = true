@@ -1,0 +1,24 @@
+=> [32m#<User:0x0055e7af61b308[0m
+ id: [1;34m1[0m,
+ email: [31m[1;31m"[0m[31marmitanob@gmail.com[1;31m"[0m[31m[0m,
+ encrypted_password:
+  [31m[1;31m"[0m[31m$2a$11$167ItnnBRVolZHi98h1YZ.f09dVyIGy8KCiUAMpAhqZVPP9r.tIQK[1;31m"[0m[31m[0m,
+ reset_password_token: [1;36mnil[0m,
+ reset_password_sent_at: [1;36mnil[0m,
+ remember_created_at: [1;36mnil[0m,
+ sign_in_count: [1;34m3[0m,
+ current_sign_in_at: [1;34;4mWed[0m, [1;34m15[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m09[0m:[1;34m45[0m:[1;34m49[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ last_sign_in_at: [1;34;4mWed[0m, [1;34m15[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m09[0m:[1;34m15[0m:[1;34m20[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ current_sign_in_ip: [32m#<IPAddr: IPv4:127.0.0.1/255.255.255.255>[0m,
+ last_sign_in_ip: [32m#<IPAddr: IPv4:127.0.0.1/255.255.255.255>[0m,
+ created_at: [1;34;4mTue[0m, [1;34m14[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m15[0m:[1;34m18[0m:[1;34m55[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ updated_at: [1;34;4mWed[0m, [1;34m15[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m09[0m:[1;34m45[0m:[1;34m49[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ admin: [1;36mfalse[0m,
+ provider: [31m[1;31m"[0m[31mfacebook[1;31m"[0m[31m[0m,
+ uid: [31m[1;31m"[0m[31m10157011878395582[1;31m"[0m[31m[0m,
+ picture: [31m[1;31m"[0m[31mhttp://graph.facebook.com/10157011878395582/picture?type=large[1;31m"[0m[31m[0m,
+ first_name: [31m[1;31m"[0m[31mBenjamin[1;31m"[0m[31m[0m,
+ last_name: [31m[1;31m"[0m[31mArmitano-Grivel[1;31m"[0m[31m[0m,
+ token:
+  [31m[1;31m"[0m[31mEAAOzlsoDZCeoBAPtIP9ykZCbmIZA0Q2F34BZCsHGWPijZAGnonxwB5MzUwpuHubOKw51xlw4GZC9jdrN7FtCGaukJZCceYOlbhfBb2wPXBdY4WHNwqzWULckpe6mPcro6C9DV5DxtcFP42ZAvZAvZAVexjlXsEW5SgYaUZD[1;31m"[0m[31m[0m,
+ token_expiry: [1;34;4mSat[0m, [1;34m13[0m [1;34;4mAug[0m [1;34m2016[0m [1;34m15[0m:[1;34m18[0m:[1;34m53[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m
