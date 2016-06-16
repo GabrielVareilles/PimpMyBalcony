@@ -4,16 +4,7 @@
 
     <!-- YOUR LOGO HERE -->
     <div class="inner-header">
-    <%= link_to image_tag("icon.png", class: "inner-brand brand-light", style: "width: 100"), root_path %>
-
-    <% link_to root_path do %>
-      <%= image_tag 'icon.png', width: '100', class: 'inner-brand brand-light' %>
-    <% end %>
-
-    <!-- <a class="inner-brand" href="index.html"> -->
-      <!-- <img class="brand-light" src="../../assets/images/icon.png" width="100" alt=""> -->
-      <!-- <img class="brand-dark" src="assets/images/logo-dark.png" width="100" alt=""> -->
-    <!-- </a>  -->
+      <%= link_to image_tag("icon.png", class: "inner-brand brand-light", style: "width: 100"), root_path %>
     </div>
 
     <!-- OPEN MOBILE MENU -->
@@ -34,7 +25,7 @@
           <div class="extras-cart">
             <a href="#" id="open-cart">
               <i class="icon-basket icons"></i>
-              <span class="cart-badge">2</span>
+              <!-- <span class="cart-badge">2</span> -->
             </a>
           </div>
         </div>
@@ -71,37 +62,16 @@
     <!-- MAIN MENU -->
     <nav id="custom-collapse" class="main-nav collapse clearfix">
       <ul class="inner-nav pull-right">
-
-        <!-- INSPIRATION -->
-        <li class="has-submenu">
-          <%= link_to 'Inspiration', inspiration_path %>
-        </li>
-        <!-- END -->
-
-        <!-- PRODUCT -->
-        <li class="has-submenu">
-          <a href="#">Product</a>
-        </li>
-        <!-- END -->
-
-        <!-- PROFILE -->
-        <li class="has-submenu">
-          <a href="#">Profile</a>
-          <ul class="submenu">
-            <li><a href="index.html">Home: Default</a></li>
-            <li><a href="index-corporate-1.html">submenu1</a></li>
-            <li><a href="index-corporate-2.html">submenu2</a></li>
-          </ul>
-        </li>
-        <!-- END -->
-
+        <li> <%= link_to 'Inspiration', inspiration_path %> </li>
+        <li> <%= link_to 'Product', items_path %> </li>
 
         <!-- LOGIN  -->
-
         <% if user_signed_in? %>
-
         <li class="has-submenu">
-          <a href="#"><%= current_user.first_name%></a>
+          <%= link_to '#' do %>
+            <%= image_tag current_user.picture, class: "avatar" %>
+          <% end %>
+
           <ul class="submenu">
             <li>
               <%= link_to profile_path do %>
@@ -121,23 +91,17 @@
           </ul>
         </li>
 
-        <li class="has-submenu">
-          <div class="navbar-wagon-item">
-            <div class="dropdown">
-              <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            </div>
-          </div>
-
         <% else %>
-          <li class="has-submenu">
-            <a href= '<%= new_user_session_path %>'>Login</a>
+          <li>
+            <%= link_to 'Login', new_user_session_path %>
           </li>
         <% end %>
-
         <!-- END LOGIN  -->
 
       </ul>
     </nav>
+
   </div>
 </header>
+
 <!-- END HEADER -->
