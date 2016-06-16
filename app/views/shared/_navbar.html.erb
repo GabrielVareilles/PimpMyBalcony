@@ -67,13 +67,14 @@
       </div>
     </div>
 
+
     <!-- MAIN MENU -->
     <nav id="custom-collapse" class="main-nav collapse clearfix">
       <ul class="inner-nav pull-right">
 
         <!-- INSPIRATION -->
         <li class="has-submenu">
-          <a href="#">Inspiration</a>
+          <%= link_to 'Inspiration', inspiration_path %>
         </li>
         <!-- END -->
 
@@ -93,6 +94,47 @@
           </ul>
         </li>
         <!-- END -->
+
+
+        <!-- LOGIN  -->
+
+        <% if user_signed_in? %>
+
+        <li class="has-submenu">
+          <a href="#"><%= current_user.first_name%></a>
+          <ul class="submenu">
+            <li>
+              <%= link_to profile_path do %>
+                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <div class="navbar-wagon-item">
+            <div class="dropdown">
+              <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            </div>
+          </div>
+
+        <% else %>
+          <li class="has-submenu">
+            <a href= '<%= new_user_session_path %>'>Login</a>
+          </li>
+        <% end %>
+
+        <!-- END LOGIN  -->
 
       </ul>
     </nav>
