@@ -32,4 +32,12 @@ class BalconyPolicy < ApplicationPolicy
   def destroy?
      record.user == user  # Only balcony creator can update it
   end
+
+  def add_item?
+     record.user == user  # Only balcony creator can update it
+  end
+
+  def remove_item?
+     record.user == user  # Only balcony creator can update it
+  end
 end
