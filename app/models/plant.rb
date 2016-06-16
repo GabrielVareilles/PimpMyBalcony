@@ -10,9 +10,4 @@ class Plant < ActiveRecord::Base
   validates :temperature_max, presence: true
   validates :pluviometry, presence: true
   validates :sunshine_amount, presence: true
-  validates :fertilizer, presence: true
-  validates :advises, presence: true
-  validates :color, presence: true
-  validates :size, presence: true
-
 end

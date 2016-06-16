@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :category, inclusion: { in: %w(Decorations Pots Outdoor-Plants)}
+  validates :category, inclusion: { in: %w(Deco Pot Plant)}
   validates :price, presence: true
 
 end
