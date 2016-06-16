@@ -55,9 +55,81 @@
 	</section>
   <!-- END HOW IT WORKS -->
 
+  <!-- QUOTE -->
+  <section class="module bg-brand-alfa-20 color-white parallax" data-background="assets/quote.jpg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h1 class="text-center"> Flower your balcony, flower your life  </h1>
+          <h2 class="text-center"> - Austin Power- </h2>
+        </div>
+      </div>
+    </div><!-- .row -->
+  </section>
+  <!-- END QUOTE -->
+
+  <!-- PORTFOLIO -->
+		<section class="module bg-white-dark p-b-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="module-header text-center">
+							<h2 class="montserrat text-uppercase">Get inspired</h2>
+							<p class="lead divider-line">Have a look on our member's pimped balconies</p>
+              <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+						</div>
+					</div>
+				</div>
+
+				<!-- PORTFOLIO FILTERS -->
+				<div class="row">
+					<div class="col-sm-12">
+						<ul id="filters" class="filters">
+							<li><a href="#" class="current" data-filter="*">All</a></li>
+              <li><a href="#" data-filter=".small">Small</a></li>
+							<li><a href="#" data-filter=".medium">Medium</a></li>
+							<li><a href="#" data-filter=".large">Large</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- END PORTFOLIO FILTERS -->
+
+			</div>
+
+			<!-- WORKS WRAPPER -->
+			<div class="works-grid-wrapper">
+
+				<!-- WORKS GRID -->
+				<div id="works-grid" class="works-grid works-grid-3">
+
+          <!-- PORTFOLIO ITEM -->
+          <% Balcony.all.each do |balcony| %>
+					<article class="work-item <%= balcony.model %>">
+						<div class="work-wrapper">
+              <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
+							<div class="work-overlay">
+								<div class="work-caption">
+									<h6 class="work-title"> <%= balcony.name %> </h6>
+									<span class="work-category"> <%= balcony.model %> </span>
+								</div>
+							</div>
+              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+						</div>
+					</article>
+          <% end %>
+					<!-- END PORTFOLIO ITEM -->
+
+				</div>
+				<!-- END WORKS GRID -->
+
+			</div>
+			<!-- END WORKS WRAPPER -->
+		</section>
+		<!-- END PORTFOLIO -->
+
 
   <!-- TESTIMONIALS -->
-  <section class="module bg-brand-alfa-60 color-white parallax" data-background="app/assets/images/testimonial_banner.jpeg">
+  <section class="module bg-brand-alfa-60 color-white parallax" data-background="assets/image.jpeg">
   	<div class="container">
   		<div class="row">
   			<div class="col-sm-10 col-sm-offset-1">
@@ -76,5 +148,6 @@
 		</div><!-- .row -->
   </section>
   <!-- END TESTIMONIALS -->
+
 
 </div>
