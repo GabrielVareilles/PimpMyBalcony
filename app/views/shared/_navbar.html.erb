@@ -62,39 +62,34 @@
     <!-- MAIN MENU -->
     <nav id="custom-collapse" class="main-nav collapse clearfix">
       <ul class="inner-nav pull-right">
-        <li>
-          <%= link_to 'Inspiration', inspiration_path %>
-        </li>
-        <li>
-          <%= link_to 'Product', items_path %>
-        </li>
+        <li> <%= link_to 'Inspiration', inspiration_path %> </li>
+        <li> <%= link_to 'Product', items_path %> </li>
 
         <!-- LOGIN  -->
         <% if user_signed_in? %>
-          <li class="has-submenu">
-            <%= link_to '#' do %>
-              <%= image_tag current_user.picture, class: "avatar" %>
-            <% end %>
+        <li class="has-submenu">
+          <%= link_to '#' do %>
+            <%= image_tag current_user.picture, class: "avatar" %>
+          <% end %>
 
-            <ul class="submenu">
-              <li>
-                <%= link_to profile_path do %>
-                  <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to root_path do %>
-                  <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
-                <% end %>
-              </li>
-            </ul>
-          </li>
-          <!-- END LOGIN  -->
+          <ul class="submenu">
+            <li>
+              <%= link_to profile_path do %>
+                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
 
         <% else %>
           <li>
