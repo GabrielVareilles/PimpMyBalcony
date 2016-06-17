@@ -20,7 +20,7 @@
   <div class="row">
 		<div class="col-sm-4">
       <div class="text-center center">
-        <% if current_user.picture == "" %>
+        <% if current_user.picture == nil %>
           <%= cl_image_tag "avatar_o6wrwd.png", width: 200, height: 200, crop: :fill %>
         <% else current_user.picture %>
           <%= cl_image_tag current_user.picture, height: 200, width: 200, crop: :fill %>
