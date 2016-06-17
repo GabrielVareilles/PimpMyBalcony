@@ -1,10 +1,216 @@
-<h1>inspiration</h1>
+<!-- PORTFOLIO -->
+    <section class="module bg-white-dark p-b-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="module-header text-center">
+              <h2 class="montserrat text-uppercase">Get inspired</h2>
+              <p class="lead divider-line">Have a look on our member's pimped balconies</p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- END PORTFOLIO -->
 
+
+<!-- GALLERY -->
+
+      <div class="container">
+          <div class="gallery gallery-3">
+
+           <div class="gallery-item">
+              <!-- PORTFOLIO ITEM -->
+          <% Balcony.all.first(1).each do |balcony| %>
+          <article class="work-item <%= balcony.model %>">
+            <div class="work-wrapper">
+              <%= cl_image_tag balcony.photo %>
+              <div class="work-overlay">
+                <div class="work-caption">
+                  <h6 class="work-title"> <%= balcony.name %> </h6>
+                  <span class="work-category"> <%= balcony.model %> </span>
+                </div>
+              </div>
+              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+            </div>
+          </article>
+          <% end %>
+          <!-- END PORTFOLIO ITEM -->
+          </div>
+
+          <div class="gallery-item">
+           <!-- PORTFOLIO ITEM -->
+          <% Balcony.all.first(1).each do |balcony| %>
+          <article class="work-item <%= balcony.model %>">
+            <div class="work-wrapper">
+              <%= cl_image_tag balcony.photo %>
+              <div class="work-overlay">
+                <div class="work-caption">
+                  <h6 class="work-title"> <%= balcony.name %> </h6>
+                  <span class="work-category"> <%= balcony.model %> </span>
+                </div>
+              </div>
+              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+            </div>
+          </article>
+          <% end %>
+          <!-- END PORTFOLIO ITEM -->
+          </div>
+
+          <div class="gallery-item">
+            <!-- PORTFOLIO ITEM -->
+          <% Balcony.all.first(1).each do |balcony| %>
+          <article class="work-item <%= balcony.model %>">
+            <div class="work-wrapper">
+              <%= cl_image_tag balcony.photo %>
+              <div class="work-overlay">
+                <div class="work-caption">
+                  <h6 class="work-title"> <%= balcony.name %> </h6>
+                  <span class="work-category"> <%= balcony.model %> </span>
+                </div>
+              </div>
+              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+            </div>
+          </article>
+          <% end %>
+          <!-- END PORTFOLIO ITEM -->
+          </div>
+
+          <div class="gallery-item">
+           <%= link_to "#" do%>
+            <%= image_tag("balcony3.jpg") %>
+            <%end%>
+          </div>
+
+          <div class="gallery-item">
+            <%= image_tag("balcony3.jpg") %>
+          </div>
+
+           <div class="gallery-item">
+            <%= image_tag("balcony3.jpg") %>
+          </div>
+
+        </div><!-- .gallery -->
+
+      </div>
+
+
+    <!-- END GALLERY -->
+
+
+
+ <!-- IMAGE CAROUSEL -->
+    <section class="module divider-bottom">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12">
+
+            <h5 class="montserrat text-uppercase bottom-line">Discover Pinterest inspiring balconies</h5>
+            <!-- IMAGE CAROUSEL -->
+            <div class="images-carousel" data-carousel-options='{"items":"3", "navigation": true}'>
+            <%= image_tag("balcony15.jpg") %>
+            <%= image_tag("balcony3.jpg") %>
+            <%= image_tag("balcony15.jpg") %>
+            <%= image_tag("balcony3.jpg") %>
+            <%= image_tag("balcony15.jpg") %>
+            <%= image_tag("balcony3.jpg") %>
+            </div>
+            <!-- END IMAGE CAROUSEL -->
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- END IMAGE CAROUSEL -->
+
+
+<!-- PORTFOLIO -->
+    <section class="module bg-white-dark p-b-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="module-header text-center">
+              <h2 class="montserrat text-uppercase">balconies products</h2>
+              <p class="lead divider-line">Have a look on our catalogue</p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- END PORTFOLIO -->
+
+
+ <!-- GALLERY -->
+<section class="module">
+
+      <div class="container">
+
+        <div class="gallery gallery-6">
+
+          <div class="gallery-item">
+             <%= image_tag("pots9.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+            <%= image_tag("pots2.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots3.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots4.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots8.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots10.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+            <%= image_tag("pots7.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots8.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots9.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots10.jpg") %>
+          </div>
+
+           <div class="gallery-item">
+             <%= image_tag("pots2.jpg") %>
+          </div>
+
+          <div class="gallery-item">
+             <%= image_tag("pots3.jpg") %>
+          </div>
+
+        </div><!-- .gallery -->
+          <div class="module-header text-center">
+           <%= link_to "See More products", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+           </div>
+</div>
+
+    </section>
+    <!-- END GALLERY -->>
+
+
+<!--
 <% Balcony.all.each do |balcony| %>
   <%= cl_image_tag balcony.photo, height: 300, width: 400, crop: :fill %>
   <%= link_to balcony.name, public_balcony_path(balcony), {class: "btn btn-link"} %>
   <br>
 <% end %>
-
-
-A lot more to do !
+ -->
