@@ -2,21 +2,21 @@
 ##########################  RESET  DATABASE  ###############
 
 # This is to truncate previous records. => RESET ALL DATA
-class ActiveRecord::Base
-  def self.truncate!
-    connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE;")
-  end
-end
+# class ActiveRecord::Base
+#   def self.truncate!
+#     connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE;")
+#   end
+# end
 
-# Not allowed in production for obvious reasons.
-if Rails.env.in?(%(production)) && !ENV['FORCE']
-  STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
-  exit
-end
+# # Not allowed in production for obvious reasons.
+# if Rails.env.in?(%(production)) && !ENV['FORCE']
+#   STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
+#   exit
+# end
 
-# We truncate the records so to regenerate the seed.
-# Each time we seed all the items are lost and recreated.
-[Department, Item, Balcony, Plant, User].map(&:truncate!)
+# # We truncate the records so to regenerate the seed.
+# # Each time we seed all the items are lost and recreated.
+# [Department, Item, Balcony, Plant, User].map(&:truncate!)
 
 ##########################Department Seed###############
 
