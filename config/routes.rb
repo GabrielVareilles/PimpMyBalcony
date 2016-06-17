@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "inspiration", to: "pages#inspiration", as: 'inspiration'
 
     resources :balconies, except: [:show] do
+      resources :reviews, only: :create
       member do
         post "add_item"
         post "remove_item"

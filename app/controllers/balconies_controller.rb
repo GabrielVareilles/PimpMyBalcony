@@ -8,6 +8,7 @@ class BalconiesController < ApplicationController
   end
 
   def show_public
+    @review = Review.new
   end
 
   def show_private
