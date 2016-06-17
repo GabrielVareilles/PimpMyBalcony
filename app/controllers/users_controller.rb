@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   skip_after_action :verify_authorized
-  before_action :set_user
+  before_action :set_user, only: [:show, :edit, :update]
 
   def show
+    @balconies = current_user.balconies.all
   end
 
   def edit
