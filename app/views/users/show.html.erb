@@ -20,7 +20,7 @@
   <div class="row">
 		<div class="col-sm-4">
       <div class="text-center center">
-        <% if current_user.picture == nil %>
+        <% if !current_user.picture.url %>
           <%= cl_image_tag "avatar_o6wrwd.png", width: 200, height: 200, crop: :fill %>
         <% else current_user.picture %>
           <%= cl_image_tag current_user.picture, height: 200, width: 200, crop: :fill %>
@@ -43,24 +43,75 @@
 <!-- END USER INFORMATION -->
 <hr>
 <!-- BALCONY INFORMATION -->
-
 <div class="container m-t-60 m-b-60">
   <div class="row">
 		<div class="col-sm-4">
       <div class="text-center center">
-        <%= image_tag current_user.picture %>
+        <%= cl_image_tag Balcony.find_by_user_id(@user).photo, height: 200, width: 200, crop: :fill %>
+        <br>
+        <br>
+        <%= link_to "show your balcony", profile_path(@user), class: "btn btn-sm btn-round btn-primary" %>
+        <br>
+        <%= link_to "Edit your balcony", profile_path(@user), class: "btn btn-sm btn-round btn-base" %>
+        <br>
+        <%= link_to "delete your balcony", profile_path(@user), class: "btn btn-sm btn-round btn-danger" %>
       </div>
     </div>
     <div class="col-sm-8">
-      <% Balcony.all.where(user_id: current_user.id).each do |balcony|%>
-        <%= link_to balcony.name, private_balcony_path(balcony.id), { class: "btn btn-link" } %>
-        <%= link_to "Delete", balcony_path(balcony), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
-        <br>
-      <% end %>
+      <p><b class = "margin">Your balcony name:</b><%= Balcony.find_by_user_id(@user).name %></p><hr>
+      <p><b class = "margin">address</b><%= Balcony.find_by_user_id(@user).address %> </p><hr>
+      <p><b class = "margin">orientation:</b><%= Balcony.find_by_user_id(@user).orientation %> </p><hr>
+      <p><b class = "margin">department:</b> <%= Balcony.find_by_user_id(@user).department %> </p><hr>
+
+      <br>
+      <%= link_to "Delete", balcony_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+      <br>
+    </div>
+  </div>
+</div>
+
+<!-- END BALCONY INFORMATION -->
+<hr>
+<!-- ORDER INFORMATION -->
+
+<div class="container m-t-60 m-b-60">
+  <div class="row">
+		<div class="col-sm-4">
+      <h1>YOUR ORDERS</h1>
+    </div>
+    <div class="col-sm-8">
+      <div class="container">
+        <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>reference</th>
+            <th>date</th>
+            <th>items</th>
+            <th>amount</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>#12345</td>
+            <td>24/01/2016</td>
+            <td>awesome stuff</td>
+            <td>199,90 €</td>
+            <td><%= link_to 'Show', root_path %></td>
+            <td><%= link_to 'Edit', root_path %></td>
+            <td><%= link_to 'Destroy', root_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
 
 
 
-<!-- END BALCONY INFORMATION -->
+
+<!-- END ORDER INFORMATION -->
