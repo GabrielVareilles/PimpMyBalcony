@@ -55,8 +55,10 @@
     <div class="row">
     <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
       <div class="col-xs-12 col-sm-4">
-        <%= item.name %>
-        <%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %>
+        <%= item.name %> <br>
+        <%= 'your pot has ' + item.slot.to_s + ' slot' %> <br>
+        <%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %> <br>
+        <%= 'Total price: ' + item.plants.sum(:price).to_s + ' €' %> <br>
         <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
         <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
         <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
