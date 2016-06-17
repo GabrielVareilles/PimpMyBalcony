@@ -18,7 +18,17 @@ class ItemsController < ApplicationController
   end
 
   def duplicate
-    my_pot = Item.new(name: params[:name].to_s + '\' s pot', category: "Custom", description: "to do", price: @item.price)
+    my_pot = Item.new({
+                    name: params[:name].to_s + '\' s pot',
+                    category: "Custom",
+                    description: "to do",
+                    price: @item.price,
+                    slot: @item.slot,
+                    volume: @item.volume,
+                    length: @item.length,
+                    width: @item.width,
+                    weight: @item.weight
+                    })
     my_pot.remote_photo_url = @item.photo.to_s
     if my_pot.save
       redirect_to complete_path
@@ -28,15 +38,20 @@ class ItemsController < ApplicationController
   end
 
   def add_plant
-    @plant = Plant.find(params[:plant])
-    @item.add_plant(@plant)
+    if @item.plants.size < @item.slot
+      @plant = Plant.find(params[:plant])
+      @item.add_plant(@plant)
 
-    if @item.save
-      redirect_to complete_path
-      flash[:notice] = "Plant added to your item"
+      if @item.save
+        redirect_to complete_path
+        flash[:notice] = "Plant added to your item"
+      else
+        redirect_to complete_path
+        flash[:alert] = "Plant not added to your item"
+      end
     else
+      flash[:alert] = "No room left in this pot, pick another one !"
       redirect_to complete_path
-      flash[:alert] = "Plant not added to your item"
     end
   end
 

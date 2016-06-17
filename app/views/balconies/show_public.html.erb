@@ -1,3 +1,12 @@
 <%= cl_image_tag @balcony.photo, height: 300, width: 400, crop: :fill %>
-
+<div id="reviews">
+  <% if @balcony.reviews.blank? %>
+    Be the first to leave a review for <%= @balcony.name %>
+  <% else %>
+    <% @balcony.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+<%= render 'reviews/form', balcony: @balcony, review: @review %>
 A lot more to do !
