@@ -5,9 +5,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.balcony = @balcony
     if @review.save
-      redirect_to public_balcony_path(@balcony)
+      respond_to do |format|
+        format.html { redirect_to public_balcony_path(@balcony) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      redirect_to public_balcony_path(@balcony)
+      respond_to do |format|
+        format.html { redirect_to public_balcony_path(@balcony) }
+        format.js  # <-- idem
+      end
     end
   end
 
