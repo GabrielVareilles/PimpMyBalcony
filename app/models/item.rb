@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
 
   def add_plant(plant)
     self.plants << plant
+
   end
 
   def remove_plant(plant)
@@ -20,6 +21,7 @@ class Item < ActiveRecord::Base
     collection.delete_at(id)
     self.plants.clear
     self.plants = collection
+
   end
 
   def remove_all_plants

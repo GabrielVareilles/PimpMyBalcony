@@ -3,7 +3,7 @@ class Balcony < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-
+  has_many :reviews, dependent: :destroy
   has_and_belongs_to_many :items
   belongs_to :user
 
