@@ -1,0 +1,30 @@
+<!-- BANNER  -->
+<section id="toto" class=" navtip module-hero bg-black-alfa-30  color-white parallax " data-background="assets/Sky.jpeg">
+  <div class="hero-caption">
+    <div class="hero-text m-b-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h1 class="montserrat text-l m-t-70 m-b-5">Edit your profile information</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container m-t-60 m-b-60 ">
+  <div class="row">
+		<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :picture %>
+        <%= f.input :picture_cache, as: :hidden %>
+        <%= f.submit 'save settings', class: "btn btn-xl btn-round btn-base center-block m-t-40" %>
+      <% end %>
+    </div>
+  </div>
+</div>

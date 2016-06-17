@@ -20,26 +20,21 @@
   <div class="row">
 		<div class="col-sm-4">
       <div class="text-center center">
-        <%= image_tag current_user.picture %>
-        <br>
-        <br>
-        <a href="#" class="btn btn-sm btn-round btn-base">Edit your profile</a>
-        <br>
-        <a href="#" class="btn btn-sm btn-round btn-gray">Change Picture</a>
-
-        <%= simple_form_for @user do |f| %>
-          <%= f.input :picture %>
-          <%= f.input :picture_cache, as: :hidden %>
-          <%= f.submit 'save settings'  %>
+        <% if current_user.picture == "" %>
+          <%= cl_image_tag "avatar_o6wrwd.png", width: 200, height: 200, crop: :fill %>
+        <% else current_user.picture %>
+          <%= cl_image_tag current_user.picture, height: 200, width: 200, crop: :fill %>
         <% end %>
-
+        <br>
+        <br>
+        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-sm btn-round btn-base" %>
       </div>
     </div>
     <div class="col-sm-8">
       <p><b class = "margin">First_name:</b><%= current_user.first_name %></p><hr>
       <p><b class = "margin">Last_name:</b><%= current_user.last_name %> </p><hr>
       <p><b class = "margin">Mail:</b><%= current_user.email %> </p><hr>
-      <p><b class = "margin">PMB status:</b> Early Pimper </p><hr>
+      <p><b class = "margin">Status:</b> Early Pimper </p><hr>
       <p><b class = "margin">joined the team:</b> <%= current_user.created_at %> </p><hr>
       <p><b class = "margin">Description: </b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>

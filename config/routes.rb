@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   ActiveAdmin.routes(self)
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   scope '(:locale)', locale: /fr|en/ do
@@ -7,7 +6,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
     get "profile", to: "pages#profile", as: 'profile'
     get "inspiration", to: "pages#inspiration", as: 'inspiration'
-
+    resources :users, only: [:edit, :update]
     resources :balconies, except: [:show] do
       resources :reviews, only: :create
       member do
