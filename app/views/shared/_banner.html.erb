@@ -1,5 +1,7 @@
 <!-- HERO -->
-  <section id="hero" class="module-hero bg-black-alfa-30 color-white fullheight parallax" data-background="<%= asset_path('banner.jpeg')%>">
+
+  <%= cl_image_tag( asset_path('banner.jpeg'), html: {id: "hero", class: "module-hero bg-black-alfa-30 color-white fullheight parallax" }) %>
+  <section id="hero" class="module-hero bg-black-alfa-30 color-white fullheight parallax" data-background="<%= image_path('banner.jpeg')%>">
     <!-- HERO TEXT -->
     <div class="hero-caption">
       <div class="hero-text">
