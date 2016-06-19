@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618152009) do
+ActiveRecord::Schema.define(version: 20160619130036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160618152009) do
     t.integer  "temperature_max"
     t.integer  "pluviometry"
     t.integer  "sunshine_amount"
+    t.string   "photo"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -96,15 +97,25 @@ ActiveRecord::Schema.define(version: 20160618152009) do
   add_index "items_plants", ["plant_id"], name: "index_items_plants_on_plant_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "order_number"
     t.integer  "total"
     t.integer  "shipping"
     t.integer  "discount"
-    t.string   "delivery_adress"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "status"
+    t.string   "delivery_address"
+    t.boolean  "status"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "orders_items", id: false, force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "item_id"
+  end
+
+  add_index "orders_items", ["item_id"], name: "index_orders_items_on_item_id", using: :btree
+  add_index "orders_items", ["order_id"], name: "index_orders_items_on_order_id", using: :btree
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
@@ -163,5 +174,6 @@ ActiveRecord::Schema.define(version: 20160618152009) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "balconies", "users"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "balconies"
 end

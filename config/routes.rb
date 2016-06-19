@@ -10,7 +10,13 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update]
     get "profile", to: "users#show", as: 'profile'
 
-    resources :orders, only: [:show, :index, :edit, :update]
+    get "cart", to: "orders#show", as: 'cart'
+    resources :orders, only: [:new] do
+      member do
+        post "add_item"
+        post "remove_item"
+      end
+    end
 
     resources :balconies, except: [:show] do
       resources :reviews, only: :create
