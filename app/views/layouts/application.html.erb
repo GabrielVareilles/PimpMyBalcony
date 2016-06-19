@@ -45,9 +45,9 @@
   <body>
 
     <!-- PRELOADER -->
-  	<div class="page-loader">
+  	<!-- <div class="page-loader">
   		<div class="loader">Loading...</div>
-  	</div>
+  	</div> -->
 	  <!-- END PRELOADER -->
 
     <%= render 'shared/navbar' %>
@@ -56,7 +56,7 @@
     <%= yield %>
 
     <%= render 'shared/footer' %>
-    
+
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
     <%= javascript_include_tag "application" %>
