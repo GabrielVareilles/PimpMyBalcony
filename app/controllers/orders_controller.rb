@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_user.oders.new
+    @order = current_user.orders.new
     @order.status = false
     authorize @order
     if @order.save
