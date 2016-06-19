@@ -82,3 +82,103 @@
     </ul>
   </div>
   <!-- END HERO -->
+
+  <!-- WRAPPER -->
+<div class="wrapper">
+
+  <!-- PAGE TITLE -->
+  <section class="module-sm bg-white-dark">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-12 text-center">
+
+          <h3 class="montserrat text-uppercase m-b-10">Shop Grid</h3>
+          <ol class="breadcrumb text-xs">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">product</a></li>
+            <li class="active">product Grid</li>
+          </ol>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- END PAGE TITLE -->
+
+  <!-- SHOP ITEMS -->
+  <section class="module">
+    <div class="container">
+
+      <div class="row">
+        <div class="form-group col-sm-3">
+          <select class="form-control">
+            <option selected="selected">All</option>
+            <option>Pots</option>
+            <option>Plants</option>
+            <option>Deco</option>
+          </select>
+        </div>
+
+        <div class="form-group col-sm-3 col-sm-offset-6">
+          <select class="form-control">
+            <option selected="selected">9 Items</option>
+            <option>12 Items</option>
+            <option>18 Items</option>
+          </select>
+        </div>
+      </div><!-- .row -->
+
+      <hr class="m-t-20 m-b-20">
+
+      <div class="row multi-columns-row">
+
+        <!-- SHOP ITEM -->
+        <% Item.all.each do |product| %>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                    <a href="#" title="Add to cart"><i class="icon-basket-loaded icons"></i></a>
+                    <a href="#" title="View item"><i class="icon-eye icons"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= link_to product.name, items_path %></h5>
+              <h5><%= product.price %>,00 € </h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- END SHOP ITEM -->
+
+      </div><!-- .row -->
+
+      <!-- PAGINATION -->
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="pagination text-center m-t-35">
+            <li><a href="#" aria-label="Previous"><i class="fa fa-angle-left"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- END PAGINATION -->
+
+    </div>
+  </section>
+  <!-- END SHOP ITEMS -->
+
+
+
+</div>
+<!-- END WRAPPER -->
