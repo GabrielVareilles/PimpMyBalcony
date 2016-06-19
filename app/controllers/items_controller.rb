@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    autorize @item
+    authorize @item
   end
 
   def destroy
@@ -75,4 +75,3 @@ class ItemsController < ApplicationController
     authorize @item
   end
 end
-

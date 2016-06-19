@@ -1,2 +1,184 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<!-- BANNER  -->
+<section id="toto" class=" navtip module-hero bg-black-alfa-30  color-white parallax " data-background="assets/Sky.jpeg">
+  <div class="hero-caption">
+  </div>
+</section>
+
+<!-- CARROUSSEL -->
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="flexslider color-white">
+    <ul class="slides">
+
+      <!--  -->
+      <li class="bg-black-alfa-40" style="background-image:url(<%= image_path('Carrousel_1.jpeg')%>)">
+        <!-- HERO TEXT -->
+        <div class="hero-caption">
+          <div class="hero-text">
+
+            <div class="container">
+
+              <div class="row">
+                <div class="col-sm-12 text-center">
+
+                  <h1 class="montserrat text-uppercase text-super-xl m-b-40">Awesome items</h1>
+                  <h2 class="montserrat text-uppercase text-xl">Adapted to your balcony</h2>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <!-- END HERO TEXT -->
+      </li>
+      <!--  -->
+
+      <!--  -->
+      <li class="bg-black-alfa-40" style="background-image:url(<%= image_path('Carrousel_2.jpeg')%>)">
+        <!-- HERO TEXT -->
+        <div class="hero-caption">
+          <div class="hero-text">
+
+            <div class="container">
+
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <h2 class="montserrat text-uppercase m-b-40">Flower power</h2>
+                  <h1 class="montserrat text-uppercase text-super-xl m-b-40"> -20 % on flowers</h1>
+                  <p>* by using the coupon code "flower-power", available until july 20th</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <!-- END HERO TEXT -->
+      </li>
+      <!--  -->
+
+      <!--  -->
+
+      <li class="bg-black-alfa-40" id="tata" style="background-image:url(<%= image_path('Carrousel_3.jpeg')%>)">
+        <!-- HERO TEXT -->
+        <div class="hero-caption">
+          <div class="hero-text">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <h2 class="montserrat text-uppercase m-b-40">Get inspired</h2>
+                  <h1 class="montserrat text-uppercase text-xxxxxl m-b-40">New Pots</h1>
+                  <p>Discover our new range of custom pot for your balcony</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END HERO TEXT -->
+      </li>
+      <!--  -->
+    </ul>
+  </div>
+  <!-- END HERO -->
+
+  <!-- WRAPPER -->
+<div class="wrapper">
+
+  <!-- PAGE TITLE -->
+  <section class="module-sm bg-white-dark">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-12 text-center">
+
+          <h3 class="montserrat text-uppercase m-b-10">Shop Grid</h3>
+          <ol class="breadcrumb text-xs">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">product</a></li>
+            <li class="active">product Grid</li>
+          </ol>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- END PAGE TITLE -->
+
+  <!-- SHOP ITEMS -->
+  <section class="module">
+    <div class="container">
+
+      <div class="row">
+        <div class="form-group col-sm-3">
+          <select class="form-control">
+            <option selected="selected">All</option>
+            <option>Pots</option>
+            <option>Plants</option>
+            <option>Deco</option>
+          </select>
+        </div>
+
+        <div class="form-group col-sm-3 col-sm-offset-6">
+          <select class="form-control">
+            <option selected="selected">9 Items</option>
+            <option>12 Items</option>
+            <option>18 Items</option>
+          </select>
+        </div>
+      </div><!-- .row -->
+
+      <hr class="m-t-20 m-b-20">
+
+      <div class="row multi-columns-row">
+
+        <!-- SHOP ITEM -->
+        <% Item.all.each do |product| %>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                    <a href="#" title="Add to cart"><i class="icon-basket-loaded icons"></i></a>
+                    <a href="#" title="View item"><i class="icon-eye icons"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= link_to product.name, items_path %></h5>
+              <h5><%= product.price %>,00 € </h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- END SHOP ITEM -->
+
+      </div><!-- .row -->
+
+      <!-- PAGINATION -->
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="pagination text-center m-t-35">
+            <li><a href="#" aria-label="Previous"><i class="fa fa-angle-left"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- END PAGINATION -->
+
+    </div>
+  </section>
+  <!-- END SHOP ITEMS -->
+
+
+
+</div>
+<!-- END WRAPPER -->
