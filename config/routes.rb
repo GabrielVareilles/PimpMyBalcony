@@ -15,12 +15,8 @@ Rails.application.routes.draw do
     get "profile", to: "users#show", as: 'profile'
 
     get "cart", to: "carts#show", as: 'cart'
-    resources :carts, only: [:destroy] do
-      member do
-        post "add_item"
-        post "remove_item"
-      end
-    end
+    post "add_item", to: "carts#add_item", as: 'add_item_cart'
+    post "remove_item", to: "carts#remove_item", as: 'remove_item_cart'
 
     resources :balconies, except: [:show] do
       resources :reviews, only: :create

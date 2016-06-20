@@ -9,5 +9,5 @@ class OrdersController < ApplicationController
     order  = Order.create!(amount: @cart.price, state: 'pending', user_id: current_user.id)
 
     redirect_to new_order_payment_path(order)
-end
+  end
 end
