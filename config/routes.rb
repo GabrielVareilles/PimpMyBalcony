@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'orders/show'
+
   ActiveAdmin.routes(self)
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   scope '(:locale)', locale: /fr|en/ do
@@ -37,5 +39,7 @@ Rails.application.routes.draw do
         post "duplicate"
       end
     end
+
+    resources :orders, only: [:show, :create]
   end
 end
