@@ -22,10 +22,9 @@ class CartsController < ApplicationController
     @cart.remove_item(@item)
 
     if @cart.save
-      redirect_to cart_path(@cart)
+      redirect_to(:back)
       flash[:notice] = "Item removed from your cart"
     else
-      redirect_to cart_path(@cart)
       flash[:alert] = "Item not removed to your cart"
     end
   end

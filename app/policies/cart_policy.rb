@@ -10,7 +10,7 @@ class CartPolicy < ApplicationPolicy
   end
 
   def remove_item?
-    record.user == user
+    true
   end
 
   def destroy?
