@@ -121,9 +121,12 @@ ActiveRecord::Schema.define(version: 20160620131600) do
     t.string   "state"
     t.integer  "amount_cents", default: 0, null: false
     t.json     "payment"
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
@@ -184,5 +187,6 @@ ActiveRecord::Schema.define(version: 20160620131600) do
 
   add_foreign_key "balconies", "users"
   add_foreign_key "carts", "users"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "balconies"
 end
