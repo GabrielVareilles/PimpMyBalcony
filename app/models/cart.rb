@@ -1,9 +1,12 @@
-class Order < ActiveRecord::Base
+class Cart < ActiveRecord::Base
+  monetize :price_cents
+
   belongs_to :user
   has_and_belongs_to_many :items
 
   def add_item(item)
     self.items << item
+    self.price += item.price_cents
   end
 
   def remove_item(item)
@@ -13,6 +16,7 @@ class Order < ActiveRecord::Base
     collection.delete_at(id)
     self.items.clear
     self.items = collection
+    self.price -= item.price_cents
   end
 
   def remove_all_items

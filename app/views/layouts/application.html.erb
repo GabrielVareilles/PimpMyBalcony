@@ -43,6 +43,10 @@
 
   </head>
   <body>
+  <!-- CART    -->
+    <% if current_user%>
+      <%= render 'carts/show' %>
+    <% end %>
 
     <!-- PRELOADER -->
   	<!-- <div class="page-loader">

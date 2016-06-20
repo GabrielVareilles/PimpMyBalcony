@@ -2,21 +2,21 @@
 ##########################  RESET  DATABASE  ###############
 
 # This is to truncate previous records. => RESET ALL DATA
-# class ActiveRecord::Base
-#   def self.truncate!
-#     connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE;")
-#   end
-# end
+class ActiveRecord::Base
+  def self.truncate!
+    connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE;")
+  end
+end
 
-# # Not allowed in production for obvious reasons.
-# if Rails.env.in?(%(production)) && !ENV['FORCE']
-#   STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
-#   exit
-# end
+# Not allowed in production for obvious reasons.
+if Rails.env.in?(%(production)) && !ENV['FORCE']
+  STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
+  exit
+end
 
-# # We truncate the records so to regenerate the seed.
-# # Each time we seed all the items are lost and recreated.
-# [Department, Item, Balcony, Plant, User].map(&:truncate!)
+# We truncate the records so to regenerate the seed.
+# Each time we seed all the items are lost and recreated.
+[Department, Item, Balcony, Plant, User, Cart].map(&:truncate!)
 
 ##########################Department Seed###############
 
@@ -152,7 +152,7 @@ category: "Pot",
 sub_category: "Round pot",
 plant_category: "herbs, bush",
 slot: 1,
-price: 3.90,
+price_cents: 3.90,
 volume: 10,
 length: 20,
 width: 20,
@@ -168,7 +168,7 @@ category: "Pot",
 sub_category: "Round pot",
 plant_category: "herbs, bush",
 slot: 1,
-price: 5.90,
+price_cents: 5.90,
 volume: 10,
 length: 13,
 width: 13,
@@ -184,7 +184,7 @@ category: "Pot",
 sub_category: "Window box",
 plant_category: "flowers",
 slot: 3,
-price: 49,
+price_cents: 49,
 volume: 30,
 length: 60,
 width: 20,
@@ -202,7 +202,7 @@ category: "Pot",
 sub_category: "Round pot",
 plant_category: "herbs, bush",
 slot: 1,
-price: 129,
+price_cents: 129,
 volume: 20,
 length: 67,
 width: 67,
@@ -218,7 +218,7 @@ category: "Plant",
 sub_category: "bush",
 plant_category: "bush",
 slot: 1,
-price: 99,
+price_cents: 99,
 volume: 20,
 length: 30,
 width: 30,
@@ -234,7 +234,7 @@ category: "Plant",
 sub_category: "Herbs",
 plant_category: "Herbs",
 slot: 1,
-price: 14.90,
+price_cents: 14.90,
 volume: 5,
 length: 15,
 width: 15,
@@ -251,7 +251,7 @@ category: "Plant",
 sub_category: "Flower",
 plant_category: "Flower",
 slot: 1,
-price: 39,
+price_cents: 39,
 volume: 10,
 length: 30,
 width: 30,
@@ -268,7 +268,7 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
-price: 99,
+price_cents: 99,
 volume: 10,
 length: 60,
 width: 60,
@@ -284,7 +284,7 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
-price: 59,
+price_cents: 59,
 volume: 20,
 length: 20,
 width: 10,
@@ -300,7 +300,7 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
-price: 129,
+price_cents: 129,
 volume: 40,
 length: 40,
 width: 40,
@@ -316,7 +316,7 @@ item10.save
 # sub_category: "Round pot",
 # plant_category: "herbs, bush",
 # slot: 1,
-# price: 129,
+# price_cents: 129,
 # volume: 20,
 # length: 67,
 # width: 67,
@@ -337,7 +337,7 @@ temperature_max: 45,
 pluviometry: 1,
 sunshine_amount: 4,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 99,
+price_cents: 99,
 slot: 1,
 color: "green",
 size: 120
@@ -355,7 +355,7 @@ temperature_max: 25,
 pluviometry: 4,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 5,
+price_cents: 5,
 slot: 1,
 color: "green",
 size: 15
@@ -372,7 +372,7 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 5,
+price_cents: 5,
 slot: 1,
 color: "red",
 size: 15
@@ -392,7 +392,7 @@ plant3.save
 #     t.string   "scientific_name"
 #     t.integer  "fertiliser"
 #     t.text     "advises"
-#     t.integer  "price"
+#     t.integer  "price_cents"
 #     t.integer  "slot"
 #     t.string   "photo"
 #     t.string   "color"
@@ -441,7 +441,7 @@ plant3.save
 #     t.string   "sub_category"
 #     t.string   "plant_category"
 #     t.integer  "slot"
-#     t.integer  "price"
+#     t.integer  "price_cents"
 #     t.integer  "volume"
 #     t.integer  "length"
 #     t.integer  "width"
@@ -462,7 +462,7 @@ plant3.save
 #     t.string   "scientific_name"
 #     t.integer  "fertiliser"
 #     t.text     "advises"
-#     t.integer  "price"
+#     t.integer  "price_cents"
 #     t.integer  "slot"
 #     t.string   "photo"
 #     t.string   "color"

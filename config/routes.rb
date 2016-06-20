@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update]
     get "profile", to: "users#show", as: 'profile'
 
-    get "cart", to: "orders#show", as: 'cart'
-    resources :orders, only: [:new] do
+    get "cart", to: "carts#show", as: 'cart'
+    resources :carts, only: [:destroy] do
       member do
         post "add_item"
         post "remove_item"
