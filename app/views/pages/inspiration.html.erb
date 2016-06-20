@@ -21,16 +21,15 @@
 
 
 <!-- GALLERY -->
-
-      <div class="container">
-          <div class="gallery gallery-3">
-
-           <div class="gallery-item">
-              <!-- PORTFOLIO ITEM -->
-          <% Balcony.all.first(1).each do |balcony| %>
+<section class="module">
+<div class="container">
+  <div class="gallery gallery-3">
+    <% Balcony.all.first(6).each do |balcony| %>
+     <div class="gallery-item">
+        <!-- PORTFOLIO ITEM -->
           <article class="work-item <%= balcony.model %>">
             <div class="work-wrapper">
-              <%= cl_image_tag balcony.photo %>
+              <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
               <div class="work-overlay">
                 <div class="work-caption">
                   <h6 class="work-title"> <%= balcony.name %> </h6>
@@ -40,67 +39,14 @@
               <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
             </div>
           </article>
-          <% end %>
-          <!-- END PORTFOLIO ITEM -->
-          </div>
-
-          <div class="gallery-item">
-           <!-- PORTFOLIO ITEM -->
-          <% Balcony.all.first(1).each do |balcony| %>
-          <article class="work-item <%= balcony.model %>">
-            <div class="work-wrapper">
-              <%= cl_image_tag balcony.photo %>
-              <div class="work-overlay">
-                <div class="work-caption">
-                  <h6 class="work-title"> <%= balcony.name %> </h6>
-                  <span class="work-category"> <%= balcony.model %> </span>
-                </div>
-              </div>
-              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
-            </div>
-          </article>
-          <% end %>
-          <!-- END PORTFOLIO ITEM -->
-          </div>
-
-          <div class="gallery-item">
-            <!-- PORTFOLIO ITEM -->
-          <% Balcony.all.first(1).each do |balcony| %>
-          <article class="work-item <%= balcony.model %>">
-            <div class="work-wrapper">
-              <%= cl_image_tag balcony.photo %>
-              <div class="work-overlay">
-                <div class="work-caption">
-                  <h6 class="work-title"> <%= balcony.name %> </h6>
-                  <span class="work-category"> <%= balcony.model %> </span>
-                </div>
-              </div>
-              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
-            </div>
-          </article>
-          <% end %>
-          <!-- END PORTFOLIO ITEM -->
-          </div>
-
-          <div class="gallery-item">
-           <%= link_to "#" do%>
-            <%= image_tag("balcony3.jpg") %>
-            <%end%>
-          </div>
-
-          <div class="gallery-item">
-            <%= image_tag("balcony3.jpg") %>
-          </div>
-
-           <div class="gallery-item">
-            <%= image_tag("balcony3.jpg") %>
-          </div>
-
-        </div><!-- .gallery -->
-
-      </div>
+    <!-- END PORTFOLIO ITEM -->
+    </div>
+    <% end %>
 
 
+  </div><!-- .gallery -->
+</div>
+</section>
     <!-- END GALLERY -->
 
 
@@ -150,73 +96,38 @@
 
  <!-- GALLERY -->
 <section class="module">
+  <div class="container">
+    <div class="gallery gallery-6">
 
-      <div class="container">
-
-        <div class="gallery gallery-6">
-
-          <div class="gallery-item">
-             <%= image_tag("pots9.jpg") %>
+    <!-- SHOP ITEM -->
+        <% Item.all.first(9).each do |product| %>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                    <a href="#" title="Add to cart"><i class="icon-basket-loaded icons"></i></a>
+                    <a href="#" title="View item"><i class="icon-eye icons"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= link_to product.name, items_path %></h5>
+              <h5><%= product.price %>,00 € </h5>
+            </div>
           </div>
+        </div>
+        <% end %>
+        <!-- END SHOP ITEM -->
 
-          <div class="gallery-item">
-            <%= image_tag("pots2.jpg") %>
-          </div>
+    </div><!-- .gallery -->
 
-          <div class="gallery-item">
-             <%= image_tag("pots3.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots4.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots8.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots10.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-            <%= image_tag("pots7.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots8.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots9.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots10.jpg") %>
-          </div>
-
-           <div class="gallery-item">
-             <%= image_tag("pots2.jpg") %>
-          </div>
-
-          <div class="gallery-item">
-             <%= image_tag("pots3.jpg") %>
-          </div>
-
-        </div><!-- .gallery -->
-          <div class="module-header text-center">
+  <div class="module-header text-center">
            <%= link_to "See More products", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
-           </div>
-</div>
-
-    </section>
+  </div>
+ </div>
+</section>
     <!-- END GALLERY -->>
-
-
-<!--
-<% Balcony.all.each do |balcony| %>
-  <%= cl_image_tag balcony.photo, height: 300, width: 400, crop: :fill %>
-  <%= link_to balcony.name, public_balcony_path(balcony), {class: "btn btn-link"} %>
-  <br>
-<% end %>
- -->

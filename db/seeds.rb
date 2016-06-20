@@ -69,13 +69,67 @@ password_confirmation: "123456"
 )
 user3.save!
 
+user4 = User.new(
+email: "tintin@gmail.com",
+first_name: "Tintin",
+last_name: "Herge",
+password: "123456",
+password_confirmation: "123456"
+)
+user4.save!
+
+user5 = User.new(
+email: "Jack@gmail.com",
+first_name: "Jack",
+last_name: "Houille",
+password: "123456",
+password_confirmation: "123456"
+)
+user5.save!
+
+user6 = User.new(
+email: "billyj@gmail.com",
+first_name: "Billy",
+last_name: "Jean",
+password: "123456",
+password_confirmation: "123456"
+)
+user6.save!
+
+user7 = User.new(
+email: "Johnsmith@gmail.com",
+first_name: "John",
+last_name: "Smith",
+password: "123456",
+password_confirmation: "123456"
+)
+user7.save!
+
+user8 = User.new(
+email: "mickey@gmail.com",
+first_name: "Mickey",
+last_name: "Oneil",
+password: "123456",
+password_confirmation: "123456"
+)
+user8.save!
+
+
+user9 = User.new(
+email: "Arlette@gmail.com",
+first_name: "Arlette",
+last_name: "La Belette",
+password: "123456",
+password_confirmation: "123456"
+)
+user9.save!
 
 ##########################   Balcony  SEED    ###############
 
 balcony1 = Balcony.new(
 name: "Jojo's balcony",
 model: 'small',
-address: '50 avenue roger Sallengro, 59170, Croix',
+address: '50 avenue roger Salengro, 59170, Croix',
 city: 'Croix',
 department: 59170,
 length: 100,
@@ -122,6 +176,109 @@ house_type: "flat"
 balcony3.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1465992527/balcony24_tbummp.jpg'
 balcony3.save
 
+
+balcony4 = Balcony.new(
+name: "Tintin's balcony",
+model: 'small',
+address: '4 boulevard Léon Bureau, 44200, Nantes',
+city: 'Nantes',
+department: 44200,
+length: 100,
+width: 30,
+orientation: 'south',
+user_id: user4.id,
+storey: 4,
+house_type: "house"
+)
+balcony4.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466423844/balcony3_pj0luf.jpg'
+balcony4.save
+
+
+balcony5 = Balcony.new(
+name: "Jack's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '7 rue des paradoux, 31000, Toulouse',
+city: 'Toulouse',
+department: 31000,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user5.id,
+storey: 4,
+house_type: "flat"
+)
+balcony5.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466423825/balcony5_bum7jj.jpg'
+balcony5.save
+
+balcony6 = Balcony.new(
+name: "Billy's balcony",
+model: 'large',
+# 'small', 'medium', 'large'
+address: '27 rue du vieil hôpital, 67000, Strasbourg',
+city: 'Strasbourg',
+department: 67000,
+length: 400,
+width: 600,
+orientation: 'West',
+user_id: user6.id,
+storey: 6,
+house_type: "flat"
+)
+balcony6.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466423743/balcony9_ltxtwg.jpg'
+balcony6.save
+
+
+balcony7 = Balcony.new(
+name: "John Smith's balcony",
+model: 'small',
+address: '26 rue des tanneurs, 35700, Rennes',
+city: 'Rennes',
+department: 35700,
+length: 100,
+width: 30,
+orientation: 'south',
+user_id: user7.id,
+storey: 4,
+house_type: "house"
+)
+balcony7.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466426784/balcony14_xdcgij.jpg'
+balcony7.save
+
+balcony8 = Balcony.new(
+name: "Mickael Oneil's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '92 avenue About, 59240, Dunkerque',
+city: 'Dunerque',
+department: 59240,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user8.id,
+storey: 4,
+house_type: "flat"
+)
+balcony8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466427755/balcon24_yvcbsd.jpg'
+balcony8.save
+
+balcony9 = Balcony.new(
+name: "Arlette's balcony",
+model: 'large',
+# 'small', 'medium', 'large'
+address: '95 rue Garibaldi, 69006 Lyon',
+city: 'Lyon',
+department: 69006,
+length: 400,
+width: 600,
+orientation: 'East',
+user_id: user9.id,
+storey: 6,
+house_type: "flat"
+)
+balcony9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466427756/balcony2_acgh8v.jpg'
+balcony9.save
+
 ##########################   Balcony_picture  SEED    ###############
 
 # http://res.cloudinary.com/dun7rljns/image/upload/v1465992526/balcony14_hsa5uw.jpg
@@ -141,7 +298,7 @@ balcony3.save
 # # deco pot plant
 # sub_category: ,
 # # deco => furniture, accessories ,
-# # pot => round pot , Window box ,
+# # pot => round pot , Window box , Ground box
 # # plant => herbs, bush, flower ,
 
 item1 = Item.new(
@@ -184,7 +341,7 @@ category: "Pot",
 sub_category: "Window box",
 plant_category: "flowers",
 slot: 3,
-price_cents: 49,
+price_cents: 4900,
 volume: 30,
 length: 60,
 width: 20,
@@ -202,7 +359,7 @@ category: "Pot",
 sub_category: "Round pot",
 plant_category: "herbs, bush",
 slot: 1,
-price_cents: 129,
+price_cents: 12900,
 volume: 20,
 length: 67,
 width: 67,
@@ -218,7 +375,7 @@ category: "Plant",
 sub_category: "bush",
 plant_category: "bush",
 slot: 1,
-price_cents: 99,
+price_cents: 9900,
 volume: 20,
 length: 30,
 width: 30,
@@ -234,7 +391,11 @@ category: "Plant",
 sub_category: "Herbs",
 plant_category: "Herbs",
 slot: 1,
+<<<<<<< HEAD
 price_cents: 1490,
+=======
+price: 500,
+>>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 volume: 5,
 length: 15,
 width: 15,
@@ -251,7 +412,11 @@ category: "Plant",
 sub_category: "Flower",
 plant_category: "Flower",
 slot: 1,
+<<<<<<< HEAD
 price_cents: 39,
+=======
+price: 3900,
+>>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 volume: 10,
 length: 30,
 width: 30,
@@ -268,7 +433,11 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
+<<<<<<< HEAD
 price_cents: 99,
+=======
+price: 9900,
+>>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 volume: 10,
 length: 60,
 width: 60,
@@ -284,7 +453,11 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
+<<<<<<< HEAD
 price_cents: 59,
+=======
+price: 5900,
+>>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 volume: 20,
 length: 20,
 width: 10,
@@ -300,7 +473,11 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
+<<<<<<< HEAD
 price_cents: 129,
+=======
+price: 12900,
+>>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 volume: 40,
 length: 40,
 width: 40,
@@ -308,6 +485,71 @@ weight: 5,
 )
 item10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466005791/bbq_jh1byn.jpg'
 item10.save
+
+
+item11 = Item.new(
+name: "Ground box black fiber",
+description: "The groundbox wicker basket is a nice object measuring 60 cm width.",
+category: "Pot",
+sub_category: "Ground box",
+plant_category: "plant, bush",
+slot: 6,
+price:7500,
+volume: 30,
+length: 60,
+width: 60,
+weight: 4.5,
+)
+item11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466433476/plato_iwifxy.jpg'
+item11.save
+
+item12 = Item.new(
+name: "Groundbox wicker basket ",
+description: "The groundbox wicker basket is a nice object measuring 20 cm high width a diameter of 13cm. It is a perfect backet for 2 bush plantations. At Brin Garden, we advise you to keep your original aromatic pot (or your flowering plant, it works too!) That you will position directly in the container pot.",
+category: "Pot",
+sub_category: "Ground box",
+plant_category: "plant, bush",
+slot: 2,
+price: 2500,
+volume: 10,
+length: 13,
+width: 20,
+weight: 2.5,
+)
+item12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466433786/groundboxsolo_zg6qti.jpg'
+item12.save
+
+item13 = Item.new(
+name: "Blackgroundbox",
+description: "The look very graphic of the rectangular fiber planter can just as easily blend into a green atmosphere or be part of a contemporary decor.",
+category: "Pot",
+sub_category: "Ground box",
+plant_category: "plant, bush",
+slot: 4,
+price: 4900,
+volume: 30,
+length: 60,
+width: 40,
+weight: 5,
+)
+item13.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466435920/table-de-culture-90-x-60-cm-anthracite_dt2r70.jpg'
+item13.save
+
+
+item14 = Item.new(
+name: "Tomato plants",
+description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
+category: "Plant",
+sub_category: "herbs",
+slot: 1,
+price: 9900,
+volume: 20,
+length: 30,
+width: 30,
+weight: 3,
+)
+item14.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/tomate_ctx3fv.jpg'
+item14.save
 
 # itemX = Item.new(
 # name: "",
@@ -372,7 +614,11 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+<<<<<<< HEAD
 price_cents: 5,
+=======
+price: 500,
+>>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 slot: 1,
 color: "red",
 size: 15
@@ -380,6 +626,171 @@ size: 15
 plant3.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466005065/Guzmania_Ass_P13_snfzvw.jpg'
 plant3.save
 
+plant4 = Plant.new(
+name: "Tomato plants",
+scientific_name: "Tomatum ruby",
+description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
+category: "Plant",
+temperature_min: 10,
+temperature_max: 45,
+pluviometry: 1,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 800,
+slot: 1,
+color: "green",
+size: 120
+)
+plant4.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/tomate_ctx3fv.jpg'
+plant4.save
+
+
+plant5 = Plant.new(
+name: "Basil herbs",
+scientific_name: "Basilicus pistus",
+description: "Grow fresh basil herbs at home with zero effort. No green thumb required!",
+category: "Plant",
+temperature_min: 4,
+temperature_max: 25,
+pluviometry: 4,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 600,
+slot: 1,
+color: "green",
+size: 15
+)
+plant5.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/basilique_xczctu.jpg'
+plant5.save
+
+
+plant6 = Plant.new(
+name: "Dill herbs",
+scientific_name: "Anethum graveolens",
+description: "The compact plants has a lot of large, succulent, dark green leaves with purple-bluish tint",
+category: "Plant",
+temperature_min: 4,
+temperature_max: 25,
+pluviometry: 4,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 700,
+slot: 1,
+color: "green",
+size: 15
+)
+plant6.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436973/aneth_gfuaa4.jpg'
+plant6.save
+
+plant7 = Plant.new(
+name: "Chives herbs",
+scientific_name: "Allium schoenoprasum",
+description: "They are one of the first herbs to pop up in the spring garden, they are in season (and blooming!) right now, and they are pretty much the easiest herb to grow.",
+category: "Plant",
+temperature_min: 4,
+temperature_max: 25,
+pluviometry: 4,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 500,
+slot: 1,
+color: "green",
+size: 15
+)
+plant7.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436920/ciboulette_qwbnej.jpg'
+plant7.save
+
+
+plant8 = Plant.new(
+name: "Lemon tree",
+scientific_name: "Citrus",
+description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+category: "Plant",
+temperature_min: 10,
+temperature_max: 40,
+pluviometry: 2,
+sunshine_amount: 4,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 12000,
+slot: 1,
+color: "green",
+size: 15
+)
+plant8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
+plant8.save
+
+plant9 = Plant.new(
+name: "Grapefruit",
+scientific_name: "Citrus × paradisi)",
+description: "The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet fruit. Grapefruit is a hybrid originating in Barbados as an accidental cross between two introduced species, sweet orange and pomelo",
+category: "Plant",
+temperature_min: 10,
+temperature_max: 40,
+pluviometry: 2,
+sunshine_amount: 4,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 15000,
+slot: 1,
+color: "green",
+size: 15
+)
+plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436958/pamplemousse_ojw2vf.jpg'
+plant9.save
+
+plant10 = Plant.new(
+name: "palmier",
+scientific_name: "chrysalidocarpus-lutescens",
+description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+category: "Plant",
+temperature_min: 10,
+temperature_max: 35,
+pluviometry: 2,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price: 9500,
+slot: 1,
+color: "green",
+size: 15
+)
+plant10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
+plant10.save
+
+
+plant11 = Plant.new(
+name: "Buxus tree",
+scientific_name: "Buxus",
+description: "Pimp My Ride Buxus sempervirens (common box) standards make superb specimen topiary plants. Box topiary standards can be grown in containers/planters or in the ground as specimens plants.",
+category: "Plant",
+temperature_min: 10,
+temperature_max: 35,
+pluviometry: 2,
+sunshine_amount: 3,
+advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
+price: 11500,
+slot: 1,
+color: "green",
+size: 15
+)
+plant11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466437027/buis_ioavfr.jpg'
+plant11.save
+
+plant12 = Plant.new(
+name: "Bamboo",
+scientific_name: "Bambus",
+description: "Pimp My Ride Evergreen bamboo plants offer a thick lush hedge that offers total privacy and they take up very little planting area widthwise. The lush green leaves offer an exotic edge to your garden design with tall upright evergreen lines of green, yellow or black canes. This type of planting is particularly useful when delicately screening off the close proximity of neighbours.",
+category: "Plant",
+temperature_min: 10,
+temperature_max: 35,
+pluviometry: 2,
+sunshine_amount: 3,
+advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
+price: 14500,
+slot: 1,
+color: "green",
+size: 15
+)
+plant12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466440709/bamboo_aurtmj.jpg'
+plant12.save
 
 # create_table "plants", force: :cascade do |t|
 #     t.string   "name"
