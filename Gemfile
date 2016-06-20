@@ -25,6 +25,8 @@ gem 'autoprefixer-rails'
 gem 'geocoder'
 gem 'activeadmin', github: 'activeadmin'
 gem 'money-rails'
+gem 'coffee-script'
+gem 'stripe'
 
 
 
