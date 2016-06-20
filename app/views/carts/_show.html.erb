@@ -69,6 +69,10 @@
 
             <div class="off-canvas-cart-control">
               <a href="#" class="btn btn-lg btn-block btn-round btn-base">Checkout</a>
+              <%= form_tag orders_path do %>
+                <%= hidden_field_tag 'cart_id', @cart.id %>
+                <%= submit_tag 'Checkout', class: 'btn btn-lg btn-block btn-round btn-base' %>
+              <% end %>
             </div>
 
           </div>
