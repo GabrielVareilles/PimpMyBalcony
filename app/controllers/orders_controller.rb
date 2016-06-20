@@ -1,30 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :add_item, :remove_item]
-
-  def index
-    @orders = policy_scope(Order)
-  end
+  before_action :set_order, only: [:show, :destroy, :add_item, :remove_item]
 
   def show
-    if current_user.orders.last.status == false
-      @order = current_user.orders.last
-    else
-      redirect_to new_order
-    end
-  end
-
-  def new
-    @order = Order.new
-  end
-
-  def create
-    @order = current_user.oders.new
-    @order.status = false
-    authorize @order
-    if @order.save
-      redirect_to order_path(@order)
-    else
-    end
   end
 
   def add_item
@@ -60,8 +37,16 @@ class OrdersController < ApplicationController
   private
 
   def set_order
-    @order = Order.find(params[:id])
+    if current_user.orders.empty? || current_user.orders.last.status == true
+      @order = Order.new
+      @order.status = false
+      @order.user_id = current_user.id
+      @order.save
+    else
+      @order = curent_user.orders.last
+    end
     authorize @order
+    return @order
   end
 
 end

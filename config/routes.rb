@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get "profile", to: "users#show", as: 'profile'
 
     get "cart", to: "orders#show", as: 'cart'
-    resources :orders, only: [:new] do
+    resources :orders, only: [:destroy] do
       member do
         post "add_item"
         post "remove_item"
