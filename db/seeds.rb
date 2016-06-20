@@ -515,6 +515,22 @@ weight: 5,
 item13.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466435920/table-de-culture-90-x-60-cm-anthracite_dt2r70.jpg'
 item13.save
 
+
+item14 = Item.new(
+name: "Tomato plants",
+description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
+category: "Plant",
+sub_category: "herbs",
+slot: 1,
+price: 9900,
+volume: 20,
+length: 30,
+width: 30,
+weight: 3,
+)
+item14.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/tomate_ctx3fv.jpg'
+item14.save
+
 # itemX = Item.new(
 # name: "",
 # description: "",
