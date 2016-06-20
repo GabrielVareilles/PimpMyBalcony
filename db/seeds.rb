@@ -69,13 +69,67 @@ password_confirmation: "123456"
 )
 user3.save!
 
+user4 = User.new(
+email: "tintin@gmail.com",
+first_name: "Tintin",
+last_name: "Herge",
+password: "123456",
+password_confirmation: "123456"
+)
+user4.save!
+
+user5 = User.new(
+email: "Jack@gmail.com",
+first_name: "Jack",
+last_name: "Houille",
+password: "123456",
+password_confirmation: "123456"
+)
+user5.save!
+
+user6 = User.new(
+email: "billyj@gmail.com",
+first_name: "Billy",
+last_name: "Jean",
+password: "123456",
+password_confirmation: "123456"
+)
+user6.save!
+
+user7 = User.new(
+email: "Johnsmith@gmail.com",
+first_name: "John",
+last_name: "Smith",
+password: "123456",
+password_confirmation: "123456"
+)
+user7.save!
+
+user8 = User.new(
+email: "mickey@gmail.com",
+first_name: "Mickey",
+last_name: "Oneil",
+password: "123456",
+password_confirmation: "123456"
+)
+user8.save!
+
+
+user9 = User.new(
+email: "Arlette@gmail.com",
+first_name: "Arlette",
+last_name: "La Belette",
+password: "123456",
+password_confirmation: "123456"
+)
+user9.save!
 
 ##########################   Balcony  SEED    ###############
 
 balcony1 = Balcony.new(
 name: "Jojo's balcony",
 model: 'small',
-address: '50 avenue roger Sallengro, 59170, Croix',
+address: '50 avenue roger Salengro, 59170, Croix',
 city: 'Croix',
 department: 59170,
 length: 100,
@@ -122,6 +176,109 @@ house_type: "flat"
 balcony3.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1465992527/balcony24_tbummp.jpg'
 balcony3.save
 
+
+balcony4 = Balcony.new(
+name: "Tintin's balcony",
+model: 'small',
+address: '4 boulevard Léon Bureau, 44200, Nantes',
+city: 'Nantes',
+department: 44200,
+length: 100,
+width: 30,
+orientation: 'south',
+user_id: user4.id,
+storey: 4,
+house_type: "house"
+)
+balcony4.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466423844/balcony3_pj0luf.jpg'
+balcony4.save
+
+
+balcony5 = Balcony.new(
+name: "Jack's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '7 rue des paradoux, 31000, Toulouse',
+city: 'Toulouse',
+department: 31000,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user5.id,
+storey: 4,
+house_type: "flat"
+)
+balcony5.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466423825/balcony5_bum7jj.jpg'
+balcony5.save
+
+balcony6 = Balcony.new(
+name: "Billy's balcony",
+model: 'large',
+# 'small', 'medium', 'large'
+address: '27 rue du vieil hôpital, 67000, Strasbourg',
+city: 'Strasbourg',
+department: 67000,
+length: 400,
+width: 600,
+orientation: 'West',
+user_id: user6.id,
+storey: 6,
+house_type: "flat"
+)
+balcony6.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466423743/balcony9_ltxtwg.jpg'
+balcony6.save
+
+
+balcony7 = Balcony.new(
+name: "John Smith's balcony",
+model: 'small',
+address: '26 rue des tanneurs, 35700, Rennes',
+city: 'Rennes',
+department: 35700,
+length: 100,
+width: 30,
+orientation: 'south',
+user_id: user7.id,
+storey: 4,
+house_type: "house"
+)
+balcony7.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466426784/balcony14_xdcgij.jpg'
+balcony7.save
+
+balcony8 = Balcony.new(
+name: "Mickael Oneil's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '92 avenue About, 59240, Dunkerque',
+city: 'Dunerque',
+department: 59240,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user8.id,
+storey: 4,
+house_type: "flat"
+)
+balcony8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466427755/balcon24_yvcbsd.jpg'
+balcony8.save
+
+balcony9 = Balcony.new(
+name: "Arlette's balcony",
+model: 'large',
+# 'small', 'medium', 'large'
+address: '95 rue Garibaldi, 69006 Lyon',
+city: 'Lyon',
+department: 69006,
+length: 400,
+width: 600,
+orientation: 'East',
+user_id: user9.id,
+storey: 6,
+house_type: "flat"
+)
+balcony9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466427756/balcony2_acgh8v.jpg'
+balcony9.save
+
 ##########################   Balcony_picture  SEED    ###############
 
 # http://res.cloudinary.com/dun7rljns/image/upload/v1465992526/balcony14_hsa5uw.jpg
@@ -141,7 +298,7 @@ balcony3.save
 # # deco pot plant
 # sub_category: ,
 # # deco => furniture, accessories ,
-# # pot => round pot , Window box ,
+# # pot => round pot , Window box , Ground box
 # # plant => herbs, bush, flower ,
 
 item1 = Item.new(
@@ -309,6 +466,55 @@ weight: 5,
 item10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466005791/bbq_jh1byn.jpg'
 item10.save
 
+
+item11 = Item.new(
+name: "Ground box black fiber",
+description: "The groundbox wicker basket is a nice object measuring 60 cm width.",
+category: "Pot",
+sub_category: "Ground box",
+plant_category: "plant, bush",
+slot: 6,
+price:75000,
+volume: 30,
+length: 60,
+width: 60,
+weight: 4.5,
+)
+item11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466433476/plato_iwifxy.jpg'
+item11.save
+
+item12 = Item.new(
+name: "Groundbox wicker basket ",
+description: "The groundbox wicker basket is a nice object measuring 20 cm high width a diameter of 13cm. It is a perfect backet for 2 bush plantations. At Brin Garden, we advise you to keep your original aromatic pot (or your flowering plant, it works too!) That you will position directly in the container pot.",
+category: "Pot",
+sub_category: "Ground box",
+plant_category: "plant, bush",
+slot: 2,
+price: 25000,
+volume: 10,
+length: 13,
+width: 20,
+weight: 2.5,
+)
+item12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466433786/groundboxsolo_zg6qti.jpg'
+item12.save
+
+item13 = Item.new(
+name: "Blackgroundbox",
+description: "The look very graphic of the rectangular fiber planter can just as easily blend into a green atmosphere or be part of a contemporary decor.",
+category: "Pot",
+sub_category: "Ground box",
+plant_category: "plant, bush",
+slot: 4,
+price: 49000,
+volume: 30,
+length: 60,
+width: 40,
+weight: 5,
+)
+item13.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466435920/table-de-culture-90-x-60-cm-anthracite_dt2r70.jpg'
+item13.save
+
 # itemX = Item.new(
 # name: "",
 # description: "",
@@ -379,6 +585,8 @@ size: 15
 )
 plant3.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466005065/Guzmania_Ass_P13_snfzvw.jpg'
 plant3.save
+
+
 
 
 # create_table "plants", force: :cascade do |t|
