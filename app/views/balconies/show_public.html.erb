@@ -24,7 +24,7 @@
 			<div class="col-sm-8">
         <%= cl_image_tag @balcony.photo, height: 650, width: 1140, crop: :fill %>
 			</div>
-      <div class="col-sm-4 m-t-20">
+      <div class="col-sm-4 m-t-80">
 				<ul class="portfolio-info">
 					<li><h5>Owner:</h5><span><%= @balcony.user.first_name %> <%= @balcony.user.last_name %></span></li>
 					<li><h5>Created:</h5><span> <%= @balcony.created_at %> </span></li>
@@ -53,6 +53,59 @@
 
 	</section>
   <!-- END PORTFOLIO -->
+</div>
+
+<!-- PAGE TITLE -->
+<section class="bg-white-dark p-t-40 p-b-20">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h3 class="montserrat text-uppercase m-b-5"> <%= @balcony.user.first_name %> used following items to pimp this balcony </h3>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END PAGE TITLE -->
+
+
+<!-- RELATED PRODUCTS -->
+<div class="wrapper bg-white-dark ">
+  <div class="container p-t-40">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="montserrat text-uppercase bottom-line">Related Products</h5>
+      </div>
+    </div>
+
+    <div class="row multi-columns-row">
+      <% Item.first(4).each do |product| %>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <div class="shop-item">
+          <div class="shop-item-photo">
+            <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+            <div class="shop-item-tools">
+              <div>
+                <div>
+                  <%= link_to item_path(product.id) do %>
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                  <% end %>
+                  <%= link_to items_path do %>
+                      <i class="icon-basket-loaded icons" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shop-item-title">
+            <h5><%= link_to product.name, item_path(product.id) %></h5>
+            <h5><%= product.price %>,00 € </h5>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- END SHOP ITEM -->
+    </div>
+  </div>
 </div>
 
 
