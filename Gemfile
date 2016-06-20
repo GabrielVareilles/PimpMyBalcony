@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'geocoder'
 gem 'activeadmin', github: 'activeadmin'
+gem 'money-rails'
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619130036) do
+ActiveRecord::Schema.define(version: 20160620084708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,27 @@ ActiveRecord::Schema.define(version: 20160619130036) do
   add_index "balconies_items", ["balcony_id"], name: "index_balconies_items_on_balcony_id", using: :btree
   add_index "balconies_items", ["item_id"], name: "index_balconies_items_on_item_id", using: :btree
 
+  create_table "carts", force: :cascade do |t|
+    t.integer  "shipping"
+    t.integer  "discount"
+    t.string   "delivery_address"
+    t.boolean  "status"
+    t.integer  "user_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "price_cents",      default: 0, null: false
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
+
+  create_table "carts_items", id: false, force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "item_id"
+  end
+
+  add_index "carts_items", ["cart_id"], name: "index_carts_items_on_cart_id", using: :btree
+  add_index "carts_items", ["item_id"], name: "index_carts_items_on_item_id", using: :btree
+
   create_table "departments", force: :cascade do |t|
     t.integer  "number"
     t.integer  "temperature_min"
@@ -95,27 +116,6 @@ ActiveRecord::Schema.define(version: 20160619130036) do
 
   add_index "items_plants", ["item_id"], name: "index_items_plants_on_item_id", using: :btree
   add_index "items_plants", ["plant_id"], name: "index_items_plants_on_plant_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "total"
-    t.integer  "shipping"
-    t.integer  "discount"
-    t.string   "delivery_address"
-    t.boolean  "status"
-    t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
-
-  create_table "orders_items", id: false, force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "item_id"
-  end
-
-  add_index "orders_items", ["item_id"], name: "index_orders_items_on_item_id", using: :btree
-  add_index "orders_items", ["order_id"], name: "index_orders_items_on_order_id", using: :btree
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
@@ -174,6 +174,6 @@ ActiveRecord::Schema.define(version: 20160619130036) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "balconies", "users"
-  add_foreign_key "orders", "users"
+  add_foreign_key "carts", "users"
   add_foreign_key "reviews", "balconies"
 end

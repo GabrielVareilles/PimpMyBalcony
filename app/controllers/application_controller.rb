@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :set_locale
+  before_action :set_shared_cart
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :devise_controller?
@@ -23,5 +24,11 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
+
+  def set_shared_cart
+    if current_user
+      @cart = current_user.cart
+    end
   end
 end

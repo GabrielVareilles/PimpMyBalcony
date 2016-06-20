@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   mount_uploader :picture, PhotoUploader
 
   has_many :balconies
-  has_many :orders
+  has_many :carts
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -23,5 +23,18 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
+  end
+
+  def cart
+    if Cart.where(user_id: self.id).empty? || Cart.where(user_id: self.id).last.status == true
+      @cart = Cart.new
+      @cart.status = false
+      @cart.price = 0
+      @cart.user_id = self.id
+      @cart.save
+    else
+      @cart = Cart.where(user_id: self.id).last
+    end
+    return @cart
   end
 end

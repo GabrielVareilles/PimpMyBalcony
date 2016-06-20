@@ -14,5 +14,5 @@ class PagesController < ApplicationController
     @balconies = Balcony.all
     @items = Item.all
   end
-  
+
 end

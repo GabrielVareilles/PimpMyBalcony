@@ -1,7 +1,6 @@
-class CreateOrders < ActiveRecord::Migration
+class CreateCarts < ActiveRecord::Migration
   def change
-    create_table :orders do |t|
-      t.integer :total
+    create_table :carts do |t|
       t.integer :shipping
       t.integer :discount
       t.string :delivery_address
