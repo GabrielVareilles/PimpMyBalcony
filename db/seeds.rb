@@ -391,11 +391,7 @@ category: "Plant",
 sub_category: "Herbs",
 plant_category: "Herbs",
 slot: 1,
-<<<<<<< HEAD
 price_cents: 1490,
-=======
-price: 500,
->>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 volume: 5,
 length: 15,
 width: 15,
@@ -412,11 +408,7 @@ category: "Plant",
 sub_category: "Flower",
 plant_category: "Flower",
 slot: 1,
-<<<<<<< HEAD
-price_cents: 39,
-=======
-price: 3900,
->>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
+price_cents: 3900,
 volume: 10,
 length: 30,
 width: 30,
@@ -433,11 +425,7 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
-<<<<<<< HEAD
-price_cents: 99,
-=======
-price: 9900,
->>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
+price_cents: 9900,
 volume: 10,
 length: 60,
 width: 60,
@@ -453,11 +441,7 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
-<<<<<<< HEAD
-price_cents: 59,
-=======
-price: 5900,
->>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
+price_cents: 5900,
 volume: 20,
 length: 20,
 width: 10,
@@ -473,11 +457,7 @@ category: "Deco",
 sub_category: "Accessories",
 plant_category: "",
 slot: 1,
-<<<<<<< HEAD
-price_cents: 129,
-=======
-price: 12900,
->>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
+price_cents: 12900,
 volume: 40,
 length: 40,
 width: 40,
@@ -614,11 +594,7 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-<<<<<<< HEAD
 price_cents: 5,
-=======
-price: 500,
->>>>>>> e64bf91f2a4a901856e7d9fd69501de8f912a279
 slot: 1,
 color: "red",
 size: 15
