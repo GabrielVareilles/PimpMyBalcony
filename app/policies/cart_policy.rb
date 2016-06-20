@@ -6,7 +6,7 @@ class CartPolicy < ApplicationPolicy
   end
 
   def add_item?
-    record.user == user
+    true
   end
 
   def remove_item?

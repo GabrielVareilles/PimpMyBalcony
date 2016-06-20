@@ -1,21 +1,24 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:destroy, :add_item, :remove_item]
 
+
   def add_item
     @item = Item.find(params[:item])
+    @cart = @cart.first
     @cart.add_item(@item)
 
     if @cart.save
-      redirect_to cart_path(@cart)
+      redirect_to items_path
       flash[:notice] = "Item added to your cart"
     else
-      redirect_to cart_path(@cart)
+      redirect_to items_path
       flash[:alert] = "Item not added to your cart"
     end
   end
 
   def remove_item
     @item = Item.find(params[:item])
+    @cart = @cart.first
     @cart.remove_item(@item)
 
     if @cart.save
@@ -38,5 +41,4 @@ class CartsController < ApplicationController
     authorize @cart
     return @cart
   end
-
 end

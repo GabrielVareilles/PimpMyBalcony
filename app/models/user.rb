@@ -26,15 +26,15 @@ class User < ActiveRecord::Base
   end
 
   def cart
-    if Cart.where(user_id: self.id).empty? || Cart.where(user_id: self.id).last.status == true
+    if Cart.where(user_id: self.id).empty? || Cart.where(user: self).last.status
       @cart = Cart.new
       @cart.status = false
       @cart.price = 0
-      @cart.user_id = self.id
+      @cart.user = self
       @cart.save
     else
-      @cart = Cart.where(user_id: self.id).last
+      @cart = Cart.where(user: self).last
     end
-    return @cart
+    @cart
   end
 end

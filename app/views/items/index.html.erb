@@ -146,7 +146,7 @@
                     <%= link_to item_path(product.id) do %>
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     <% end %>
-                    <%= link_to items_path do %>
+                    <%= link_to add_item_carts_path(item: product.id), method: :post do %>
                         <i class="icon-basket-loaded icons" aria-hidden="true"></i>
                     <% end %>
                   </div>
