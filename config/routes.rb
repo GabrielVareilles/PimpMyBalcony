@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'payments/new'
+
   get 'orders/show'
 
   ActiveAdmin.routes(self)
@@ -40,6 +42,8 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :orders, only: [:show, :create]
+    resources :orders, only: [:show, :create] do
+      resources :payments, only: [:new, :create]
+    end
   end
 end

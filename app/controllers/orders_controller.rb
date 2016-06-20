@@ -1,12 +1,13 @@
 class OrdersController < ApplicationController
+  skip_after_action :verify_authorized
   def show
-    @order = Order.where(state: 'paid').find(params[:id])
+    @order = Order.where(user_id: current_user.id).where(state: 'pending')
   end
 
   def create
-  @teddy = Teddy.find(params[:teddy_id])
-  order  = Order.create!(teddy_sku: @teddy.sku, amount: @teddy.price, state: 'pending')
+    @cart = Cart.where(user_id: current_user.id).last
+    order  = Order.create!(amount: @cart.price, state: 'pending', user_id: current_user.id)
 
-  redirect_to new_order_payment_path(order)
+    redirect_to new_order_payment_path(order)
 end
 end
