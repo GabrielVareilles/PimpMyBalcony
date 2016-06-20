@@ -143,14 +143,18 @@
               <div class="shop-item-tools">
                 <div>
                   <div>
-                    <a href="#" title="Add to cart"><i class="icon-basket-loaded icons"></i></a>
-                    <a href="#" title="View item"><i class="icon-eye icons"></i></a>
+                    <%= link_to item_path(product.id) do %>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to items_path do %>
+                        <i class="icon-basket-loaded icons" aria-hidden="true"></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
             </div>
             <div class="shop-item-title">
-              <h5><%= link_to product.name, items_path %></h5>
+              <h5><%= link_to product.name, item_path(product.id) %></h5>
               <h5><%= product.price %>,00 € </h5>
             </div>
           </div>
