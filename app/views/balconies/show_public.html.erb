@@ -7,7 +7,7 @@
 <div class="wrapper">
 
   <!-- PAGE TITLE -->
-  <section class="bg-white-dark p-t-40 p-b-40">
+  <!-- <section class="bg-white-dark p-t-10 p-b-10">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 text-center">
@@ -15,8 +15,48 @@
         </div>
       </div>
     </div>
-  </section>
-  <!-- END PAGE TITLE -->
+  </section> -->
+
+  <section class="bg-white-dark">
+  			<div class="container">
+  				<div class="row multi-columns-row">
+  					<!-- ICONBOX -->
+  					<div class="col-sm-4 col-md-4 col-lg-4">
+  						<div class="box-icon-left">
+  							<div class="icon-box-icon">
+  								<i class="fa fa-smile-o"></i>
+  							</div>
+  							<h4 class ="p-t-10">Owner: <%= @balcony.user.first_name %> <%= @balcony.user.last_name %> </h4>
+  						</div>
+  					</div>
+  					<!-- END ICONBOX -->
+
+  					<!-- ICONBOX -->
+  					<div class="col-sm-4 col-md-4 col-lg-4">
+  						<div class="box-icon-left">
+  							<div class="icon-box-icon">
+  								<i class="fa fa-map"></i>
+  							</div>
+  							<h4 class ="p-t-10">City: <%= @balcony.city %></h4>
+  						</div>
+  					</div>
+  					<!-- END ICONBOX -->
+
+  					<!-- ICONBOX -->
+  					<div class="col-sm-4 col-md-4 col-lg-4">
+  						<div class="box-icon-left">
+  							<div class="icon-box-icon">
+  								<i class="fa fa-calendar"></i>
+  							</div>
+  							<h4 class ="p-t-10">Creation Date:  <%= @balcony.created_at %></h4>
+  						</div>
+  					</div>
+  					<!-- END ICONBOX -->
+
+  				</div>
+  			</div>
+  		</section>
+  <!-- END ICONBOX -->
 
   <!-- PORTFOLIO -->
 	<section>
@@ -24,16 +64,8 @@
 			<div class="col-sm-8">
         <%= cl_image_tag @balcony.photo, height: 650, width: 1140, crop: :fill %>
 			</div>
-      <div class="col-sm-4 m-t-80">
+      <div class="col-sm-4 m-t-30">
 				<ul class="portfolio-info">
-					<li><h5>Owner:</h5><span><%= @balcony.user.first_name %> <%= @balcony.user.last_name %></span></li>
-					<li><h5>Created:</h5><span> <%= @balcony.created_at %> </span></li>
-          <li><h5>Model:</h5><span> <%= @balcony.model %> </span></li>
-          <li><h5>City:</h5><span> <%= @balcony.city %> </span></li>
-          <li><h5>Orientation:</h5><span> <%= @balcony.orientation %> </span></li>
-          <li><h5>House type:</h5><span> <%= @balcony.house_type %> </span></li>
-          <li><h5>Description:</h5><span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </span></li>
-
 					<li>
 						<h5>Share:</h5>
 						<ul class="social-icons social-icons-simple">
@@ -48,6 +80,19 @@
               <% end %>
 						</ul>
 					</li>
+          <li>
+            <div id="reviews">
+              <li><h5>Reviews</h5></li>
+              <% if @balcony.reviews.blank? %>
+                <span> Be the first to leave a review for <%= @balcony.name %> </span>
+              <% else %>
+                <% @balcony.reviews.each do |review| %>
+                  <%= render 'reviews/show', review: review %>
+                <% end %>
+              <% end %>
+            <%= render 'reviews/form', balcony: @balcony, review: @review %>
+            </div>
+          </li>
 				</ul>
 			</div>
 
@@ -71,11 +116,6 @@
 <!-- RELATED PRODUCTS -->
 <div class="wrapper bg-white-dark ">
   <div class="container p-t-40">
-    <div class="row">
-      <div class="col-sm-12">
-        <h5 class="montserrat text-uppercase bottom-line">Related Products</h5>
-      </div>
-    </div>
 
     <div class="row multi-columns-row">
       <% Item.first(4).each do |product| %>
@@ -107,18 +147,3 @@
     </div>
   </div>
 </div>
-
-
-<H1>TEST</H1>
-<%= cl_image_tag @balcony.photo, height: 300, width: 400, crop: :fill %>
-<div id="reviews">
-  <% if @balcony.reviews.blank? %>
-    Be the first to leave a review for <%= @balcony.name %>
-  <% else %>
-    <% @balcony.reviews.each do |review| %>
-      <%= render 'reviews/show', review: review %>
-    <% end %>
-  <% end %>
-</div>
-<%= render 'reviews/form', balcony: @balcony, review: @review %>
-A lot more to do !
