@@ -9,8 +9,8 @@
   <!-- Commented for the lecture, remove comments. -->
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Teddy"
-    data-description="Teddy <%= @order.first.id %>"
+    data-name="My Cart"
+    data-description="Order_id: <%= @order.first.id %>"
     data-amount="<%= @order.first.amount_cents %>"
     data-currency="EUR"></script>
 
