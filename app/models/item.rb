@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  monetize :price_cents
   mount_uploader :photo, PhotoUploader
 
   has_and_belongs_to_many :balconies
@@ -12,7 +13,7 @@ class Item < ActiveRecord::Base
 
   def add_plant(plant)
     self.plants << plant
-
+    self.price_cents += plant.price_cents
   end
 
   def remove_plant(plant)
@@ -22,6 +23,7 @@ class Item < ActiveRecord::Base
     collection.delete_at(id)
     self.plants.clear
     self.plants = collection
+    self.price_cents -= plant.price_cents
 
   end
 

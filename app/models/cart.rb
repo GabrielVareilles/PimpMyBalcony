@@ -6,7 +6,7 @@ class Cart < ActiveRecord::Base
 
   def add_item(item)
     self.items << item
-    self.price += (item.price * 100)
+    self.price += item.price_cents
   end
 
   def remove_item(item)
@@ -16,7 +16,7 @@ class Cart < ActiveRecord::Base
     collection.delete_at(id)
     self.items.clear
     self.items = collection
-    self.price -= (item.price * 100)
+    self.price -= item.price_cents
   end
 
   def remove_all_items

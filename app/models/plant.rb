@@ -1,4 +1,5 @@
 class Plant < ActiveRecord::Base
+  monetize :price_cents
   mount_uploader :photo, PhotoUploader
 
   has_and_belongs_to_many :items

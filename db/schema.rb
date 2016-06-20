@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620084708) do
+ActiveRecord::Schema.define(version: 20160620102426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,14 +99,14 @@ ActiveRecord::Schema.define(version: 20160620084708) do
     t.string   "sub_category"
     t.string   "plant_category"
     t.integer  "slot"
-    t.integer  "price"
     t.integer  "volume"
     t.integer  "length"
     t.integer  "width"
     t.integer  "weight"
     t.string   "photo"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "price_cents",    default: 0, null: false
   end
 
   create_table "items_plants", id: false, force: :cascade do |t|
@@ -133,8 +133,9 @@ ActiveRecord::Schema.define(version: 20160620084708) do
     t.string   "photo"
     t.string   "color"
     t.string   "size"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "price_cents",     default: 0, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
