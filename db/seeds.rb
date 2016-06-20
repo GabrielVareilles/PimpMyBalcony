@@ -52,7 +52,7 @@ user1.admin = true
 user1.save!
 
 user2 = User.new(
-email: "Rene@gmail.com",
+email: "Reneda@gmail.com",
 first_name: "Rene",
 last_name: "La Taupe",
 password: "123456",

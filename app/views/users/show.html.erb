@@ -12,7 +12,7 @@
       <div class="text-center center">
         <% if !current_user.picture.url %>
           <%= cl_image_tag "avatar_o6wrwd.png", width: 200, height: 200, crop: :fill %>
-        <% else current_user.picture %>
+        <% else %>
           <%= cl_image_tag current_user.picture, height: 200, width: 200, crop: :fill %>
         <% end %>
         <br>
@@ -32,7 +32,24 @@
 </div>
 <!-- END USER INFORMATION -->
 <hr>
+
+
 <!-- BALCONY INFORMATION -->
+
+<% if !Balcony.find_by_user_id(@user) %>
+  <div class="container m-t-60 m-b-60">
+    <div class="row">
+      <div class="col-sm-4 text-center">
+        <%= link_to "Create your Balcony", new_balcony_path, class: "btn btn-sm btn-round btn-base"  %>
+      </div>
+      <div class="col-sm-8">
+        <p>You have no balcony referenced yet, <b>click the button to create it.</b> </p>
+      </div>
+    </div>
+  </div>
+
+<% else %>
+
 <div class="container m-t-60 m-b-60">
   <div class="row">
 		<div class="col-sm-4">
@@ -59,6 +76,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <!-- END BALCONY INFORMATION -->
 <hr>

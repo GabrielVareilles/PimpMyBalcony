@@ -71,11 +71,11 @@
         <% if user_signed_in? %>
         <li class="has-submenu">
           <%= link_to '#' do %>
-            <% if !current_user.picture.url %>
-              <%= cl_image_tag "avatar_o6wrwd.png", width: 200, height: 200, crop: :fill, class: "avatar" %>
-            <% else current_user.picture %>
-              <%= cl_image_tag current_user.picture, height: 200, width: 200, crop: :fill, class: "avatar" %>
-            <% end %>
+              <% if !current_user.picture.url %>
+                <%= cl_image_tag "avatar_o6wrwd.png", width: 200, height: 200, crop: :fill, class: "avatar" %>
+              <% else current_user.picture %>
+                <%= cl_image_tag current_user.picture, height: 200, width: 200, crop: :fill, class: "avatar" %>
+              <% end %>
           <% end %>
 
           <ul class="submenu">
