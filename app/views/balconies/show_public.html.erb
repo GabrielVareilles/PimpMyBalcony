@@ -1,3 +1,62 @@
+<!-- BANNER  -->
+<section id="toto" class=" navtip module-hero bg-black-alfa-30  color-white parallax " data-background="assets/Sky.jpeg">
+  <div class="hero-caption">
+  </div>
+</section>
+
+<div class="wrapper">
+
+  <!-- PAGE TITLE -->
+  <section class="bg-white-dark p-t-40 p-b-40">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3 class="montserrat text-uppercase m-b-5">Discover <%= @balcony.user.first_name %>'s balcony </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END PAGE TITLE -->
+
+  <!-- PORTFOLIO -->
+	<section>
+		<div class="row m-l-50 m-r-50">
+			<div class="col-sm-8">
+        <%= cl_image_tag @balcony.photo, height: 650, width: 1140, crop: :fill %>
+			</div>
+      <div class="col-sm-4 m-t-20">
+				<ul class="portfolio-info">
+					<li><h5>Owner:</h5><span><%= @balcony.user.first_name %> <%= @balcony.user.last_name %></span></li>
+					<li><h5>Created:</h5><span> <%= @balcony.created_at %> </span></li>
+          <li><h5>Model:</h5><span> <%= @balcony.model %> </span></li>
+          <li><h5>City:</h5><span> <%= @balcony.city %> </span></li>
+          <li><h5>Orientation:</h5><span> <%= @balcony.orientation %> </span></li>
+          <li><h5>House type:</h5><span> <%= @balcony.house_type %> </span></li>
+          <li><h5>Description:</h5><span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </span></li>
+
+					<li>
+						<h5>Share:</h5>
+						<ul class="social-icons social-icons-simple">
+              <%= link_to "http://www.facebook.com" do %>
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to 'twitter', src:"http://www.twitter.com" do %>
+                <i class="fa fa-twitter"></i>
+              <% end %>
+              <%= link_to 'Google - plus ', src:"http://www.twitter.com" do %>
+                <i class="fa fa-twitter"></i>
+              <% end %>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+	</section>
+  <!-- END PORTFOLIO -->
+</div>
+
+
+<H1>TEST</H1>
 <%= cl_image_tag @balcony.photo, height: 300, width: 400, crop: :fill %>
 <div id="reviews">
   <% if @balcony.reviews.blank? %>
