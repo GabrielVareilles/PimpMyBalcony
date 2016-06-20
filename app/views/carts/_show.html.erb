@@ -1,5 +1,5 @@
 <div class="off-canvas-cart">
-  <%= @cart.id %>
+  <p class = 'text-center' style ="margin-top: 10px;"> Your cart id: #<%=  @cart.id %></p>
 
     <div style="margin-right: -10px;" class="off-canvas-cart-wrapper">
 
@@ -9,74 +9,71 @@
         </a>
       </div>
 
-      <div class="off-canvas-cart-content">
-        <div class="off-canvas-cart-content-wrap">
-
-          <!-- ITEM -->
-          <div class="off-canvas-cart-item">
-            <div class="off-canvas-cart-item-trash">
-              <a href="#"><i class="icon-trash icons"></i></a>
-            </div>
-            <div class="off-canvas-cart-item-thumbnail">
-              <a href="#"><img class="cart-thumbnail" src="assets/images/shop/1.jpg" alt=""></a>
-            </div>
-            <div class="off-canvas-cart-item-title">
-              <h5 class="m-b-5"><a href="#">Buttoned Linen Skirt</a></h5>
-              $44.00 × 1
-            </div>
-          </div>
-          <!-- END ITEM -->
-
-          <!-- ITEM -->
-          <div class="off-canvas-cart-item">
-            <div class="off-canvas-cart-item-trash">
-              <a href="#"><i class="icon-trash icons"></i></a>
-            </div>
-            <div class="off-canvas-cart-item-thumbnail">
-              <a href="#"><img class="cart-thumbnail" src="assets/images/shop/2.jpg" alt=""></a>
-            </div>
-            <div class="off-canvas-cart-item-title">
-              <h5 class="m-b-5"><a href="#">Printed Bermuda Shorts</a></h5>
-              $80.00 × 1
-            </div>
-          </div>
-          <!-- END ITEM -->
-
-          <!-- ITEM -->
-          <div class="off-canvas-cart-item">
-            <div class="off-canvas-cart-item-trash">
-              <a href="#"><i class="icon-trash icons"></i></a>
-            </div>
-            <div class="off-canvas-cart-item-thumbnail">
-              <a href="#"><img class="cart-thumbnail" src="assets/images/shop/3.jpg" alt=""></a>
-            </div>
-            <div class="off-canvas-cart-item-title">
-              <h5 class="m-b-5"><a href="#">Short Frilled Skirt</a></h5>
-              $40.00 × 1
-            </div>
-          </div>
-          <!-- END ITEM -->
-
-        </div>
-      </div>
-
-      <div class="off-canvas-cart-footer">
-        <div class="off-canvas-cart-info">
-          <div class="row">
-            <div class="col-xs-6">
-              <h4 class="m-0">Total:</h4>
-            </div>
-            <div class="col-xs-6">
-              <h4 class="m-0 text-right">$1380.00</h4>
-            </div>
+      <% if @cart.items.empty? %>
+        <div class="row">
+          <div class="text-center center-block">
+            <hr>
+            <p class= "text-center"> Your cart is empty </p>
+            <%= link_to "Create your Balcony", new_balcony_path, class: "btn btn-sm btn-round btn-base"  %>
+            <br>
+            <p> or </p>
+            <%= link_to "go shopping", items_path, class: "btn btn-sm btn-round btn-base"  %>
+            <br>
+            <hr>
           </div>
         </div>
 
-        <div class="off-canvas-cart-control">
-          <a href="#" class="btn btn-lg btn-block btn-outline btn-fade btn-round btn-dark">Checkout</a>
-          <a href="#" class="btn btn-lg btn-block btn-round btn-base">Edit Cart</a>
-        </div>
-      </div>
+      <% else %>
+        <div class="off-canvas-cart-content">
+          <div class="off-canvas-cart-content-wrap">
+            <% @cart.items.each do |item| %>
+              <!-- ITEM -->
+              <div class="off-canvas-cart-item">
 
-    </div>
+                <div class="off-canvas-cart-item-trash">
+                  <%= link_to '#' do %>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+
+                <div class="off-canvas-cart-item-thumbnail">
+                  <%= link_to item_path(item) do %>
+                    <%= cl_image_tag item.photo, class: "cart-thumbnail", height: 400, width: 400, crop: :fill %>
+                  <% end %>
+                </div>
+
+                <div class="off-canvas-cart-item-title">
+                  <%= link_to item_path(item) do %>
+                    <h5 class="m-b-5"> <%= item.name %> </h5>
+                  <% end %>
+                    <span> <%= humanized_money_with_symbol(item.price) %> x 1 </span>
+                </div>
+
+              </div>
+            <% end %>
+            <!-- END ITEM -->
+          </div>
+
+          <div class="off-canvas-cart-footer">
+
+            <div class="off-canvas-cart-info">
+              <div class="row">
+                <div class="col-xs-6">
+                  <h4 class="m-0">Total:</h4>
+                </div>
+                <div class="col-xs-6">
+                  <h4 class="m-0 text-right"><%= humanized_money_with_symbol(@cart.price) %></h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="off-canvas-cart-control">
+              <a href="#" class="btn btn-lg btn-block btn-round btn-base">Checkout</a>
+            </div>
+
+          </div>
+        </div>
+    <% end %>
+
   </div>
+</div>
