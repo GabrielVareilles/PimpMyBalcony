@@ -1,12 +1,149 @@
-<%= cl_image_tag @balcony.photo, height: 300, width: 400, crop: :fill %>
-<div id="reviews">
-  <% if @balcony.reviews.blank? %>
-    Be the first to leave a review for <%= @balcony.name %>
-  <% else %>
-    <% @balcony.reviews.each do |review| %>
-      <%= render 'reviews/show', review: review %>
-    <% end %>
-  <% end %>
+<!-- BANNER  -->
+<section id="toto" class=" navtip module-hero bg-black-alfa-30  color-white parallax " data-background="assets/Sky.jpeg">
+  <div class="hero-caption">
+  </div>
+</section>
+
+<div class="wrapper">
+
+  <!-- PAGE TITLE -->
+  <!-- <section class="bg-white-dark p-t-10 p-b-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3 class="montserrat text-uppercase m-b-5">Discover <%= @balcony.user.first_name %>'s balcony </h3>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="bg-white-dark">
+  			<div class="container">
+  				<div class="row multi-columns-row">
+  					<!-- ICONBOX -->
+  					<div class="col-sm-4 col-md-4 col-lg-4">
+  						<div class="box-icon-left">
+  							<div class="icon-box-icon">
+  								<i class="fa fa-smile-o"></i>
+  							</div>
+  							<h4 class ="p-t-10">Owner: <%= @balcony.user.first_name %> <%= @balcony.user.last_name %> </h4>
+  						</div>
+  					</div>
+  					<!-- END ICONBOX -->
+
+  					<!-- ICONBOX -->
+  					<div class="col-sm-4 col-md-4 col-lg-4">
+  						<div class="box-icon-left">
+  							<div class="icon-box-icon">
+  								<i class="fa fa-map"></i>
+  							</div>
+  							<h4 class ="p-t-10">City: <%= @balcony.city %></h4>
+  						</div>
+  					</div>
+  					<!-- END ICONBOX -->
+
+  					<!-- ICONBOX -->
+  					<div class="col-sm-4 col-md-4 col-lg-4">
+  						<div class="box-icon-left">
+  							<div class="icon-box-icon">
+  								<i class="fa fa-calendar"></i>
+  							</div>
+  							<h4 class ="p-t-10">Creation Date:  <%= @balcony.created_at %></h4>
+  						</div>
+  					</div>
+  					<!-- END ICONBOX -->
+
+  				</div>
+  			</div>
+  		</section>
+  <!-- END ICONBOX -->
+
+  <!-- PORTFOLIO -->
+	<section>
+		<div class="row m-l-50 m-r-50">
+			<div class="col-sm-8">
+        <%= cl_image_tag @balcony.photo, height: 650, width: 1140, crop: :fill %>
+			</div>
+      <div class="col-sm-4 m-t-30">
+				<ul class="portfolio-info">
+					<li>
+						<h5>Share:</h5>
+						<ul class="social-icons social-icons-simple">
+              <%= link_to "http://www.facebook.com" do %>
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to 'twitter', src:"http://www.twitter.com" do %>
+                <i class="fa fa-twitter"></i>
+              <% end %>
+              <%= link_to 'Google - plus ', src:"http://www.twitter.com" do %>
+                <i class="fa fa-twitter"></i>
+              <% end %>
+						</ul>
+					</li>
+          <li>
+            <div id="reviews">
+              <li><h5>Reviews</h5></li>
+              <% if @balcony.reviews.blank? %>
+                <span> Be the first to leave a review for <%= @balcony.name %> </span>
+              <% else %>
+                <% @balcony.reviews.each do |review| %>
+                  <%= render 'reviews/show', review: review %>
+                <% end %>
+              <% end %>
+            <%= render 'reviews/form', balcony: @balcony, review: @review %>
+            </div>
+          </li>
+				</ul>
+			</div>
+
+	</section>
+  <!-- END PORTFOLIO -->
 </div>
-<%= render 'reviews/form', balcony: @balcony, review: @review %>
-A lot more to do !
+
+<!-- PAGE TITLE -->
+<section class="bg-white-dark p-t-40 p-b-20">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h3 class="montserrat text-uppercase m-b-5"> <%= @balcony.user.first_name %> used following items to pimp this balcony </h3>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END PAGE TITLE -->
+
+
+<!-- RELATED PRODUCTS -->
+<div class="wrapper bg-white-dark ">
+  <div class="container p-t-40">
+
+    <div class="row multi-columns-row">
+      <% Item.first(4).each do |product| %>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <div class="shop-item">
+          <div class="shop-item-photo">
+            <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+            <div class="shop-item-tools">
+              <div>
+                <div>
+                  <%= link_to item_path(product.id) do %>
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                  <% end %>
+                  <%= link_to items_path do %>
+                      <i class="icon-basket-loaded icons" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="shop-item-title">
+            <h5><%= link_to product.name, item_path(product.id) %></h5>
+            <h5><%= product.price %>,00 € </h5>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- END SHOP ITEM -->
+    </div>
+  </div>
+</div>
