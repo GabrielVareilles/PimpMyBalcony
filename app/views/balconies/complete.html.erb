@@ -38,6 +38,7 @@
     </div>
   </div>
 </div>
+<%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-success" %>
 
 <h1>Items already attached to your balcony</h1>
   <%= @balcony.items.size %>
@@ -96,5 +97,6 @@
   <%= button_to "Pick this pot", duplicate_item_path(pot, name: current_user.first_name), class: "btn btn-success" %>
 <% end %>
 <hr>
+
 
 

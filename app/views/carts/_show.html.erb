@@ -1,5 +1,5 @@
 <div class="off-canvas-cart">
-  <p class = 'text-center' style ="margin-top: 10px;"> Your cart id: #<%=  @cart.id %></p>
+  <p class = 'text-center' style ="margin-top: 10px;"> Your cart </p>
 
     <div style="margin-right: -10px;" class="off-canvas-cart-wrapper">
 
@@ -46,7 +46,7 @@
                   <%= link_to item_path(item) do %>
                     <h5 class="m-b-5"> <%= item.name %> </h5>
                   <% end %>
-                    <span> <%= humanized_money_with_symbol(item.price) %> x 1 </span>
+                    <span><%= humanized_money_with_symbol(item.price) %></span>
                 </div>
 
               </div>
@@ -62,13 +62,14 @@
                   <h4 class="m-0">Total:</h4>
                 </div>
                 <div class="col-xs-6">
-                  <h4 class="m-0 text-right"><%= humanized_money_with_symbol(@cart.price) %></h4>
+                  <h4 class="m-0 text-left"><%= humanized_money_with_symbol(@cart.price) %></h4>
                 </div>
               </div>
             </div>
 
             <div class="off-canvas-cart-control">
-              <a href="#" class="btn btn-lg btn-block btn-round btn-base">Checkout</a>
+
+              <%= link_to "clear cart", clear_cart_carts_path, method: :post, class: 'btn btn-sm btn-circle btn-dark' %>
               <%= form_tag orders_path do %>
                 <%= hidden_field_tag 'cart_id', @cart.id %>
                 <%= submit_tag 'Checkout', class: 'btn btn-lg btn-block btn-round btn-base' %>
@@ -81,3 +82,4 @@
 
   </div>
 </div>
+

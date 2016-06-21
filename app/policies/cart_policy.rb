@@ -13,6 +13,10 @@ class CartPolicy < ApplicationPolicy
     true
   end
 
+  def clear_cart?
+    true
+  end
+
   def destroy?
     record.user == user  # Only balcony creator can update it
   end

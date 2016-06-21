@@ -21,5 +21,6 @@ class Cart < ActiveRecord::Base
 
   def remove_all_items
     self.items.clear
+    self.price_cents = 0
   end
 end
