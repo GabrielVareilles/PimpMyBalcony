@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   skip_after_action :verify_authorized
-  before_action :set_order
+  before_action :set_order_and_cart
 
   def new
   end
@@ -22,6 +22,7 @@ class PaymentsController < ApplicationController
       )
 
       @order.update(payment: charge.to_json, state: 'paid')
+      @cart.update(status: true)
       redirect_to order_path(@order)
 
     rescue Stripe::CardError => e
@@ -32,7 +33,8 @@ class PaymentsController < ApplicationController
 
   private
 
-  def set_order
-    @order = Order.where(state: 'pending').where(user_id: current_user.id)
+  def set_order_and_cart
+    @order = Order.where(state: 'pending').where(user_id: current_user.id).first
+    @cart = Cart.where(user: current_user, status: false).first
   end
 end
