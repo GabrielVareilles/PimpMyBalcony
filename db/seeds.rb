@@ -340,7 +340,7 @@ description: "The look very graphic of the rectangular fiber planter can just as
 category: "Pot",
 sub_category: "Window box",
 plant_category: "flowers",
-slot: 3,
+slot: 2,
 price_cents: 4900,
 volume: 30,
 length: 60,
@@ -474,7 +474,7 @@ category: "Pot",
 sub_category: "Ground box",
 plant_category: "plant, bush",
 slot: 6,
-price:7500,
+price_cents: 7500,
 volume: 30,
 length: 60,
 width: 60,
@@ -490,7 +490,7 @@ category: "Pot",
 sub_category: "Ground box",
 plant_category: "plant, bush",
 slot: 2,
-price: 2500,
+price_cents: 2500,
 volume: 10,
 length: 13,
 width: 20,
@@ -506,7 +506,7 @@ category: "Pot",
 sub_category: "Ground box",
 plant_category: "plant, bush",
 slot: 4,
-price: 4900,
+price_cents: 4900,
 volume: 30,
 length: 60,
 width: 40,
@@ -522,7 +522,7 @@ description: "It’s easy to grow tomato plants in pots. To get the most from co
 category: "Plant",
 sub_category: "herbs",
 slot: 1,
-price: 9900,
+price_cents: 9900,
 volume: 20,
 length: 30,
 width: 30,
@@ -530,6 +530,189 @@ weight: 3,
 )
 item14.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/tomate_ctx3fv.jpg'
 item14.save
+
+
+item15 = Item.new(
+name: "White oudoor fiber window box ",
+description: "You can hang the flower box and plant pot from a balcony rail and create a decorative garden, even on a small space.",
+category: "Pot",
+sub_category: "Window box",
+plant_category: "flowers",
+slot: 6,
+price_cents: 5500,
+volume: 30,
+length: 60,
+width: 20,
+weight: 5,
+)
+item15.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498275/potsmultiple_fclhgc.jpg'
+item15.save
+
+
+item16 = Item.new(
+name: "Flower box with holder ",
+description: "You can hang the flower box and plant pot from a balcony rail and create a decorative garden, even on a small space.",
+category: "Pot",
+sub_category: "Window box",
+plant_category: "flowers",
+slot: 2,
+price_cents: 1500,
+volume: 30,
+length: 20,
+width: 10,
+weight: 5,
+)
+item16.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498275/multiwindowbox_uzjqms.jpg'
+item16.save
+
+
+item17 = Item.new(
+name: "Multi color flower box",
+description: "You can hang the flower box and plant pot from a balcony rail and create a decorative garden, even on a small space.",
+category: "Pot",
+sub_category: "Window box",
+plant_category: "flowers",
+slot: 3,
+price_cents: 2000,
+volume: 40,
+length: 40,
+width: 10,
+weight: 5,
+)
+item17.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498274/colorwindowbox_ozffjy.jpg'
+item17.save
+
+
+item18 = Item.new(
+name: "Watering can, outdoor, grey",
+description: "You can store water or a nutrient mixture in the can, so everything is ready when you water your plants.",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 1,
+price_cents: 1900,
+volume: 20,
+length: 20,
+width: 10,
+weight: 2,
+)
+item18.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498274/arrosioir_uvhzer.jpg'
+item18.save
+
+item19 = Item.new(
+name: "Tray, hanging, black/natural",
+description: "Keep fresh herbs, spices, oil and vinegar close at hand with this hanging tray.",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 1,
+price_cents: 2500,
+volume: 20,
+length: 20,
+width: 10,
+weight: 2,
+)
+item19.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498275/flowerplates_zwdc8k.jpg.'
+item19.save
+
+item20 = Item.new(
+name: "Plant support, black fiber",
+description: "Keep your windowbox's fresh herbs, spices, oil and vinegar close at hand with this hanging tray.",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 1,
+price_cents: 2500,
+volume: 20,
+length: 20,
+width: 10,
+weight: 2,
+)
+item20.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498275/supportwindowbox_hhpymm.jpg'
+item20.save
+
+
+item21 = Item.new(
+name: "Plant stand with 5 plant pots, bamboo, white",
+description: "A decorative ladder plant stand allows you to grow several plants together vertically – perfect if you like plants but live in a small space.",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 5,
+price_cents: 3500,
+volume: 20,
+length: 90,
+width: 40,
+weight: 3,
+)
+item21.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466500911/plantsstand_tg0ip0.jpg'
+item21.save
+
+item22 = Item.new(
+name: "Bench, in/outdoor, orange",
+description: "The bench is durable and easy to care for, as it is made of powder-coated steel. ",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 5,
+price_cents: 3500,
+volume: 20,
+length: 90,
+width: 40,
+weight: 3,
+)
+item22.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498274/bancexterior_teskcz.jpg'
+item22.save
+
+item23 = Item.new(
+name: "Beach chair, foldable light red",
+description: "Enjoy relaxing with this awesome long chair 100% wood rainforest alliance",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 1,
+price_cents: 2490,
+volume: 40,
+length: 120,
+width: 40,
+weight: 5,
+)
+item23.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466501748/relax_p5koow.jpg'
+item23.save
+
+
+item24 = Item.new(
+name: "Trolley, outdoor, white, eucalyptus brown stained",
+description: "The Pimp My Ride trolley provides an extra storage area which can be moved easily.",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 1,
+price_cents: 8900,
+volume: 60,
+length: 81,
+width: 51,
+weight: 5,
+)
+item24.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498274/bbqdesign_kzmwcy.jpg'
+item24.save
+
+item24 = Item.new(
+name: "LED solar-powered pendant lamp",
+description: "Adopt this amazing eco environmental globe blue/white for your balcony evenings.",
+category: "Deco",
+sub_category: "Accessories",
+plant_category: "",
+slot: 1,
+price_cents: 700,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item25.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466502517/solarlamp_ushbgz.jpg'
+item25.save
+
 
 # itemX = Item.new(
 # name: "",
@@ -612,7 +795,7 @@ temperature_max: 45,
 pluviometry: 1,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 800,
+price_cents: 800,
 slot: 1,
 color: "green",
 size: 120
@@ -631,7 +814,7 @@ temperature_max: 25,
 pluviometry: 4,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 600,
+price_cents: 600,
 slot: 1,
 color: "green",
 size: 15
@@ -650,7 +833,7 @@ temperature_max: 25,
 pluviometry: 4,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 700,
+price_cents: 700,
 slot: 1,
 color: "green",
 size: 15
@@ -668,7 +851,7 @@ temperature_max: 25,
 pluviometry: 4,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 500,
+price_cents: 500,
 slot: 1,
 color: "green",
 size: 15
@@ -687,7 +870,7 @@ temperature_max: 40,
 pluviometry: 2,
 sunshine_amount: 4,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 12000,
+price_cents: 12000,
 slot: 1,
 color: "green",
 size: 15
@@ -705,7 +888,7 @@ temperature_max: 40,
 pluviometry: 2,
 sunshine_amount: 4,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 15000,
+price_cents: 15000,
 slot: 1,
 color: "green",
 size: 15
@@ -723,7 +906,7 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price: 9500,
+price_cents: 9500,
 slot: 1,
 color: "green",
 size: 15
@@ -742,7 +925,7 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
-price: 11500,
+price_cents: 11500,
 slot: 1,
 color: "green",
 size: 15
@@ -760,13 +943,64 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
-price: 14500,
+price_cents: 11500,
 slot: 1,
 color: "green",
 size: 15
 )
 plant12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466440709/bamboo_aurtmj.jpg'
 plant12.save
+
+plant13 = Plant.new(
+name: "Hortensia flowers",
+description: "These are plants known since ancient times: it was cultivated in Egypt and Southeast Asia for their ornamental character, but for their edible fruit. Many species also have medicinal properties. Imported to Europe in the twelfth century by the Moors of Spain, some species were subsequently introduced in America in the seventeenth century by slaves.",
+category: "Plant",
+temperature_min: 0,
+temperature_max: 35,
+pluviometry: 3,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price_cents: 1500,
+slot: 1,
+color: "white",
+size: 15
+)
+plant13.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466504265/hortensia_sj2bua.jpg'
+plant13.save
+
+plant14 = Plant.new(
+name: "Daisy flowers",
+description: "For a spectacular show during cool weather, plant marguerite daisy. Often confused with Shasta daisy, marguerite is more mounded and shrubby. Different types also come in pink with a bloom that more resembles purple coneflower.",
+category: "Plant",
+temperature_min: 0,
+temperature_max: 35,
+pluviometry: 3,
+sunshine_amount: 3,
+advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+price_cents: 1800,
+slot: 1,
+color: "pink, white",
+size: 15
+)
+plant14.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466504265/marguerite_daisy_mu0udh.jpg'
+plant14.save
+
+plant15 = Plant.new(
+name: " flowers",
+description: "A charming, deciduous grass that forms a compact, low mound and produces long-lasting, soft, pinkish, brush-like flowers in late summer that resemble squirrel tails. The bright green leaves turn yellow in autumn. It’s a fairly undistinguished plant until the flowers appear, so use it alongside spring bulbs or early-flowering perennials.",
+category: "Plant",
+temperature_min: 0,
+temperature_max: 35,
+pluviometry: 3,
+sunshine_amount: 3,
+advises: "Remove dead foliage in spring.",
+price_cents: 1490,
+slot: 1,
+color: "green",
+size: 15
+)
+plant15.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466505501/graminae_lah7xo.jpg'
+plant15.save
 
 # create_table "plants", force: :cascade do |t|
 #     t.string   "name"
