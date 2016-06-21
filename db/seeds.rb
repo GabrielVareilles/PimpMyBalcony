@@ -612,7 +612,7 @@ length: 20,
 width: 10,
 weight: 2,
 )
-item19.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498275/flowerplates_zwdc8k.jpg.'
+item19.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498275/flowerplates_zwdc8k.jpg'
 item19.save
 
 item20 = Item.new(
