@@ -196,6 +196,75 @@
     </div>
   </section>
 
+  <!-- RELATED PRODUCTS -->
+  <section class="p-t-20 p-b-20">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h5 class="montserrat text-uppercase bottom-line">Related Products</h5>
+        </div>
+      </div>
+
+      <div class="row multi-columns-row">
+
+        <% Item.first(4).each do |product| %>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                    <%= link_to item_path(product.id) do %>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to items_path do %>
+                        <i class="icon-basket-loaded icons" aria-hidden="true"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= link_to product.name, item_path(product.id) %></h5>
+              <h5><%= product.price %>,00 € </h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- END SHOP ITEM -->
+
+      </div>
+    </div>
+  </section>
+  <!-- END RELATED PRODUCTS -->
+
+  <!-- IMAGE CAROUSEL -->
+     <!-- <section class="module divider-bottom">
+       <div class="container">
+
+         <div class="row">
+           <div class="col-sm-12">
+
+             <h5 class="montserrat text-uppercase bottom-line">Discover Pinterest inspiring balconies</h5>
+
+             <div class="images-carousel" data-carousel-options='{"items":"3", "navigation": true}'>
+             <%= image_tag("balcony15.jpg") %>
+             <%= image_tag("balcony3.jpg") %>
+             <%= image_tag("balcony15.jpg") %>
+             <%= image_tag("balcony3.jpg") %>
+             <%= image_tag("balcony15.jpg") %>
+             <%= image_tag("balcony3.jpg") %>
+             </div>
+
+           </div>
+         </div>
+
+       </div>
+     </section> -->
+     <!-- END IMAGE CAROUSEL -->
+
 <!-- <div id="map" data-addresses= "[48.859822, 2.352647],[47.394930, 0.683666]" data-info="[Lorem ipsum dolor sit amet.],[Lorem ipsum dolor sit amet.]" data-icon="assets/map-icon.png" data-zoom="5"> -->
 
 
