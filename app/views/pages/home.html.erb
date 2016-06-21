@@ -9,11 +9,11 @@
   <!-- END banner -->
 
   <!-- HOW IT WORKS -->
-  <section id="about" class="module">
+  <section id="about" class="p-t-40">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="text-center m-b-70">
+					<div class="text-center m-b-20">
 						<h1>How it works?</h1>
 					</div>
 				</div>
@@ -51,6 +51,24 @@
 					</div>
 				</div>
 
+      <hr>
+
+        <div class="col-sm-8 col-sm-offset-2 p-t-40 m-b-60 text-center">
+          <h1 >Sign up to our Newsletter</h1>
+          <p class="lead m-b-40"> and receive weekly inspiration</p>
+
+          <form class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="input-group">
+                <input type="email" class="form-control form-circle input-lg" placeholder="E-mail">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-lg btn-circle btn-base">Subscribe</button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+
 			</div><!-- .row -->
 
 		</div>
@@ -71,67 +89,82 @@
   <!-- END QUOTE -->
 
   <!-- PORTFOLIO -->
-		<section class="module bg-white-dark p-b-0">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-						<div class="module-header text-center">
-							<h2 class="montserrat text-uppercase">Get inspired</h2>
-							<p class="lead divider-line">Have a look on our member's pimped balconies</p>
-              <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
-						</div>
-					</div>
-				</div>
+		<section class="p-t-40 p-b-40 p-b-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h1 class="p-t-40">Join the community</h1>
+            <p class="lead m-b-40"> and check other member's great balconies</p>
+          <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+          </div>
+        </div><!-- .row -->
+      </div>
+    </section>
 
-				<!-- PORTFOLIO FILTERS -->
+
+    <section class="bg-white-dark p-t-10 p-b-0 p-b-0">
+			<!-- WORKS WRAPPER -->
+			<div class="works-grid-wrapper">
+        <!-- PORTFOLIO FILTERS -->
 				<div class="row">
 					<div class="col-sm-12">
-						<ul id="filters" class="filters">
-							<li><a href="#" class="current" data-filter="*">All</a></li>
-              <li><a href="#" data-filter=".small">Small</a></li>
-							<li><a href="#" data-filter=".medium">Medium</a></li>
-							<li><a href="#" data-filter=".large">Large</a></li>
+						<ul id="filters" class="filters p-b-0">
+							<li class="p-b-5"><a href="#" class="current" data-filter="*">All</a></li>
+              <li class="p-b-5"><a href="#" data-filter=".small">Small</a></li>
+							<li class="p-b-5"><a href="#" data-filter=".medium">Medium</a></li>
+							<li class="p-b-5"><a href="#" data-filter=".large">Large</a></li>
 						</ul>
 					</div>
 				</div>
 				<!-- END PORTFOLIO FILTERS -->
 
-			</div>
+        <div class="row">
 
-			<!-- WORKS WRAPPER -->
-			<div class="works-grid-wrapper">
+          <div class="col-sm-8">
+        		<!-- WORKS GRID -->
+    				<div id="works-grid" class="works-grid works-grid-3">
+              <!-- PORTFOLIO ITEM -->
+              <% Balcony.all.first(6).each do |balcony| %>
+    					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
+    						<div class="work-wrapper">
+                  <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
+    							<div class="work-overlay">
+    								<div class="work-caption">
+    									<h6 class="work-title"> <%= balcony.name %> </h6>
+    									<span class="work-category"> <%= balcony.model %> </span>
+    								</div>
+    							</div>
+                  <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+    						</div>
+    					</article>
+              <% end %>
+    					<!-- END PORTFOLIO ITEM -->
+    				</div>
+    				<!-- END WORKS GRID -->
+    			</div>
 
-				<!-- WORKS GRID -->
-				<div id="works-grid" class="works-grid works-grid-3">
-
-          <!-- PORTFOLIO ITEM -->
-          <% Balcony.all.first(6).each do |balcony| %>
-					<article class="work-item <%= balcony.model %>">
-						<div class="work-wrapper">
-              <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
-							<div class="work-overlay">
-								<div class="work-caption">
-									<h6 class="work-title"> <%= balcony.name %> </h6>
-									<span class="work-category"> <%= balcony.model %> </span>
-								</div>
-							</div>
-              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
-						</div>
-					</article>
-          <% end %>
-					<!-- END PORTFOLIO ITEM -->
-
-				</div>
-				<!-- END WORKS GRID -->
-
-			</div>
+          <div class="col-sm-4">
+            <div class="maps-container m-b-10" style="padding: 10px 10px 0px 0px;" >
+              <!-- ADD YOUR ADDRESS HERE -->
+              <% toto = [] %>
+              <% tato = '' %>
+              <% Balcony.all.each do |balcony|%>
+                <% toto << [balcony.latitude, balcony.longitude] %>
+                <% tato = toto.to_s[1..-2] %>
+              <% end %>
+              <div id="map" data-addresses="<%= tato %>" data-info="[Pimped balcony]" data-icon="assets/map-icon.png" data-zoom="5">
+              </div>
+            </div>
+          </div>
+        </div>
 			<!-- END WORKS WRAPPER -->
+      </div>
 		</section>
 		<!-- END PORTFOLIO -->
 
 
   <!-- TESTIMONIALS -->
-  <section class="module bg-brand-alfa-60 color-white parallax" data-background="assets/image.jpeg">
+  <!-- <section class="module bg-brand-alfa-60 color-white parallax" data-background="assets/image.jpeg">
   	<div class="container">
   		<div class="row">
   			<div class="col-sm-10 col-sm-offset-1">
@@ -147,8 +180,92 @@
           </div>
   			</div>
   		</div>
-		</div><!-- .row -->
-  </section>
+		</div>
+  </section> -->
   <!-- END TESTIMONIALS -->
+
+  <section class="p-t-40 p-b-40 p-b-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h1 class="p-t-40">And pick up the best items</h1>
+          <p class="lead m-b-40"> and check other member's great balconies</p>
+        <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+        </div>
+      </div><!-- .row -->
+    </div>
+  </section>
+
+  <!-- RELATED PRODUCTS -->
+  <section class="p-t-20 p-b-20">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h5 class="montserrat text-uppercase bottom-line">Related Products</h5>
+        </div>
+      </div>
+
+      <div class="row multi-columns-row">
+
+        <% Item.first(4).each do |product| %>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                    <%= link_to item_path(product.id) do %>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to items_path do %>
+                        <i class="icon-basket-loaded icons" aria-hidden="true"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= link_to product.name, item_path(product.id) %></h5>
+              <h5><%= product.price %>,00 € </h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- END SHOP ITEM -->
+
+      </div>
+    </div>
+  </section>
+  <!-- END RELATED PRODUCTS -->
+
+  <!-- IMAGE CAROUSEL -->
+     <!-- <section class="module divider-bottom">
+       <div class="container">
+
+         <div class="row">
+           <div class="col-sm-12">
+
+             <h5 class="montserrat text-uppercase bottom-line">Discover Pinterest inspiring balconies</h5>
+
+             <div class="images-carousel" data-carousel-options='{"items":"3", "navigation": true}'>
+             <%= image_tag("balcony15.jpg") %>
+             <%= image_tag("balcony3.jpg") %>
+             <%= image_tag("balcony15.jpg") %>
+             <%= image_tag("balcony3.jpg") %>
+             <%= image_tag("balcony15.jpg") %>
+             <%= image_tag("balcony3.jpg") %>
+             </div>
+
+           </div>
+         </div>
+
+       </div>
+     </section> -->
+     <!-- END IMAGE CAROUSEL -->
+
+<!-- <div id="map" data-addresses= "[48.859822, 2.352647],[47.394930, 0.683666]" data-info="[Lorem ipsum dolor sit amet.],[Lorem ipsum dolor sit amet.]" data-icon="assets/map-icon.png" data-zoom="5"> -->
+
 
 </div>
