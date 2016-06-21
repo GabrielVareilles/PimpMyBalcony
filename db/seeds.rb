@@ -480,7 +480,7 @@ length: 60,
 width: 60,
 weight: 4.5,
 )
-item11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466433476/plato_iwifxy.jpg'
+item11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466517108/panierosier_sl1das.jpg'
 item11.save
 
 item12 = Item.new(
@@ -713,6 +713,86 @@ weight: 1,
 item25.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466502517/solarlamp_ushbgz.jpg'
 item25.save
 
+item26 = Item.new(
+name: "Lemon tree",
+description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 12000,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item26.remote_photo_url = 'hhttp://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
+item26.save
+
+item27 = Item.new(
+name: "Grapefruit",
+description: "The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet fruit. Grapefruit is a hybrid originating in Barbados as an accidental cross between two introduced species, sweet orange and pomelo",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 15000,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item27.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436958/pamplemousse_ojw2vf.jpg'
+item27.save
+
+item28 = Item.new(
+name: "palmier",
+description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 9500,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item28.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
+item28.save
+
+item29 = Item.new(
+name: "Buxus tree",
+description: "Pimp My Ride Buxus sempervirens (common box) standards make superb specimen topiary plants. Box topiary standards can be grown in containers/planters or in the ground as specimens plants.",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 11500,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item29.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466437027/buis_ioavfr.jpg'
+item29.save
+
+item30 = Item.new(
+name: "Bamboo",
+description: "Pimp My Ride Evergreen bamboo plants offer a thick lush hedge that offers total privacy and they take up very little planting area widthwise. The lush green leaves offer an exotic edge to your garden design with tall upright evergreen lines of green, yellow or black canes. This type of planting is particularly useful when delicately screening off the close proximity of neighbours.",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 11500,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item29.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466440709/bamboo_aurtmj.jpg'
+item29.save
+
 
 # itemX = Item.new(
 # name: "",
@@ -733,21 +813,21 @@ item25.save
 ##########################   Plant  SEED    ###############
 
 plant1 = Plant.new(
-name: "Olivier",
-scientific_name: "Olivium verdi",
-description: "The olivier is a nice rounded shape in leafy shrub that gives the impression of having been carved. Decorative guaranteed results! And its small size makes it ideal for terraces and balconies.",
+name: "Tomato plants",
+scientific_name: "Tomato ruby",
+description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
 category: "Plant",
 temperature_min: 10,
 temperature_max: 45,
 pluviometry: 1,
-sunshine_amount: 4,
+sunshine_amount: 700,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 99,
+price_cents: 9900,
 slot: 1,
 color: "green",
 size: 120
 )
-plant1.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466004334/olijf_hz0jfr.jpg'
+plant1.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466514314/tomato_plant_xer9y8.jpg'
 plant1.save
 
 plant2 = Plant.new(
@@ -760,12 +840,12 @@ temperature_max: 25,
 pluviometry: 4,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 5,
+price_cents: 400,
 slot: 1,
 color: "green",
 size: 15
 )
-plant2.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/c_scale,w_778/v1466004588/munt_pqqmo7.jpg'
+plant2.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466514487/Peppermint_foo29a.jpg'
 plant2.save
 
 plant3 = Plant.new(
@@ -777,30 +857,30 @@ temperature_max: 35,
 pluviometry: 2,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 5,
+price_cents: 500,
 slot: 1,
 color: "red",
 size: 15
 )
-plant3.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466005065/Guzmania_Ass_P13_snfzvw.jpg'
+plant3.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466514780/Hibiscus-Red_abxmqk.jpg'
 plant3.save
 
 plant4 = Plant.new(
-name: "Tomato plants",
-scientific_name: "Tomatum ruby",
-description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
+name: "Strawberry plants",
+scientific_name: "Fragaria × ananassa",
+description: "Fresh strawberries grown in gardens or on local farms can be harvested at the peak of ripeness, offering superior flavor, quality, and appearance. We offer three main types — short-day or June-bearing, day-neutral, and alpine strawberries. Choose from disease-free, dormant bare-root plants of the first two types, seeds of the second two types, and certified-organic plugs of day-neutral varieties.",
 category: "Plant",
 temperature_min: 10,
-temperature_max: 45,
+temperature_max: 35,
 pluviometry: 1,
 sunshine_amount: 3,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 800,
+price_cents: 750,
 slot: 1,
-color: "green",
+color: "red",
 size: 120
 )
-plant4.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/tomate_ctx3fv.jpg'
+plant4.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466518236/strawberry-plant_rpjsgg.jpg'
 plant4.save
 
 
@@ -819,7 +899,7 @@ slot: 1,
 color: "green",
 size: 15
 )
-plant5.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/basilique_xczctu.jpg'
+plant5.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466514956/basilum_izbgzl.jpg'
 plant5.save
 
 
@@ -838,7 +918,7 @@ slot: 1,
 color: "green",
 size: 15
 )
-plant6.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436973/aneth_gfuaa4.jpg'
+plant6.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466515361/dill_lcpjyw.jpg'
 plant6.save
 
 plant7 = Plant.new(
@@ -856,102 +936,102 @@ slot: 1,
 color: "green",
 size: 15
 )
-plant7.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436920/ciboulette_qwbnej.jpg'
+plant7.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466516122/chiveherbs_la4kwr.jpg'
 plant7.save
 
 
+# plant8 = Plant.new(
+# name: "Lemon tree",
+# scientific_name: "Citrus",
+# description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+# category: "Plant",
+# temperature_min: 10,
+# temperature_max: 40,
+# pluviometry: 2,
+# sunshine_amount: 4,
+# advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+# price_cents: 12000,
+# slot: 1,
+# color: "green",
+# size: 15
+# )
+# plant8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
+# plant8.save
+
+# plant9 = Plant.new(
+# name: "Grapefruit",
+# scientific_name: "Citrus × paradisi)",
+# description: "The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet fruit. Grapefruit is a hybrid originating in Barbados as an accidental cross between two introduced species, sweet orange and pomelo",
+# category: "Plant",
+# temperature_min: 10,
+# temperature_max: 40,
+# pluviometry: 2,
+# sunshine_amount: 4,
+# advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+# price_cents: 15000,
+# slot: 1,
+# color: "green",
+# size: 15
+# )
+# plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436958/pamplemousse_ojw2vf.jpg'
+# plant9.save
+
+# plant10 = Plant.new(
+# name: "palmier",
+# scientific_name: "chrysalidocarpus-lutescens",
+# description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+# category: "Plant",
+# temperature_min: 10,
+# temperature_max: 35,
+# pluviometry: 2,
+# sunshine_amount: 3,
+# advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+# price_cents: 9500,
+# slot: 1,
+# color: "green",
+# size: 15
+# )
+# plant10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
+# plant10.save
+
+
+# plant11 = Plant.new(
+# name: "Buxus tree",
+# scientific_name: "Buxus",
+# description: "Pimp My Ride Buxus sempervirens (common box) standards make superb specimen topiary plants. Box topiary standards can be grown in containers/planters or in the ground as specimens plants.",
+# category: "Plant",
+# temperature_min: 10,
+# temperature_max: 35,
+# pluviometry: 2,
+# sunshine_amount: 3,
+# advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
+# price_cents: 11500,
+# slot: 1,
+# color: "green",
+# size: 15
+# )
+# plant11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466437027/buis_ioavfr.jpg'
+# plant11.save
+
+# plant12 = Plant.new(
+# name: "Bamboo",
+# scientific_name: "Bambus",
+# description: "Pimp My Ride Evergreen bamboo plants offer a thick lush hedge that offers total privacy and they take up very little planting area widthwise. The lush green leaves offer an exotic edge to your garden design with tall upright evergreen lines of green, yellow or black canes. This type of planting is particularly useful when delicately screening off the close proximity of neighbours.",
+# category: "Plant",
+# temperature_min: 10,
+# temperature_max: 35,
+# pluviometry: 2,
+# sunshine_amount: 3,
+# advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
+# price_cents: 11500,
+# slot: 1,
+# color: "green",
+# size: 15
+# )
+# plant12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466440709/bamboo_aurtmj.jpg'
+# plant12.save
+
 plant8 = Plant.new(
-name: "Lemon tree",
-scientific_name: "Citrus",
-description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
-category: "Plant",
-temperature_min: 10,
-temperature_max: 40,
-pluviometry: 2,
-sunshine_amount: 4,
-advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 12000,
-slot: 1,
-color: "green",
-size: 15
-)
-plant8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
-plant8.save
-
-plant9 = Plant.new(
-name: "Grapefruit",
-scientific_name: "Citrus × paradisi)",
-description: "The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet fruit. Grapefruit is a hybrid originating in Barbados as an accidental cross between two introduced species, sweet orange and pomelo",
-category: "Plant",
-temperature_min: 10,
-temperature_max: 40,
-pluviometry: 2,
-sunshine_amount: 4,
-advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 15000,
-slot: 1,
-color: "green",
-size: 15
-)
-plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436958/pamplemousse_ojw2vf.jpg'
-plant9.save
-
-plant10 = Plant.new(
-name: "palmier",
-scientific_name: "chrysalidocarpus-lutescens",
-description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
-category: "Plant",
-temperature_min: 10,
-temperature_max: 35,
-pluviometry: 2,
-sunshine_amount: 3,
-advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 9500,
-slot: 1,
-color: "green",
-size: 15
-)
-plant10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
-plant10.save
-
-
-plant11 = Plant.new(
-name: "Buxus tree",
-scientific_name: "Buxus",
-description: "Pimp My Ride Buxus sempervirens (common box) standards make superb specimen topiary plants. Box topiary standards can be grown in containers/planters or in the ground as specimens plants.",
-category: "Plant",
-temperature_min: 10,
-temperature_max: 35,
-pluviometry: 2,
-sunshine_amount: 3,
-advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
-price_cents: 11500,
-slot: 1,
-color: "green",
-size: 15
-)
-plant11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466437027/buis_ioavfr.jpg'
-plant11.save
-
-plant12 = Plant.new(
-name: "Bamboo",
-scientific_name: "Bambus",
-description: "Pimp My Ride Evergreen bamboo plants offer a thick lush hedge that offers total privacy and they take up very little planting area widthwise. The lush green leaves offer an exotic edge to your garden design with tall upright evergreen lines of green, yellow or black canes. This type of planting is particularly useful when delicately screening off the close proximity of neighbours.",
-category: "Plant",
-temperature_min: 10,
-temperature_max: 35,
-pluviometry: 2,
-sunshine_amount: 3,
-advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
-price_cents: 11500,
-slot: 1,
-color: "green",
-size: 15
-)
-plant12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466440709/bamboo_aurtmj.jpg'
-plant12.save
-
-plant13 = Plant.new(
 name: "Hortensia flowers",
 description: "These are plants known since ancient times: it was cultivated in Egypt and Southeast Asia for their ornamental character, but for their edible fruit. Many species also have medicinal properties. Imported to Europe in the twelfth century by the Moors of Spain, some species were subsequently introduced in America in the seventeenth century by slaves.",
 category: "Plant",
@@ -965,10 +1045,10 @@ slot: 1,
 color: "white",
 size: 15
 )
-plant13.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466504265/hortensia_sj2bua.jpg'
-plant13.save
+plant8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466504265/hortensia_sj2bua.jpg'
+plant8.save
 
-plant14 = Plant.new(
+plant9 = Plant.new(
 name: "Daisy flowers",
 description: "For a spectacular show during cool weather, plant marguerite daisy. Often confused with Shasta daisy, marguerite is more mounded and shrubby. Different types also come in pink with a bloom that more resembles purple coneflower.",
 category: "Plant",
@@ -982,10 +1062,10 @@ slot: 1,
 color: "pink, white",
 size: 15
 )
-plant14.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466504265/marguerite_daisy_mu0udh.jpg'
-plant14.save
+plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466504265/marguerite_daisy_mu0udh.jpg'
+plant9.save
 
-plant15 = Plant.new(
+plant10 = Plant.new(
 name: " flowers",
 description: "A charming, deciduous grass that forms a compact, low mound and produces long-lasting, soft, pinkish, brush-like flowers in late summer that resemble squirrel tails. The bright green leaves turn yellow in autumn. It’s a fairly undistinguished plant until the flowers appear, so use it alongside spring bulbs or early-flowering perennials.",
 category: "Plant",
@@ -999,8 +1079,10 @@ slot: 1,
 color: "green",
 size: 15
 )
-plant15.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466505501/graminae_lah7xo.jpg'
-plant15.save
+plant10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466505501/graminae_lah7xo.jpg'
+plant10.save
+
+
 
 # create_table "plants", force: :cascade do |t|
 #     t.string   "name"
