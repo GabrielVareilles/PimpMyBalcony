@@ -697,7 +697,7 @@ weight: 5,
 item24.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466498274/bbqdesign_kzmwcy.jpg'
 item24.save
 
-item24 = Item.new(
+item25 = Item.new(
 name: "LED solar-powered pendant lamp",
 description: "Adopt this amazing eco environmental globe blue/white for your balcony evenings.",
 category: "Deco",
