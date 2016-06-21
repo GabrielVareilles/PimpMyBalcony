@@ -6,6 +6,15 @@
     </label>
   </article>
 
+
+  <% @cart.items.each do |item| %>
+    <%= item.name %>
+    <%= item.price %>
+  <% end %>
+
+
+
+
   <!-- Commented for the lecture, remove comments. -->
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
