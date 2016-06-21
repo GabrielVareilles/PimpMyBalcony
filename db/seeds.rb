@@ -713,6 +713,86 @@ weight: 1,
 item25.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466502517/solarlamp_ushbgz.jpg'
 item25.save
 
+item26 = Item.new(
+name: "Lemon tree",
+description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 12000,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item26.remote_photo_url = 'hhttp://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
+item26.save
+
+item27 = Item.new(
+name: "Grapefruit",
+description: "The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet fruit. Grapefruit is a hybrid originating in Barbados as an accidental cross between two introduced species, sweet orange and pomelo",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 15000,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item27.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436958/pamplemousse_ojw2vf.jpg'
+item27.save
+
+item28 = Item.new(
+name: "palmier",
+description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 9500,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item28.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
+item28.save
+
+item29 = Item.new(
+name: "Buxus tree",
+description: "Pimp My Ride Buxus sempervirens (common box) standards make superb specimen topiary plants. Box topiary standards can be grown in containers/planters or in the ground as specimens plants.",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 11500,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item29.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466437027/buis_ioavfr.jpg'
+item29.save
+
+item30 = Item.new(
+name: "Bamboo",
+description: "Pimp My Ride Evergreen bamboo plants offer a thick lush hedge that offers total privacy and they take up very little planting area widthwise. The lush green leaves offer an exotic edge to your garden design with tall upright evergreen lines of green, yellow or black canes. This type of planting is particularly useful when delicately screening off the close proximity of neighbours.",
+category: "Plant",
+sub_category: "bush",
+plant_category: "bush",
+slot: 1,
+price_cents: 11500,
+volume: 20,
+length: 15,
+width:10,
+weight: 1,
+)
+item29.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466440709/bamboo_aurtmj.jpg'
+item29.save
+
 
 # itemX = Item.new(
 # name: "",
@@ -733,21 +813,21 @@ item25.save
 ##########################   Plant  SEED    ###############
 
 plant1 = Plant.new(
-name: "Olivier",
-scientific_name: "Olivium verdi",
-description: "The olivier is a nice rounded shape in leafy shrub that gives the impression of having been carved. Decorative guaranteed results! And its small size makes it ideal for terraces and balconies.",
+name: "Tomato plants",
+scientific_name: "Tomato ruby",
+description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
 category: "Plant",
 temperature_min: 10,
 temperature_max: 45,
 pluviometry: 1,
 sunshine_amount: 4,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 99,
+price_cents: 9900,
 slot: 1,
 color: "green",
 size: 120
 )
-plant1.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466004334/olijf_hz0jfr.jpg'
+plant1.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436921/tomate_ctx3fv.jpg'
 plant1.save
 
 plant2 = Plant.new(
@@ -1001,6 +1081,8 @@ size: 15
 )
 plant15.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466505501/graminae_lah7xo.jpg'
 plant15.save
+
+
 
 # create_table "plants", force: :cascade do |t|
 #     t.string   "name"
