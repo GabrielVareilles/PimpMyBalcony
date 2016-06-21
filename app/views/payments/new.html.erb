@@ -6,12 +6,21 @@
     </label>
   </article>
 
-  <!-- # Commented for the lecture, remove comments.
+
+  <% @cart.items.each do |item| %>
+    <%= item.name %>
+    <%= item.price %>
+  <% end %>
+
+
+
+
+  <!-- Commented for the lecture, remove comments. -->
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Teddy"
-    data-description="Teddy <%= @order.teddy_sku %>"
-    data-amount="<%= @order.amount_cents %>"
+    data-name="My Cart"
+    data-description="Order_id: <%= @order.first.id %>"
+    data-amount="<%= @order.first.amount_cents %>"
     data-currency="EUR"></script>
-  -->
+
 <% end %>
