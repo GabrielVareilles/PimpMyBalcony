@@ -1,7 +1,7 @@
 class BalconiesController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_balcony, only: [:show_public, :show_private, :edit, :update, :destroy, :add_item, :remove_item]
+  before_action :set_balcony, only: [:show_public, :show_private, :edit, :update, :destroy, :add_item, :remove_item, :add_collection_to_cart]
 
   def index
     @balconies = policy_scope(Balcony)
@@ -77,6 +77,14 @@ class BalconiesController < ApplicationController
       redirect_to complete_path
       flash[:alert] = "Item not removed to your balcony"
     end
+  end
+
+  def add_collection_to_cart
+    @balcony.items.each do |item|
+      @cart.add_item(item)
+    end
+    @cart.save
+    redirect_to complete_path
   end
 
   private

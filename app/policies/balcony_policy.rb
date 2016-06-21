@@ -40,4 +40,8 @@ class BalconyPolicy < ApplicationPolicy
   def remove_item?
      record.user == user  # Only balcony creator can update it
   end
+
+  def add_collection_to_cart?
+    true
+  end
 end

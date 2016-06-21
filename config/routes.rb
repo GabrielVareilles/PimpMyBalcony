@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       collection do
        post "add_item"
        post "remove_item"
+       post "clear_cart"
       end
     end
     post "add_item", to: "carts#add_item", as: 'add_item_cart'
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       member do
         post "add_item"
         post "remove_item"
+        post "add_collection_to_cart"
       end
     end
 

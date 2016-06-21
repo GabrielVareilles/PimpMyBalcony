@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:destroy, :add_item, :remove_item]
+  before_action :set_cart, only: [:destroy, :add_item, :remove_item, :clear_cart]
 
 
   def add_item
@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     @cart.add_item(@item)
 
     if @cart.save
-      redirect_to items_path
+      redirect_to(:back)
       flash[:notice] = "Item added to your cart"
     else
       redirect_to items_path
@@ -25,6 +25,12 @@ class CartsController < ApplicationController
     else
       flash[:alert] = "Item not removed to your cart"
     end
+  end
+
+  def clear_cart
+    @cart.remove_all_items
+    @cart.save
+    redirect_to(:back)
   end
 
   def destroy

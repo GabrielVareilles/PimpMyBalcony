@@ -1,66 +1,151 @@
+<div style="position: relative; width: 1853px; height: 86px; display: block; vertical-align: baseline; float: none;"></div>
 
-<h1>Your balcony</h1>
-
-
-
-<div style="position: relative; height: 1948.13px;" class="gallery">
-  <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
-    <%= image_tag('Balcony_' + @balcony.model.downcase + '.jpg', class: 'card') %>
-  </div>
-</div>
-
-
-<p>Department: <%= @balcony.department %></p>
-<p>Lenght: <%= @balcony.length %> (cm)</p>
-
-<h1>Your meteo</h1>
-
-<% Department.all.each do |department| %>
-  <% if department.number == @balcony.department.to_s[0..1].to_i %>
-    <p>Minimum Temperature: <%= department.temperature_min %> (°C)</p>
-    <p>Max Temperature: <%= department.temperature_max %> (°C)</p>
-    <p>Annual Pluviometry: <%= department.pluviometry %> (mm)</p>
-    <p>Annual Sunshine exposure: <%= department.sunshine_amount %> (hours)</p>
-  <% end %>
-<% end %>
-
-<h1>Your balcony room !</h1>
-
-<div class="wrapper-grey padded">
+<section class="module-xs bg-white-dark">
   <div class="container">
-    <div class="progress">
-      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-      aria-valuenow= "<%= @balcony.items.sum(:length)%>" aria-valuemin="0" aria-valuemax= "<%= @balcony.length%>" >
-      <p>
-        <%= (100 * (@balcony.items.sum(:length).to_f / @balcony.length.to_f)).round(1).to_s + '%' %>
-      </p>
+
+    <div class="row">
+      <div class="col-sm-12 text-center">
+
+        <h3 class="montserrat text-uppercase m-b-10">Now start to flower your balcony !</h3>
+
       </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- #################################################################################################TEST -->
+<section class="module">
+  <div class="container">
+    <hr class="m-t-20 m-b-20">
+    <div class="row multi-columns-row">
+      <% @balcony.items.all.each do |item| %>
+
+        <!-- SHOP ITEM -->
+        <div class="col-sm-1 col-md-1 col-lg-1">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag item.photo %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                  </div>
+                    <%= button_to "remove item", remove_item_balcony_path(@balcony, item: item.id), class: "btn btn-link" %>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= item.name %></h5>
+            </div>
+          </div>
+        </div>
+        <!-- END SHOP ITEM -->
+      <% end %>
+    </div><!-- .row -->
+  </div>
+</section>
+<div class="container text-center">
+  <%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-success" %>
+  <h6 class="progress-title">Room left in your balcony <span class="pull-right"><span>80</span>%</span></h6>
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar"
+    aria-valuenow= "<%= @balcony.items.sum(:length)%>" aria-valuemin="0" aria-valuemax= "<%= @balcony.length%>" >
+    <p>
+      <%= (100 * (@balcony.items.sum(:length).to_f / @balcony.length.to_f)).round(1).to_s + '%' %>
+    </p>
     </div>
   </div>
 </div>
+<!-- #################################################################################################TESTPICKITEM -->
 
-<h1>Items already attached to your balcony</h1>
-  <%= @balcony.items.size %>
-  <br>
-  <% @balcony.items.all.each do |item| %>
-    <%= item.name %>
-    <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
-    <%= button_to "remove item", remove_item_balcony_path(@balcony, item: item.id), class: "btn btn-link" %>
-  <% end %>
+<div class="wrapper">
+
+  <section class=" m-t-40 bg-white-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3 class="montserrat text-uppercase m-t-40">The balcony boutique</h3>
+          <!-- PORTFOLIO FILTERS -->
+          <div class="row">
+            <div class="col-sm-12">
+              <ul id="filters" class="filters p-t-20 bg-white-dark">
+                <li><a href="#" class="current" data-filter="*">All</a></li>
+                <li><a href="#" data-filter=".pot">Pot</a></li>
+                <li><a href="#" data-filter=".plant">Plant</a></li>
+                <li><a href="#" data-filter=".deco">Deco</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class=" m-t-40 p-b-0">
+    <div class="container">
+
+      <!-- WORKS WRAPPER -->
+      <div class="works-grid-wrapper">
+
+        <!-- WORKS GRID -->
+        <div id="works-grid" class="works-grid works-grid-4">
+
+          <!-- PORTFOLIO ITEM -->
+          <% Item.all.where(category: ["Deco","Pot","Plant"]).each do |item| %>
+            <article class="work-item <%= item.category.downcase %>" style="padding: 20px 20px 40px 20px;">
+              <div class="work-wrapper">
+                <%= cl_image_tag item.photo %>
+                <div class="work-overlay">
+                  <div class="work-caption">
+                    <div class="work-title" style="text-align:center;">
+                      <h5><%= humanized_money_with_symbol(item.price) %> </h5>
+                        <%= link_to add_item_balcony_path(@balcony,item: item.id), method: :post do %>
+                            <i class="icon-basket-loaded icons" aria-hidden="true" style="color:white; width: 100px;"></i>
+                        <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="work-title p-t-20" style="text-align:center;">
+              <h5><%= item.name %></h5>
+                <% if current_user.admin == true %>
+                  <%= link_to "Remove item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+                <% end %>
+              </div>
+            </article>
+          <% end %>
+          <!-- END PORTFOLIO ITEM -->
+        </div>
+        <!-- END WORKS GRID -->
+      </div>
+      <!-- END WORKS WRAPPER -->
+    </section>
+    <!-- END PORTFOLIO -->
+  </div>
+  <!-- END WRAPPER -->
+</div>
+
+
+<!-- #################################################################################################TEST -->
+
+
+
+<!-- #################################################################################################TESTCUSTOMPOT -->
+
+
+
+
+
+
 
 <h1>Add Items to your balcony !</h1>
 
-<% Item.all.where(category: ["Deco","Pot","Plant"]).each do |item| %>
-  <div class="container text-center">
-    <%= item.name %>
-    <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
-    <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
-    <% if current_user.admin == true %>
-      <%= link_to "Remove item", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
-    <% end %>
-  </div>
-  <hr>
-<% end %>
 
 <div class="wrapper-grey padded">
   <div class="container">
@@ -97,4 +182,25 @@
 <% end %>
 <hr>
 
+
+<div style="position: relative; height: 1948.13px;" class="gallery">
+  <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
+    <%= image_tag('Balcony_' + @balcony.model.downcase + '.jpg', class: 'card') %>
+  </div>
+</div>
+
+
+<p>Department: <%= @balcony.department %></p>
+<p>Lenght: <%= @balcony.length %> (cm)</p>
+
+<h1>Your meteo</h1>
+
+<% Department.all.each do |department| %>
+  <% if department.number == @balcony.department.to_s[0..1].to_i %>
+    <p>Minimum Temperature: <%= department.temperature_min %> (°C)</p>
+    <p>Max Temperature: <%= department.temperature_max %> (°C)</p>
+    <p>Annual Pluviometry: <%= department.pluviometry %> (mm)</p>
+    <p>Annual Sunshine exposure: <%= department.sunshine_amount %> (hours)</p>
+  <% end %>
+<% end %>
 
