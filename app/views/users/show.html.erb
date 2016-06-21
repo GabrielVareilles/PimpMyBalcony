@@ -90,34 +90,34 @@
         <div class="col-sm-8">
           <div class="container">
             <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Order reference</th>
-                <th>date</th>
-                <th>items</th>
-                <th>amount</th>
-                <th>state</th>
-                <th>delivery</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Order reference</th>
+                  <th>date</th>
+                  <th>items</th>
+                  <th>amount</th>
+                  <th>state</th>
+                  <th>delivery</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
 
-      <% count = 0 %>
-      <% Order.where(user_id: current_user.id).all.each do |order| %>
-        <% count += 1 %>
-            <tbody>
-              <tr>
-                <td><%= count %></td>
-                <td><%= order.id%></td>
-                <td><%= order.created_at%> </td>
-                <td>Awesome stuff</td>
-                <td><%= order.amount%></td>
-                <td><%= order.state %></td>
-                <td>pending</td>
-              </tr>
-            </tbody>
-      <% end %>
+              <% count = 0 %>
+              <% Order.where(user_id: current_user.id).all.each do |order| %>
+                <% count += 1 %>
+                <tbody>
+                  <tr>
+                    <td><%= count %></td>
+                    <td><%= order.id%></td>
+                    <td><%= order.created_at%> </td>
+                    <td>Awesome stuff</td>
+                    <td><%= order.amount%></td>
+                    <td><%= order.state %></td>
+                    <td>pending</td>
+                  </tr>
+                </tbody>
+              <% end %>
             </table>
           </div>
         </div>
