@@ -8,11 +8,11 @@ class ActiveRecord::Base
   end
 end
 
-# Not allowed in production for obvious reasons.
-# if Rails.env.in?(%(production)) && !ENV['FORCE']
-#   STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
-#   exit
-# end
+Not allowed in production for obvious reasons.
+if Rails.env.in?(%(production)) && !ENV['FORCE']
+  STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
+  exit
+end
 
 # We truncate the records so to regenerate the seed.
 # Each time we seed all the items are lost and recreated.
