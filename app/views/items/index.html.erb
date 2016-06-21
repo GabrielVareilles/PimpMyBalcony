@@ -155,7 +155,7 @@
             </div>
             <div class="shop-item-title">
               <h5><%= link_to product.name, item_path(product.id) %></h5>
-              <h5><%= product.price %>,00 € </h5>
+              <h5><%= humanized_money_with_symbol(product.price) %> </h5>
             </div>
           </div>
         </div>
