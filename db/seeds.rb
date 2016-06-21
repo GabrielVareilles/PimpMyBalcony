@@ -726,7 +726,7 @@ length: 15,
 width:10,
 weight: 1,
 )
-item26.remote_photo_url = 'hhttp://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
+item26.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
 item26.save
 
 item27 = Item.new(
