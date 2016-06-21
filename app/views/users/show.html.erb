@@ -86,35 +86,41 @@
   <div class="row">
 		<div class="col-sm-4">
       <h1>YOUR ORDERS</h1>
-    </div>
-    <div class="col-sm-8">
-      <div class="container">
-        <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>reference</th>
-            <th>date</th>
-            <th>items</th>
-            <th>amount</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+      <br>
+        <div class="col-sm-8">
+          <div class="container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Order reference</th>
+                  <th>date</th>
+                  <th>items</th>
+                  <th>amount</th>
+                  <th>state</th>
+                  <th>delivery</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>#12345</td>
-            <td>24/01/2016</td>
-            <td>awesome stuff</td>
-            <td>199,90 €</td>
-            <td><%= link_to 'Show', root_path %></td>
-            <td><%= link_to 'Edit', root_path %></td>
-            <td><%= link_to 'Destroy', root_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        </tbody>
-        </table>
-      </div>
+              <% count = 0 %>
+              <% Order.where(user_id: current_user.id).all.each do |order| %>
+                <% count += 1 %>
+                <tbody>
+                  <tr>
+                    <td><%= count %></td>
+                    <td><%= order.id%></td>
+                    <td><%= order.created_at%> </td>
+                    <td>Awesome stuff</td>
+                    <td><%= order.amount%></td>
+                    <td><%= order.state %></td>
+                    <td>pending</td>
+                  </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
     </div>
   </div>
 </div>

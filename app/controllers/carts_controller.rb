@@ -4,7 +4,6 @@ class CartsController < ApplicationController
 
   def add_item
     @item = Item.find(params[:item])
-    @cart = @cart.first
     @cart.add_item(@item)
 
     if @cart.save
@@ -18,7 +17,6 @@ class CartsController < ApplicationController
 
   def remove_item
     @item = Item.find(params[:item])
-    @cart = @cart.first
     @cart.remove_item(@item)
 
     if @cart.save
@@ -36,7 +34,7 @@ class CartsController < ApplicationController
   private
 
   def set_cart
-    @cart = Cart.where(user_id: current_user.id)
+    @cart = Cart.where(user_id: current_user.id).where(status: false).last
     authorize @cart
     return @cart
   end
