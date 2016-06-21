@@ -27,7 +27,7 @@
       <% @balcony.items.all.each do |item| %>
 
         <!-- SHOP ITEM -->
-        <div class="col-sm-1 col-md-1 col-lg-1">
+        <div class="col-sm-2 col-md-2 col-lg-2">
           <div class="shop-item">
             <div class="shop-item-photo">
               <%= cl_image_tag item.photo %>
@@ -138,42 +138,65 @@
 
 <!-- #################################################################################################TESTCUSTOMPOT -->
 
-
-
-
-
-
-
-<h1>Add Items to your balcony !</h1>
-
-
-<div class="wrapper-grey padded">
+<section class="module">
   <div class="container">
-    <h2 class="text-center">Your custom pots</h2>
-    <div class="row">
-    <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
-      <div class="col-xs-12 col-sm-4">
-        <%= item.name %> <br>
-        <%= 'your pot has ' + item.slot.to_s + ' slot' %> <br>
-        <%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %> <br>
-        <%= 'Total price: ' + item.plants.sum(:price).to_s + ' €' %> <br>
-        <%= cl_image_tag item.photo, height: 75, width: 100, crop: :fill %>
-        <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
-        <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
-        <hr>
-        <% Plant.all.each do |plant|%>
-          <%= plant.name %>
-          <%= cl_image_tag plant.photo, height: 75, width: 100, crop: :fill %>
-          <%= button_to "Add plant", add_plant_item_path(item, plant: plant.id), class: "btn btn-link" %>
-          <%= button_to "Remove plant", remove_plant_item_path(item, plant: plant.id), class: "btn btn-link" %>
-        <% end %>
-      </div>
-    <% end %>
-    </div>
-  </div>
-</div>
+    <hr class="m-t-20 m-b-20">
+    <div class="row multi-columns-row">
+      <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
 
-  <hr>
+        <!-- SHOP ITEM -->
+        <div class="col-sm-3 col-md-3 col-lg-3">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag item.photo %>
+              <div class="shop-item-tools">
+                <div>
+                  <div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= item.name %></h5>
+              <h5><%= 'your pot has ' + item.slot.to_s + ' slot' %></h5>
+              <h5><%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %></h5>
+              <h5><%= 'Total price: ' + item.price.to_s + ' €' %></h5>
+              <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
+              <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+            </div>
+          </div>
+        </div>
+        <!-- END SHOP ITEM -->
+    </div><!-- .row -->
+    <section class="module">
+
+      <div class="container">
+
+        <div style="position: relative; height: 326.3px;" class="gallery gallery-4">
+          <% Plant.all.each do |plant| %>
+          <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
+            <%= cl_image_tag plant.photo, height: 90, width: 120, crop: :fill %>
+            <h5><%= plant.name %></h5>
+          </div>
+          <% end %>
+        </div><!-- .gallery -->
+
+      </div>
+
+    </section>
+      <% end %>
+  </div>
+</section>
+
+
+
+<!-- #################################################################################################TESTCUSTOMPOT -->
+
+
+
+
+
+<hr>
 <h1>Custom</h1>
 <hr>
 <% Item.all.where(category: "Pot").each do |pot| %>

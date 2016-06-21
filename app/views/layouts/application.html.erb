@@ -45,7 +45,7 @@
   <body>
   <!-- CART    -->
     <% if current_user%>
-      <%= render 'carts/show' %>
+    <%= render 'carts/show' %>
     <% end %>
 
     <!-- PRELOADER -->
@@ -56,7 +56,6 @@
 
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
 
     <%= render 'shared/footer' %>
