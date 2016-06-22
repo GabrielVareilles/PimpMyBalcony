@@ -177,6 +177,8 @@
           <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
             <%= cl_image_tag plant.photo, height: 90, width: 120, crop: :fill %>
             <h5><%= plant.name %></h5>
+            <h5><%= link_to "Add plant", add_plant_item_path(item, plant: plant.id), method: :post %></h5>
+
           </div>
           <% end %>
         </div><!-- .gallery -->
