@@ -18,154 +18,106 @@
 </section>
 
 <section class="module">
-      <div class="container">
+  <div class="container">
 
-        <div class="row">
+    <div class="row">
 
-          <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8 col-sm-offset-2">
 
-            <!-- FORM -->
-            <form method="post" class="m-b-50">
-              <div class="row">
+        <!-- FORM -->
+        <form method="post" class="m-b-50">
+          <div class="row">
 
-                <div class="col-md-6 form-group">
-                  <label class="sr-only">First Name</label>
-                  <input class="form-control input-lg" placeholder="First Name" value="" type="text">
-                </div>
-
-                <div class="col-md-6 form-group">
-                  <label class="sr-only">Last Name</label>
-                  <input class="form-control input-lg" placeholder="Last Name" value="" type="text">
-                </div>
-
-                <div class="col-md-12 form-group">
-                  <label class="sr-only">E-mail Address</label>
-                  <input class="form-control input-lg" placeholder="E-mail Address" value="" type="email">
-                </div>
-
-                <div class="col-md-12 form-group">
-                  <label class="sr-only">Street Address</label>
-                  <input class="form-control input-lg" placeholder="Street Address" value="" type="text">
-                </div>
-
-                <div class="col-md-12 form-group">
-                  <label class="sr-only">Apartment, Suite, Unit etc.</label>
-                  <input class="form-control input-lg" placeholder="Apartment, Suite, Unit etc." value="" type="text">
-                </div>
-
-                <div class="col-md-6 form-group">
-                  <label class="sr-only">City</label>
-                  <input class="form-control input-lg" placeholder="City" value="" type="text">
-                </div>
-
-                <div class="col-md-6 form-group">
-                  <label class="sr-only">Pastcode</label>
-                  <input class="form-control input-lg" placeholder="Pastcode" value="" type="text">
-                </div>
-
-                <div class="col-md-12 form-group">
-                  <label class="sr-only">Phone</label>
-                  <input class="form-control input-lg" placeholder="Phone" value="" type="number">
-                </div>
-
-                <div class="col-md-12 form-group">
-                  <label class="sr-only">Special notes</label>
-                  <textarea class="form-control" rows="4" placeholder="Special notes"></textarea>
-                </div>
-
-              </div>
-            </form>
-            <!-- END FORM -->
-
-            <!-- TOTALS -->
-            <div class="totals">
-              <table class="table totals-table">
-                <tbody>
-                  <% @cart.items.each do |item| %>
-                    <tr>
-                      <td><h5 class="m-0"><%= item.name %></h5></td>
-                      <td><h5 class="m-0 color-gray text-right"><%= humanized_money_with_symbol(item.price) %></h5></td>
-                    </tr>
-                  <% end %>
-                  <tr>
-                    <td><h4 class="m-0">Total</h4></td>
-                    <td><h4 class="m-0 text-right">Amount: <%= humanized_money_with_symbol(@order.amount) %></h4></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="col-md-6 form-group">
+              <label class="sr-only">First Name</label>
+              <input class="form-control input-lg" placeholder="<%= current_user.first_name %>" value="<%= current_user.first_name %>" type="text">
             </div>
-            <!-- END TOTALS -->
 
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <%= form_tag order_payments_path(@order) do %>
+            <div class="col-md-6 form-group">
+              <label class="sr-only">Last Name</label>
+              <input class="form-control input-lg" placeholder="<%= current_user.last_name %>" value="<%= current_user.last_name %>" type="text">
+            </div>
 
+            <div class="col-md-12 form-group">
+              <label class="sr-only">E-mail Address</label>
+              <input class="form-control input-lg" placeholder="<%= current_user.email %>" value="<%= current_user.email %>" type="email">
+            </div>
 
+            <div class="col-md-12 form-group">
+              <label class="sr-only">Street Address</label>
+              <input class="form-control input-lg" placeholder="Street Address" value="" type="text">
+            </div>
 
+            <div class="col-md-12 form-group">
+              <label class="sr-only">Apartment, Suite, Unit etc.</label>
+              <input class="form-control input-lg" placeholder="Apartment, Suite, Unit etc." value="" type="text">
+            </div>
 
-                 <!-- Commented for the lecture, remove comments. -->
-                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                   data-name="My Cart"
-                   data-description="Order_id: <%= @order.id %>"
-                   data-amount="<%= @order.amount_cents %>"
-                   data-currency="EUR"></script>
-                <% end %>
+            <div class="col-md-6 form-group">
+              <label class="sr-only">City</label>
+              <input class="form-control input-lg" placeholder="City" value="" type="text">
+            </div>
 
+            <div class="col-md-6 form-group">
+              <label class="sr-only">Postcode</label>
+              <input class="form-control input-lg" placeholder="Pastcode" value="" type="text">
+            </div>
 
-              </div>
+            <div class="col-md-12 form-group">
+              <label class="sr-only">Phone</label>
+              <input class="form-control input-lg" placeholder="Phone" value="" type="number">
+            </div>
+
+            <div class="col-md-12 form-group">
+              <label class="sr-only">Special notes</label>
+              <textarea class="form-control" rows="4" placeholder="Special notes"></textarea>
             </div>
 
           </div>
-        </div><!-- .row -->
+        </form>
+        <!-- END FORM -->
+
+        <!-- TOTALS -->
+        <div class="totals">
+          <table class="table totals-table">
+            <tbody>
+              <% @cart.items.each do |item| %>
+                <tr>
+                  <td><h5 class="m-0"><%= item.name %></h5></td>
+                  <td><h5 class="m-0 color-gray text-right"><%= humanized_money_with_symbol(item.price) %></h5></td>
+                </tr>
+              <% end %>
+              <tr>
+                <td><h4 class="m-0">Total</h4></td>
+                <td><h4 class="m-0 text-right">Amount: <%= humanized_money_with_symbol(@order.amount) %></h4></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- END TOTALS -->
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <%= form_tag order_payments_path(@order) do %>
+
+
+
+
+             <!-- Commented for the lecture, remove comments. -->
+             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+               data-name="My Cart"
+               data-description="Order_id: <%= @order.id %>"
+               data-amount="<%= @order.amount_cents %>"
+               data-currency="EUR"></script>
+            <% end %>
+
+
+          </div>
+        </div>
 
       </div>
-    </section>
+    </div><!-- .row -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <article>
-   <label class="amount">
-     <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-   </label>
- </article>
-
-
- <% @cart.items.each do |item| %>
-   <%= item.name %>
-   <%= item.price %>
- <% end %>
-
-
-
-
-
-
-
-<h1>Purchase of your cart <%=  %></h1>
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
-<% end %>
-
-
-
-
-
-
-  <!-- Commented for the lecture, remove comments. -->
+  </div>
+</section>
