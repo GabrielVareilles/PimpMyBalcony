@@ -1,3 +1,144 @@
+
+
+
+<section class="module-sm bg-white-dark">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12 text-center">
+
+        <h3 class="montserrat text-uppercase m-b-10">Checkout</h3>
+        <ol class="breadcrumb text-xs">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li class="active">Checkout</li>
+        </ol>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="module">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-sm-8 col-sm-offset-2">
+
+            <!-- FORM -->
+            <form method="post" class="m-b-50">
+              <div class="row">
+
+                <div class="col-md-6 form-group">
+                  <label class="sr-only">First Name</label>
+                  <input class="form-control input-lg" placeholder="First Name" value="" type="text">
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label class="sr-only">Last Name</label>
+                  <input class="form-control input-lg" placeholder="Last Name" value="" type="text">
+                </div>
+
+                <div class="col-md-12 form-group">
+                  <label class="sr-only">E-mail Address</label>
+                  <input class="form-control input-lg" placeholder="E-mail Address" value="" type="email">
+                </div>
+
+                <div class="col-md-12 form-group">
+                  <label class="sr-only">Street Address</label>
+                  <input class="form-control input-lg" placeholder="Street Address" value="" type="text">
+                </div>
+
+                <div class="col-md-12 form-group">
+                  <label class="sr-only">Apartment, Suite, Unit etc.</label>
+                  <input class="form-control input-lg" placeholder="Apartment, Suite, Unit etc." value="" type="text">
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label class="sr-only">City</label>
+                  <input class="form-control input-lg" placeholder="City" value="" type="text">
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <label class="sr-only">Pastcode</label>
+                  <input class="form-control input-lg" placeholder="Pastcode" value="" type="text">
+                </div>
+
+                <div class="col-md-12 form-group">
+                  <label class="sr-only">Phone</label>
+                  <input class="form-control input-lg" placeholder="Phone" value="" type="number">
+                </div>
+
+                <div class="col-md-12 form-group">
+                  <label class="sr-only">Special notes</label>
+                  <textarea class="form-control" rows="4" placeholder="Special notes"></textarea>
+                </div>
+
+              </div>
+            </form>
+            <!-- END FORM -->
+
+            <!-- TOTALS -->
+            <div class="totals">
+              <table class="table totals-table">
+                <tbody>
+                  <% @cart.items.each do |item| %>
+                    <tr>
+                      <td><h5 class="m-0"><%= item.name %></h5></td>
+                      <td><h5 class="m-0 color-gray text-right"><%= humanized_money_with_symbol(item.price) %></h5></td>
+                    </tr>
+                  <% end %>
+                  <tr>
+                    <td><h4 class="m-0">Total</h4></td>
+                    <td><h4 class="m-0 text-right">Amount: <%= humanized_money_with_symbol(@order.amount) %></h4></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- END TOTALS -->
+
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-name="My Cart"
+                  data-description="Order_id: <%= @order.id %>"
+                  data-amount="<%= @order.amount_cents %>"
+                  data-currency="EUR"></script>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div><!-- .row -->
+
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>Purchase of your cart <%=  %></h1>
 <%= form_tag order_payments_path(@order) do %>
   <article>
@@ -5,22 +146,11 @@
       <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
     </label>
   </article>
+<% end %>
 
 
-  <% @cart.items.each do |item| %>
-    <%= item.name %>
-    <%= item.price %>
-  <% end %>
 
 
 
 
   <!-- Commented for the lecture, remove comments. -->
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Cart"
-    data-description="Order_id: <%= @order.id %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="EUR"></script>
-
-<% end %>
