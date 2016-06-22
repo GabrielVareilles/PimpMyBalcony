@@ -57,9 +57,9 @@
         <% Department.all.each do |department| %>
           <% if department.number == @balcony.department.to_s[0..1].to_i %>
             <h3 class="montserrat text-uppercase p-t-10 p-b-10 text-center">Your local weather info</h3>
-            <p><b>Minimum Temperature:</b> <%= department.temperature_min %> (°C)</p><hr>
-            <p><b>Maximum Temperature: </b><%= department.temperature_max %> (°C)</p><hr>
-            <p><b>Annual Pluviometry: </b><%= department.pluviometry %> (mm)</p><hr>
+            <p><b>Temperature range: </b> <%= department.temperature_min %> - <%= department.temperature_max %> (°C)   <i class="fa fa-bullseye" aria-hidden="true" style="font-size:25px;color:black;"></i></p><hr>
+            <p><b>Annual Pluviometry: </b><%= department.pluviometry %> (mm)   <i class="fa fa-tint" aria-hidden="true" style="font-size:25px;color:#87CEEB;"></i></p><hr>
+            <p><b>Sunshine Amount: </b><%= department.sunshine_amount %> (hours)   <i class="fa fa-sun-o" aria-hidden="true" style="font-size:25px;color:#DAA520;"></i></p><hr>
           <% end %>
         <% end %>
     </div>
