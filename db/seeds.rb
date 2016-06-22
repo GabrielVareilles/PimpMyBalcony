@@ -16,7 +16,7 @@ end
 
 # We truncate the records so to regenerate the seed.
 # Each time we seed all the items are lost and recreated.
-[Department, Item, Balcony, Plant, User, Cart].map(&:truncate!)
+[Department, Item, Balcony, Plant, User, Cart, Order].map(&:truncate!)
 
 ##########################Department Seed###############
 

@@ -57,9 +57,9 @@
         <% Department.all.each do |department| %>
           <% if department.number == @balcony.department.to_s[0..1].to_i %>
             <h3 class="montserrat text-uppercase p-t-10 p-b-10 text-center">Your local weather info</h3>
-            <p><b>Temperature range: </b> <%= department.temperature_min %> - <%= department.temperature_max %> (°C)   <i class="fa fa-bullseye" aria-hidden="true" style="font-size:25px;color:black;"></i></p><hr>
-            <p><b>Annual Pluviometry: </b><%= department.pluviometry %> (mm)   <i class="fa fa-tint" aria-hidden="true" style="font-size:25px;color:#87CEEB;"></i></p><hr>
-            <p><b>Sunshine Amount: </b><%= department.sunshine_amount %> (hours)   <i class="fa fa-sun-o" aria-hidden="true" style="font-size:25px;color:#DAA520;"></i></p><hr>
+            <p><b>Temperature range: </b> <%= department.temperature_min %> - <%= department.temperature_max %> (°C)      <i class="fa fa-bullseye" aria-hidden="true" style="font-size:25px;color:black;"></i></p><hr>
+            <p><b>Annual Pluviometry: </b><%= department.pluviometry %> (mm)      <i class="fa fa-tint" aria-hidden="true" style="font-size:25px;color:#87CEEB;"></i></p><hr>
+            <p><b>Sunshine Amount: </b><%= department.sunshine_amount %> (hours)      <i class="fa fa-sun-o" aria-hidden="true" style="font-size:25px;color:#DAA520;"></i></p><hr>
           <% end %>
         <% end %>
     </div>
@@ -167,51 +167,52 @@
 <!-- END TEXT TABS CENTER -->
 <!-- END LE COEUR DU REACTEUR -->
 
-<!-- YOUR CUSTOM POT -->
+<!-- #############################################################YOUR CUSTOM POT############################################################## -->
 <section class=" p-t-30 p-b-20" style = "background-color: #27CBC0; opacity: 0.7">
-  <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1 style="color:white"> Your Custom pot </h1>
-        <p class="lead m-b-40" style="color:white"> Assemble your custom pot and add it to your balcony</p>
-      </div>
-    </div><!-- .row -->
+  <% c_item = Item.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").last %>
+  <% unless c_item.nil? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h1 style="color:white"> Your Custom pot </h1>
+          <p class="lead m-b-40" style="color:white"> Assemble your custom pot and add it to your balcony</p>
+        </div>
+      </div><!-- .row -->
 
-    <div class="row multi-columns-row">
+      <div class="row multi-columns-row" id="anchor_1">
 
-        <!-- SHOP ITEM -->
-        <div class="col-sm-2 col-md-2 col-lg-2 m-b-20" style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px;">
-          <div class="shop-item">
-            <div class="shop-item-photo">
-              <%= cl_image_tag item.photo %>
+          <!-- SHOP ITEM -->
+          <div class="col-sm-2 col-md-2 col-lg-2 m-b-20" style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px;">
+            <div class="shop-item">
+              <div class="shop-item-photo">
+                <%= cl_image_tag c_item.photo %>
+              </div>
+              <div class="shop-item-title">
+                <h5><%= c_item.name %></h5>
+                <h5><%= 'your pot has ' + c_item.slot.to_s + ' slot' %></h5>
+                <h5><%= 'your pot has ' + c_item.plants.size.to_s + ' plants in !' %></h5>
+                <h5><%= 'Total price: ' + c_item.price.to_s + ' €' %></h5>
+                <%= button_to "Add item", add_item_balcony_path(@balcony, item: c_item.id), class: "btn btn-success" %>
+                <%= link_to "Delete", item_path(c_item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+              </div>
+            </div>
+          </div>
+
+          <% c_item.plants.first(4).each do |plant| %>
+          <div class="col-sm-2 col-md-2 col-lg-2" style="background-color:white; border-radius: 20px;  margin-right:10px; margin-left:10px;">
+            <div class="shop-item">
+              <div class="shop-item-photo">
+                <%= cl_image_tag plant.photo %>
+              </div>
             </div>
             <div class="shop-item-title">
-              <h5><%= item.name %></h5>
-              <h5><%= 'your pot has ' + item.slot.to_s + ' slot' %></h5>
-              <h5><%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %></h5>
-              <h5><%= 'Total price: ' + item.price.to_s + ' €' %></h5>
-              <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
-              <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+              <h5><%= plant.name %></h5>
+              <h5><%= link_to "Add plant", add_plant_item_path(c_item, plant: plant.id), method: :post %></h5>
+              <h5><%= link_to "Remove plant", remove_plant_item_path(c_item, plant: plant.id), method: :post %></h5>
             </div>
           </div>
-        </div>
-
-        <% Plant.first(4).each do |plant| %>
-        <div class="col-sm-2 col-md-2 col-lg-2" style="background-color:white; border-radius: 20px;  margin-right:10px; margin-left:10px;">
-          <div class="shop-item">
-            <div class="shop-item-photo">
-              <%= cl_image_tag plant.photo %>
-            </div>
-          </div>
-          <div class="shop-item-title">
-            <h5><%= plant.name %></h5>
-            <h5><%= link_to "Add plant", add_plant_item_path(plant, plant: plant.id), method: :post %></h5>
-          </div>
-        </div>
         <% end %>
         <!-- END SHOP ITEM -->
-      <% end %>
 
 
     </div><!-- .row -->
@@ -222,9 +223,24 @@
       </div>
     </div><!-- .row -->
 
+    <section class="module">
+      <div class="container">
+        <div style="position: relative; height: 326.3px;" class="gallery gallery-4">
+          <% Plant.all.each do |plant| %>
+          <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
+            <%= cl_image_tag plant.photo, height: 90, width: 120, crop: :fill %>
+            <h5><%= plant.name %></h5>
+            <h5><%= link_to "Add plant", add_plant_item_path(c_item, plant: plant.id), method: :post %></h5>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
   </div>
+  <% end %>
 </section>
 
+<!-- ################################################################YOUR CUSTOM POT####################################################### -->
 
 <!-- YOUR BALCONY ITEMS -->
 <section class="p-t-40 p-b-20 p-b-0 bg-white-dark">
@@ -237,11 +253,13 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
-          <%= button_to "Add to cart", complete_path, class: "btn btn-round btn-warning" %>
-          <br>
-          <%= button_to "SAVE", complete_path, class: "btn btn-round btn-warning" %>
-        </div>
+        <% @balcony.items.each do |item| %>
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <%= cl_image_tag item.photo, height: 90, width: 120, crop: :fill %>
+            <h5><%= link_to "Remove Item", remove_item_balcony_path(@balcony, item: item.id), method: :post %></h5>
+            <br>
+          </div>
+        <% end %>
       </div><!-- .row -->
 
     </div><!-- .row -->
@@ -250,61 +268,11 @@
 
 <!-- END YOUR BALCONY ITEMS -->
 
-
 <!-- #################################################################################################TEST -->
 
-<section>
-  <div class="container">
-    <hr class="m-t-20 m-b-20">
-    <div class="row multi-columns-row">
-      <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
-        <!-- SHOP ITEM -->
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <div class="shop-item">
-            <div class="shop-item-photo">
-              <%= cl_image_tag item.photo %>
-              <div class="shop-item-tools">
-                <div>
-                  <div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="shop-item-title">
-              <h5><%= item.name %></h5>
-              <h5><%= 'your pot has ' + item.slot.to_s + ' slot' %></h5>
-              <h5><%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %></h5>
-              <h5><%= 'Total price: ' + item.price.to_s + ' €' %></h5>
-              <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
-              <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
-            </div>
-          </div>
-        </div>
-        <!-- END SHOP ITEM -->
-    </div><!-- .row -->
+<%= button_to "SAVE", complete_path, class: "btn btn-round btn-warning" %>
 
 
-
-    <section class="module">
-      <div class="container">
-        <div style="position: relative; height: 326.3px;" class="gallery gallery-4">
-          <% Plant.all.each do |plant| %>
-          <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
-            <%= cl_image_tag plant.photo, height: 90, width: 120, crop: :fill %>
-            <h5><%= plant.name %></h5>
-            <h5><%= link_to "Add plant", add_plant_item_path(item, plant: plant.id), method: :post %></h5>
-          </div>
-          <% end %>
-        </div><!-- .gallery -->
-      </div>
-    </section>
-      <% end %>
-  </div>
-</section>
-
-
-
-<!-- #################################################################################################TESTCUSTOMPOT -->
 
 <div class="container text-center">
   <%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-success" %>
@@ -312,9 +280,6 @@
   <div class="progress">
     <div class="progress-bar progress-bar-success" role="progressbar"
     aria-valuenow= "<%= @balcony.items.sum(:length)%>" aria-valuemin="0" aria-valuemax= "<%= @balcony.length%>" >
-    <p>
-      <%= (100 * (@balcony.items.sum(:length).to_f / @balcony.length.to_f)).round(1).to_s + '%' %>
-    </p>
     </div>
   </div>
 </div>
