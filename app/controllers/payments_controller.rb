@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
   private
 
   def set_order_and_cart
-    @order = Order.where(state: 'pending').where(user_id: current_user.id).first
+    @order = Order.where(state: 'pending').where(user_id: current_user.id).last
     @cart = Cart.where(user: current_user, status: false).first
   end
 end
