@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     @cart.add_item(@item)
 
     if @cart.save
-      redirect_to(:back)
+      render json: @item
       flash[:notice] = "Item added to your cart"
     else
       redirect_to items_path
