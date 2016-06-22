@@ -30,7 +30,7 @@ class CartsController < ApplicationController
   def clear_cart
     @cart.remove_all_items
     @cart.save
-    redirect_to(:back)
+    render json: @cart
   end
 
   def destroy

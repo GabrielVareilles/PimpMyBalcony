@@ -69,7 +69,7 @@
 
             <div class="off-canvas-cart-control">
 
-              <%= link_to "clear cart", clear_cart_carts_path, method: :post, class: 'btn btn-sm btn-circle btn-dark' %>
+              <%= link_to "clear cart", clear_cart_carts_path, method: :post, class: 'btn btn-sm btn-circle btn-dark dynamic-clear-cart', remote: true %>
               <%= form_tag orders_path do %>
                 <%= hidden_field_tag 'cart_id', @cart.id %>
                 <%= submit_tag 'Checkout', class: 'btn btn-lg btn-block btn-round btn-base' %>
