@@ -1,3 +1,3 @@
-ActiveAdmin.register Cart do
-  permit_params :cart_number, :shipping, :discount, :delivery_adress, :status
+ActiveAdmin.register Order do
+  permit_params :user_id, :amount
 end
