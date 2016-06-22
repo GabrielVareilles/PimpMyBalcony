@@ -1,6 +1,3 @@
-
-
-
 <!-- WRAPPER -->
 <div class="wrapper">
 
@@ -9,7 +6,7 @@
   <!-- END banner -->
 
   <!-- HOW IT WORKS -->
-  <section id="about" class="p-t-40">
+  <section id="about" class="p-t-40 p-b-40">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
@@ -50,27 +47,8 @@
 						<p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo.</p>
 					</div>
 				</div>
-
-      <hr>
-
-        <div class="col-sm-8 col-sm-offset-2 p-t-40 m-b-60 text-center">
-          <h1 >Sign up to our Newsletter</h1>
-          <p class="lead m-b-40"> and receive weekly inspiration</p>
-
-          <form class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <div class="input-group">
-                <input type="email" class="form-control form-circle input-lg" placeholder="E-mail">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-lg btn-circle btn-base">Subscribe</button>
-                </span>
-              </div>
-            </div>
-          </form>
-        </div>
-
+        <hr>
 			</div><!-- .row -->
-
 		</div>
 	</section>
   <!-- END HOW IT WORKS -->
@@ -89,106 +67,11 @@
   <!-- END QUOTE -->
 
   <!-- PORTFOLIO -->
-		<section class="p-t-40 p-b-40 p-b-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
-            <h1 class="p-t-40">Join the community</h1>
-            <p class="lead m-b-40"> and check other member's great balconies</p>
-          <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
-          </div>
-        </div><!-- .row -->
-      </div>
-    </section>
-
-
-    <section class="bg-white-dark p-t-10 p-b-0 p-b-0">
-			<!-- WORKS WRAPPER -->
-			<div class="works-grid-wrapper">
-        <!-- PORTFOLIO FILTERS -->
-				<div class="row">
-					<div class="col-sm-12">
-						<ul id="filters" class="filters p-b-0">
-							<li class="p-b-5"><a href="#" class="current" data-filter="*">All</a></li>
-              <li class="p-b-5"><a href="#" data-filter=".small">Small</a></li>
-							<li class="p-b-5"><a href="#" data-filter=".medium">Medium</a></li>
-							<li class="p-b-5"><a href="#" data-filter=".large">Large</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- END PORTFOLIO FILTERS -->
-
-        <div class="row">
-
-          <div class="col-sm-8">
-        		<!-- WORKS GRID -->
-    				<div id="works-grid" class="works-grid works-grid-3">
-              <!-- PORTFOLIO ITEM -->
-              <% Balcony.all.first(6).each do |balcony| %>
-    					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
-    						<div class="work-wrapper">
-                  <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
-    							<div class="work-overlay">
-    								<div class="work-caption">
-    									<h6 class="work-title"> <%= balcony.name %> </h6>
-    									<span class="work-category"> <%= balcony.model %> </span>
-    								</div>
-    							</div>
-                  <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
-    						</div>
-    					</article>
-              <% end %>
-    					<!-- END PORTFOLIO ITEM -->
-    				</div>
-    				<!-- END WORKS GRID -->
-    			</div>
-
-          <div class="col-sm-4">
-            <div class="maps-container m-b-10" style="padding: 10px 10px 0px 0px;" >
-              <!-- ADD YOUR ADDRESS HERE -->
-              <% toto = [] %>
-              <% tato = '' %>
-              <% Balcony.all.each do |balcony|%>
-                <% toto << [balcony.latitude, balcony.longitude] %>
-                <% tato = toto.to_s[1..-2] %>
-              <% end %>
-              <div id="map" data-addresses="<%= tato %>" data-info="[Pimped balcony]" data-icon="assets/map-icon.png" data-zoom="5">
-              </div>
-            </div>
-          </div>
-        </div>
-			<!-- END WORKS WRAPPER -->
-      </div>
-		</section>
-		<!-- END PORTFOLIO -->
-
-
-  <!-- TESTIMONIALS -->
-  <!-- <section class="module bg-brand-alfa-60 color-white parallax" data-background="assets/image.jpeg">
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-sm-10 col-sm-offset-1">
-          <div class="testimonial-image">
-            <img src="assets/images/avatar/2.jpg" alt="">
-            <div class="cd-author-info">
-              <h5 class="text-700 m-0">Mark Stone</h5>
-              Corporation Name, Inc
-            </div>
-          </div>
-          <div class="testimonial">
-            The office assistant was the boss's man, spineless, and with no understanding. What about if he reported sick? But that would be extremely strained and suspicious as in fifteen years of service Gregor had never once yet been ill.
-          </div>
-  			</div>
-  		</div>
-		</div>
-  </section> -->
-  <!-- END TESTIMONIALS -->
-
-  <section class="p-t-40 p-b-40 p-b-0">
+	<section class="p-t-40 p-b-40 p-b-0">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
-          <h1 class="p-t-40">And pick up the best items</h1>
+          <h1 class="p-t-40">Join the community</h1>
           <p class="lead m-b-40"> and check other member's great balconies</p>
         <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
         </div>
@@ -196,76 +79,145 @@
     </div>
   </section>
 
-  <!-- RELATED PRODUCTS -->
-  <section class="p-t-20 p-b-20">
-    <div class="container">
+
+  <section class="bg-white-dark p-t-10 p-b-0 p-b-0">
+		<!-- WORKS WRAPPER -->
+		<div class="works-grid-wrapper">
+      <!-- PORTFOLIO FILTERS -->
+			<div class="row">
+				<div class="col-sm-12">
+					<ul id="filters" class="filters p-b-0">
+						<li class="p-b-5"><a href="#" class="current" data-filter="*">All</a></li>
+            <li class="p-b-5"><a href="#" data-filter=".small">Small</a></li>
+						<li class="p-b-5"><a href="#" data-filter=".medium">Medium</a></li>
+						<li class="p-b-5"><a href="#" data-filter=".large">Large</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- END PORTFOLIO FILTERS -->
 
       <div class="row">
-        <div class="col-sm-12">
-          <h5 class="montserrat text-uppercase bottom-line">Related Products</h5>
-        </div>
-      </div>
 
-      <div class="row multi-columns-row">
+        <div class="col-sm-8">
+      		<!-- WORKS GRID -->
+  				<div id="works-grid" class="works-grid works-grid-3">
+            <!-- PORTFOLIO ITEM -->
+            <% Balcony.all.first(6).each do |balcony| %>
+  					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
+  						<div class="work-wrapper">
+                <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
+  							<div class="work-overlay">
+  								<div class="work-caption">
+  									<h6 class="work-title"> <%= balcony.name %> </h6>
+  									<span class="work-category"> <%= balcony.model %> </span>
+  								</div>
+  							</div>
+                <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+  						</div>
+  					</article>
+            <% end %>
+  					<!-- END PORTFOLIO ITEM -->
+  				</div>
+  				<!-- END WORKS GRID -->
+  			</div>
 
-        <% Item.first(4).each do |product| %>
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <div class="shop-item">
-            <div class="shop-item-photo">
-              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
-              <div class="shop-item-tools">
-                <div>
-                  <div>
-                    <%= link_to item_path(product.id) do %>
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    <% end %>
-                    <%= link_to items_path do %>
-                        <i class="icon-basket-loaded icons" aria-hidden="true"></i>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
+        <div class="col-sm-4">
+          <div class="maps-container m-b-10" style="padding: 10px 10px 0px 0px;" >
+            <!-- ADD YOUR ADDRESS HERE -->
+            <% toto = [] %>
+            <% tato = '' %>
+            <% Balcony.all.each do |balcony|%>
+              <% toto << [balcony.latitude, balcony.longitude] %>
+              <% tato = toto.to_s[1..-2] %>
+            <% end %>
+            <div id="map" data-addresses="<%= tato %>" data-info="[Pimped balcony]" data-icon="assets/map-icon.png" data-zoom="5">
             </div>
-            <div class="shop-item-title">
-              <h5><%= link_to product.name, item_path(product.id) %></h5>
-              <h5><%= product.price %>,00 € </h5>
-            </div>
+            <!-- <div id="map" data-addresses= "[48.859822, 2.352647],[47.394930, 0.683666]" data-info="[Lorem ipsum dolor sit amet.],[Lorem ipsum dolor sit amet.]" data-icon="assets/map-icon.png" data-zoom="5"> -->
           </div>
         </div>
-        <% end %>
-        <!-- END SHOP ITEM -->
-
       </div>
+		<!-- END WORKS WRAPPER -->
+    </div>
+	</section>
+	<!-- END PORTFOLIO -->
+
+  <!-- PRODUCT -->
+  <section class="p-t-40 p-b-40 p-b-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h1 class="p-t-40">And pick up the best items</h1>
+          <p class="lead m-b-40"> Oh that's Awesome !   </p>
+        <%= link_to "More product here", items_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+        </div>
+      </div><!-- .row -->
     </div>
   </section>
-  <!-- END RELATED PRODUCTS -->
 
   <!-- IMAGE CAROUSEL -->
-     <!-- <section class="module divider-bottom">
-       <div class="container">
-
-         <div class="row">
-           <div class="col-sm-12">
-
-             <h5 class="montserrat text-uppercase bottom-line">Discover Pinterest inspiring balconies</h5>
-
-             <div class="images-carousel" data-carousel-options='{"items":"3", "navigation": true}'>
-             <%= image_tag("balcony15.jpg") %>
-             <%= image_tag("balcony3.jpg") %>
-             <%= image_tag("balcony15.jpg") %>
-             <%= image_tag("balcony3.jpg") %>
-             <%= image_tag("balcony15.jpg") %>
-             <%= image_tag("balcony3.jpg") %>
-             </div>
-
+   <section class="divider-bottom">
+     <div class="container">
+       <div class="row">
+         <div class="col-sm-12">
+           <!-- START CARROUSSEL-->
+           <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
+             <% Item.all.each do |pot| %>
+               <div class="item">
+                 <%= cl_image_tag pot.photo, height: 250, width: 250, crop: :fill %>
+                 <p class="m-t-10 text-center"><%= pot.name %></p>
+                 <%= button_to "Show", item_path(pot.id), class: "btn btn-round btn-base center-block" %>
+               </div>
+             <% end %>
            </div>
+           <!-- END CAROUSEL-->
          </div>
-
        </div>
-     </section> -->
-     <!-- END IMAGE CAROUSEL -->
+     </div>
+   </section>
+   <!-- END IMAGE CAROUSEL -->
 
-<!-- <div id="map" data-addresses= "[48.859822, 2.352647],[47.394930, 0.683666]" data-info="[Lorem ipsum dolor sit amet.],[Lorem ipsum dolor sit amet.]" data-icon="assets/map-icon.png" data-zoom="5"> -->
+   <!-- NEWSLETTER -->
+  <section class="m-t-60 bg-white-dark">
+    <div class="container" >
+      <div class="row">
+         <div class="col-sm-8 col-sm-offset-2 p-t-40 m-b-60 text-center">
+           <h1>Sign up to our Newsletter</h1>
+           <h3 class="m-b-40"> and receive weekly inspiration</h3>
+           <form class="row">
+             <div class="col-sm-8 col-sm-offset-2">
+               <div class="input-group">
+                 <input type="email" class="form-control form-circle input-lg" placeholder="E-mail">
+                 <span class="input-group-btn">
+                   <button type="submit" class="btn btn-lg btn-circle btn-base">Subscribe</button>
+                 </span>
+               </div>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </section>
+   <!-- END NEWSLETTER -->
 
 
+   <!-- TESTIMONIALS -->
+   <section class="" >
+    <div class="container p-t-60 p-b-40">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+           <div class="testimonial-image">
+             <%= image_tag "fx.jpg" %>
+             <div class="cd-author-info">
+               <h5 class="text-700 m-0">François-Xavier Abraham</h5>
+               <p>E-Marketing et Stratégie</p>
+             </div>
+           </div>
+           <div class="testimonial">
+             I pimped my balcony like crazy thank to that kick-ass team. Not only the product recommendation were great, the delivery was awesome. I think about PMB everytime I stare at my flowered balcony. Thanks guys, you're the best.
+           </div>
+        </div>
+      </div>
+    </div>
+   </section>
+   <!-- END TESTIMONIALS -->
 </div>
