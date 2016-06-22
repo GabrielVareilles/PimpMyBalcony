@@ -1,6 +1,3 @@
-
-
-
 <section class="module-sm bg-white-dark">
   <div class="container">
 
@@ -101,12 +98,19 @@
 
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-name="My Cart"
-                  data-description="Order_id: <%= @order.id %>"
-                  data-amount="<%= @order.amount_cents %>"
-                  data-currency="EUR"></script>
+                <%= form_tag order_payments_path(@order) do %>
+
+
+
+
+                 <!-- Commented for the lecture, remove comments. -->
+                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                   data-name="My Cart"
+                   data-description="Order_id: <%= @order.id %>"
+                   data-amount="<%= @order.amount_cents %>"
+                   data-currency="EUR"></script>
+                <% end %>
 
 
               </div>
@@ -132,6 +136,17 @@
 
 
 
+ <article>
+   <label class="amount">
+     <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+   </label>
+ </article>
+
+
+ <% @cart.items.each do |item| %>
+   <%= item.name %>
+   <%= item.price %>
+ <% end %>
 
 
 

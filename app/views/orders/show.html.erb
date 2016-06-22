@@ -1,8 +1,56 @@
-<h1>Order</h1>
-<ul>
-  <li>Status: <%= @order.state %></li>
-  <% @cart.items.each do |item| %>
-    <li>Item: <%=  item.name %>: <%= humanized_money_with_symbol(item.price) %></li>
-  <% end %>
-  <li>Total Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
-<ul>
+<!-- WRAPPER -->
+  <div class="wrapper">
+
+    <!-- PAGE TITLE -->
+    <section class="module-sm bg-white-dark">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12 text-center">
+
+            <h3 class="montserrat text-uppercase m-b-10">Order Completed</h3>
+            <ol class="breadcrumb text-xs">
+            <li> <%= link_to "home", root_path %> </li>
+              <li><a href="#">Shop</a></li>
+              <li class="active">Checkout</li>
+            </ol>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- END PAGE TITLE -->
+
+
+    <section class="module">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12 text-center">
+
+            <p class="text-center">Congratulations! Your order is completed!</p>
+            <p class="text-center">Your order is number #123456. You can view your order on your account page, when you are logged in.</p>
+            <br>
+            <h1 class="text-center">Order details</h1>
+              <ul>
+                <p>Status: <%= @order.state %></li>
+                <% @cart.items.each do |item| %>
+                  <p>Item: <%=  item.name %>: <%= humanized_money_with_symbol(item.price) %></li>
+                <% end %>
+                  <p>Total Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+              </ul>
+            <br>
+            <%= link_to "return to homepage", root_path, class: "btn btn-lg btn-outline btn-base" %>
+
+           </div>
+        </div><!-- .row -->
+
+      </div>
+    </section>
+    <!-- END  -->
+
+ </div>
+ <!-- /WRAPPER -->
+
+
