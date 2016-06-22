@@ -28,10 +28,11 @@
           <div class="off-canvas-cart-content-wrap">
             <% @cart.items.each do |item| %>
               <!-- ITEM -->
-              <div class="off-canvas-cart-item">
+              <div class="off-canvas-cart-item" data-id="<%= item.id %>">
 
                 <div class="off-canvas-cart-item-trash">
-                  <%= link_to remove_item_carts_path(item: item.id), method: :post do %>
+
+                  <%= link_to(remove_item_carts_path(item: item.id), html_options = { method: :post, class: "dynamic-remove-item-cart",remote: true }) do %>
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   <% end %>
                 </div>

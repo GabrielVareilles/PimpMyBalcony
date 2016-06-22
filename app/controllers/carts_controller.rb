@@ -20,7 +20,7 @@ class CartsController < ApplicationController
     @cart.remove_item(@item)
 
     if @cart.save
-      redirect_to(:back)
+      render json: @item
       flash[:notice] = "Item removed from your cart"
     else
       flash[:alert] = "Item not removed to your cart"
