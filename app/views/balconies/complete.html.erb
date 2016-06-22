@@ -83,7 +83,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1 class="p-t-40">Assemble your balcony </h1>
+        <h1 class="p-t-40">Assemble your custom pot </h1>
         <p class="lead m-b-40"> All items are fitted to your very own balcony</p>
       </div>
     </div><!-- .row -->
@@ -91,94 +91,159 @@
 </section>
 
 <!-- TEXT TABS CENTER -->
-		<section class="divider-bottom", style= "padding-bottom: 80px;">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
+<section class="divider-bottom", style= "padding-bottom: 80px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
 
-						<!-- TABS -->
-						<div class="text-center">
-							<ul class="nav-text-tabs">
-								<li class="active"><a href="#tabs-3-tab-1" data-toggle="tab">1.Pot</a></li>
-								<li><a href="#tabs-3-tab-2" data-toggle="tab">2.Plant</a></li>
-								<li><a href="#tabs-3-tab-3" data-toggle="tab">3.Deco</a></li>
-							</ul>
+				<!-- TABS -->
+				<div class="text-center">
+					<ul class="nav-text-tabs">
+						<li class="active"><a href="#tabs-3-tab-1" data-toggle="tab">1.Pot</a></li>
+						<li><a href="#tabs-3-tab-2" data-toggle="tab">2.Plant</a></li>
+						<li><a href="#tabs-3-tab-3" data-toggle="tab">3.Deco</a></li>
+					</ul>
 
-							<div class="tab-content">
-                <!-- START TAB 1-->
-								<div id="tabs-3-tab-1" class="tab-pane active">
-                  <p class ="m-b-0 m-t-0">First step: take time to select the pot that fits the most your taste among this selection.</p><br>
-                  <!-- START CARROUSSEL-->
-                  <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
-                    <% Item.all.where(category: "Pot").each do |pot| %>
-                      <div class="item">
-                        <%= cl_image_tag pot.photo, height: 250, width: 250, crop: :fill %>
-                        <p class="m-t-10"><%= pot.name %></p>
-                        <%= button_to "Pick this pot", duplicate_item_path(pot, name: current_user.first_name), class: "btn btn-round btn-base" %>
-                      </div>
-                    <% end %>
-      						</div>
-      						<!-- END CAROUSEL-->
-								</div>
-                <!-- END TAB 1-->
-
-
-                <!-- START TAB 2-->
-								<div id="tabs-3-tab-2" class="tab-pane">
-                  <p class ="m-b-0 m-t-0">second step: fill your pot with fresh </p><br>
-                  <!-- START CARROUSSEL-->
-                  <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
-                    <% Plant.all.each do |plant| %>
-                      <div class="item">
-                          <%= cl_image_tag plant.photo, height: 250, width: 250, crop: :fill %>
-                          <p class="m-t-10"><%= plant.name %></p>
-                          <%= button_to "Add plant", add_plant_item_path(plant, plant: plant.id), method: :post, class: "btn btn-round btn-base" %>
-                      </div>
-                    <% end %>
+					<div class="tab-content">
+            <!-- START TAB 1-->
+						<div id="tabs-3-tab-1" class="tab-pane active">
+              <p class ="m-b-0 m-t-0">First step: take time to select the pot that fits the most your taste among this selection.</p><br>
+              <!-- START CARROUSSEL-->
+              <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
+                <% Item.all.where(category: "Pot").each do |pot| %>
+                  <div class="item">
+                    <%= cl_image_tag pot.photo, height: 250, width: 250, crop: :fill %>
+                    <p class="m-t-10"><%= pot.name %></p>
+                    <%= button_to "Pick this pot", duplicate_item_path(pot, name: current_user.first_name), class: "btn btn-round btn-base" %>
                   </div>
-                  <!-- END CAROUSEL-->
-                </div>
-                <!-- END TAB 2-->
-
-                <!-- START TAB 3-->
-								<div id="tabs-3-tab-3" class="tab-pane">
-                  <p class ="m-b-0 m-t-0">First step: take time to select the pot that fits the most your taste among this selection.</p><br>
-                  <!-- START CARROUSSEL-->
-                  <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
-                    <% Item.all.where(category: "Deco").each do |deco| %>
-                      <div class="item">
-                        <%= cl_image_tag deco.photo, height: 250, width: 250, crop: :fill %>
-                        <p class="m-t-10"><%= deco.name %></p>
-                        <%= button_to "Pick item", duplicate_item_path(deco, name: current_user.first_name), class: "btn btn-round btn-base" %>
-                      </div>
-                    <% end %>
-                  </div>
-                  <!-- END CAROUSEL-->
-                </div>
-                <!-- END TAB 2-->
-
-              <hr>
-							</div>
+                <% end %>
+  						</div>
+  						<!-- END CAROUSEL-->
 						</div>
-						<!-- END TABS -->
+            <!-- END TAB 1-->
+
+
+            <!-- START TAB 2-->
+						<div id="tabs-3-tab-2" class="tab-pane">
+              <p class ="m-b-0 m-t-0">second step: fill your pot with fresh </p><br>
+              <!-- START CARROUSSEL-->
+              <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
+                <% Plant.all.each do |plant| %>
+                  <div class="item">
+                      <%= cl_image_tag plant.photo, height: 250, width: 250, crop: :fill %>
+                      <p class="m-t-10"><%= plant.name %></p>
+                      <%= button_to "Add plant", add_plant_item_path(plant, plant: plant.id), method: :post, class: "btn btn-round btn-base" %>
+                  </div>
+                <% end %>
+              </div>
+              <!-- END CAROUSEL-->
+            </div>
+            <!-- END TAB 2-->
+
+            <!-- START TAB 3-->
+						<div id="tabs-3-tab-3" class="tab-pane">
+              <p class ="m-b-0 m-t-0">First step: take time to select the pot that fits the most your taste among this selection.</p><br>
+              <!-- START CARROUSSEL-->
+              <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
+                <% Item.all.where(category: "Deco").each do |deco| %>
+                  <div class="item">
+                    <%= cl_image_tag deco.photo, height: 250, width: 250, crop: :fill %>
+                    <p class="m-t-10"><%= deco.name %></p>
+                    <%= button_to "Pick item", duplicate_item_path(deco, name: current_user.first_name), class: "btn btn-round btn-base" %>
+                  </div>
+                <% end %>
+              </div>
+              <!-- END CAROUSEL-->
+            </div>
+            <!-- END TAB 2-->
+          <hr>
 					</div>
-				</div><!-- .row -->
+				</div>
+				<!-- END TABS -->
 			</div>
-		</section>
-		<!-- END TEXT TABS CENTER -->
-
-
-
+		</div><!-- .row -->
+	</div>
+</section>
+<!-- END TEXT TABS CENTER -->
 <!-- END LE COEUR DU REACTEUR -->
+
+<!-- YOUR CUSTOM POT -->
+<section class=" p-t-30 p-b-20" style = "background-color: #27CBC0; opacity: 0.7">
+  <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h1 style="color:white"> Your Custom pot </h1>
+        <p class="lead m-b-40" style="color:white"> Assemble your custom pot and add it to your balcony</p>
+      </div>
+    </div><!-- .row -->
+
+    <div class="row multi-columns-row">
+
+        <!-- SHOP ITEM -->
+        <div class="col-sm-2 col-md-2 col-lg-2 m-b-20" style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px;">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag item.photo %>
+            </div>
+            <div class="shop-item-title">
+              <h5><%= item.name %></h5>
+              <h5><%= 'your pot has ' + item.slot.to_s + ' slot' %></h5>
+              <h5><%= 'your pot has ' + item.plants.size.to_s + ' plants in !' %></h5>
+              <h5><%= 'Total price: ' + item.price.to_s + ' €' %></h5>
+              <%= button_to "Add item", add_item_balcony_path(@balcony, item: item.id), class: "btn btn-success" %>
+              <%= link_to "Destroy your custom pot", item_path(item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+            </div>
+          </div>
+        </div>
+
+        <% Plant.first(4).each do |plant| %>
+        <div class="col-sm-2 col-md-2 col-lg-2" style="background-color:white; border-radius: 20px;  margin-right:10px; margin-left:10px;">
+          <div class="shop-item">
+            <div class="shop-item-photo">
+              <%= cl_image_tag plant.photo %>
+            </div>
+          </div>
+          <div class="shop-item-title">
+            <h5><%= plant.name %></h5>
+            <h5><%= link_to "Add plant", add_plant_item_path(plant, plant: plant.id), method: :post %></h5>
+          </div>
+        </div>
+        <% end %>
+        <!-- END SHOP ITEM -->
+      <% end %>
+
+
+    </div><!-- .row -->
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <%= button_to "Add to your balcony", complete_path, class: "btn btn-round btn-warning" %>
+      </div>
+    </div><!-- .row -->
+
+  </div>
+</section>
+
 
 <!-- YOUR BALCONY ITEMS -->
 <section class="p-t-40 p-b-20 p-b-0 bg-white-dark">
   <div class="container">
     <div class="row">
+
       <div class="col-sm-8 col-sm-offset-2 text-center">
         <h1 class="p-t-40"> Your balcony items </h1>
         <p class="lead m-b-40"> this is the list of your items</p>
       </div>
+
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <%= button_to "Add to cart", complete_path, class: "btn btn-round btn-warning" %>
+          <br>
+          <%= button_to "SAVE", complete_path, class: "btn btn-round btn-warning" %>
+        </div>
+      </div><!-- .row -->
+
     </div><!-- .row -->
   </div>
 </section>
@@ -193,7 +258,6 @@
     <hr class="m-t-20 m-b-20">
     <div class="row multi-columns-row">
       <% Item.all.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").each do |item| %>
-
         <!-- SHOP ITEM -->
         <div class="col-sm-3 col-md-3 col-lg-3">
           <div class="shop-item">
@@ -222,7 +286,6 @@
 
 
     <section class="module">
-
       <div class="container">
         <div style="position: relative; height: 326.3px;" class="gallery gallery-4">
           <% Plant.all.each do |plant| %>
@@ -230,13 +293,10 @@
             <%= cl_image_tag plant.photo, height: 90, width: 120, crop: :fill %>
             <h5><%= plant.name %></h5>
             <h5><%= link_to "Add plant", add_plant_item_path(item, plant: plant.id), method: :post %></h5>
-
           </div>
           <% end %>
         </div><!-- .gallery -->
-
       </div>
-
     </section>
       <% end %>
   </div>
@@ -245,31 +305,6 @@
 
 
 <!-- #################################################################################################TESTCUSTOMPOT -->
-
-
-
-
-<div style="position: relative; height: 1948.13px;" class="gallery">
-  <div style="position: absolute; left: 0px; top: 0px;" class="gallery-item">
-    <%= image_tag('Balcony_' + @balcony.model.downcase + '.jpg', class: 'card') %>
-  </div>
-</div>
-
-
-<p>Department: <%= @balcony.department %></p>
-<p>Lenght: <%= @balcony.length %> (cm)</p>
-
-<h1>Your meteo</h1>
-
-<% Department.all.each do |department| %>
-  <% if department.number == @balcony.department.to_s[0..1].to_i %>
-    <p>Minimum Temperature: <%= department.temperature_min %> (°C)</p>
-    <p>Max Temperature: <%= department.temperature_max %> (°C)</p>
-    <p>Annual Pluviometry: <%= department.pluviometry %> (mm)</p>
-    <p>Annual Sunshine exposure: <%= department.sunshine_amount %> (hours)</p>
-  <% end %>
-<% end %>
-
 
 <div class="container text-center">
   <%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-success" %>
