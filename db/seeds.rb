@@ -8,7 +8,7 @@ class ActiveRecord::Base
   end
 end
 
-Not allowed in production for obvious reasons.
+# Not allowed in production for obvious reasons.
 if Rails.env.in?(%(production)) && !ENV['FORCE']
   STDERR.write "That's a terrible idea, all your records will be lost!!!\n"
   exit
