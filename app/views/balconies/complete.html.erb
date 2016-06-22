@@ -18,7 +18,7 @@
 
 <!-- YOUR INFO -->
 <section class="module-xs bg-white-dark">
-  <div class="container">
+  <div class="container p-b-20">
     <div class="row">
       <div class="col-sm-12 text-center">
         <h3 class="montserrat text-uppercase m-b-10">Your info</h3>
@@ -27,16 +27,52 @@
   </div>
   <div class="row">
     <div class="col-sm-4 text-center">
-      <%= cl_image_tag current_user.balconies.last.photo, height: 300, width: 300, crop: :fill %>
+      <% if !@balcony.photo.url %>
+        <% case @balcony.model %>
+        <% when 'small' %>
+          <%= cl_image_tag("Balcony_small_e5bs0y.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
+        <% when 'medium' %>
+          <%= cl_image_tag("Balcony_medium_aldzgn.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
+        <% else %>
+          <%= cl_image_tag("Balcony_large_nextht.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
+        <% end %>
+
+      <% else %>
+        <%= cl_image_tag @balcony.photo, height: 300, width: 300, crop: :fill, radius:5 %>
+      <% end %>
+
+      <div >
+        <%= simple_form_for @balcony do |f| %>
+          <%= f.input :photo, label: false %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.submit 'Upload your picture', class: "btn btn-xs btn-base" %>
+        <% end %>
+      </div>
+
     </div>
     <div class="col-sm-4">
         <p><b class = "margin">Name:</b><%= current_user.first_name %>'s balcony</p><hr>
-        <p><b class = "margin">Model:</b><%= current_user.balconies.last.model %></p><hr>
-        <p><b class = "margin">length:</b><%= current_user.balconies.last.length %></p><hr>
-        <p><b class = "margin">City:</b><%= current_user.balconies.last.city %></p><hr>
-        <p><b class = "margin">Orientation:</b><%= current_user.balconies.last.orientation %></p><hr>
+        <p><b class = "margin">Orientation:</b><%= @balcony.orientation %></p><hr>
+        <p><b class = "margin">City:</b><%= @balcony.city %></p><hr>
+        <% Department.all.each do |department| %>
+          <% if department.number == @balcony.department.to_s[0..1].to_i %>
+            <h3 class="montserrat text-uppercase p-t-10 p-b-10 text-center">Your local weather info</h3>
+            <p><b>Minimum Temperature:</b> <%= department.temperature_min %> (°C)</p><hr>
+            <p><b>Maximum Temperature: </b><%= department.temperature_max %> (°C)</p><hr>
+            <p><b>Annual Pluviometry: </b><%= department.pluviometry %> (mm)</p><hr>
+          <% end %>
+        <% end %>
     </div>
     <div class="col-sm-4">
+      <div class="maps-container m-b-10" style="padding: 0px 50px 0px 0px; height: 390px;" >
+        <!-- ADD YOUR ADDRESS HERE -->
+        <% toto = [] %>
+        <% tato = '' %>
+          <% toto << [@balcony.latitude, @balcony.longitude] %>
+          <% tato = toto.to_s[1..-2] %>
+        <div id="map" data-addresses="<%= tato %>, <%= tato %>" data-info="[Pimped balcony]" data-icon="assets/map-icon.png" data-zoom="12">
+        </div>
+      </div>
     </div>
   </div>
 </section>
