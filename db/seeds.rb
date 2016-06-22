@@ -128,7 +128,7 @@ user9.save!
 
 balcony1 = Balcony.new(
 name: "Jojo's balcony",
-model: 'small',
+model: 'large',
 address: '50 avenue roger Salengro, 59170, Croix',
 city: 'Croix',
 department: 59170,
@@ -144,7 +144,7 @@ balcony1.save
 
 balcony2 = Balcony.new(
 name: "Rene's balcony",
-model: 'medium',
+model: 'large',
 # 'small', 'medium', 'large'
 address: '22 rue jonquoy, 75014, Paris',
 city: 'Paris',
@@ -179,7 +179,7 @@ balcony3.save
 
 balcony4 = Balcony.new(
 name: "Tintin's balcony",
-model: 'small',
+model: 'large',
 address: '4 boulevard Léon Bureau, 44200, Nantes',
 city: 'Nantes',
 department: 44200,
@@ -196,7 +196,7 @@ balcony4.save
 
 balcony5 = Balcony.new(
 name: "Jack's balcony",
-model: 'medium',
+model: 'large',
 # 'small', 'medium', 'large'
 address: '7 rue des paradoux, 31000, Toulouse',
 city: 'Toulouse',
@@ -231,7 +231,7 @@ balcony6.save
 
 balcony7 = Balcony.new(
 name: "John Smith's balcony",
-model: 'small',
+model: 'large',
 address: '26 rue des tanneurs, 35700, Rennes',
 city: 'Rennes',
 department: 35700,
@@ -247,7 +247,7 @@ balcony7.save
 
 balcony8 = Balcony.new(
 name: "Mickael Oneil's balcony",
-model: 'medium',
+model: 'large',
 # 'small', 'medium', 'large'
 address: '92 avenue About, 59240, Dunkerque',
 city: 'Dunerque',
@@ -278,6 +278,108 @@ house_type: "flat"
 )
 balcony9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466427756/balcony2_acgh8v.jpg'
 balcony9.save
+
+balcony10 = Balcony.new(
+name: "Arlette's balcony",
+model: 'small',
+# 'small', 'medium', 'large'
+address: '2 rue Garibaldi, 69006 Lyon',
+city: 'Lyon',
+department: 69006,
+length: 400,
+width: 600,
+orientation: 'East',
+user_id: user9.id,
+storey: 6,
+house_type: "flat"
+)
+balcony10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466611886/small_balcony3_ct9f7j.jpg'
+balcony10.save
+
+balcony11 = Balcony.new(
+name: "Arlette's balcony",
+model: 'small',
+# 'small', 'medium', 'large'
+address: '28 rue Garibaldi, 69006 Lyon',
+city: 'Lyon',
+department: 69006,
+length: 400,
+width: 600,
+orientation: 'East',
+user_id: user9.id,
+storey: 6,
+house_type: "flat"
+)
+balcony11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466611886/balcony_small2_hxahqg.jpg'
+balcony11.save
+
+balcony12 = Balcony.new(
+name: "Arlette's balcony",
+model: 'small',
+# 'small', 'medium', 'large'
+address: '28 rue Garibaldi, 69006 Lyon',
+city: 'Lyon',
+department: 69006,
+length: 400,
+width: 600,
+orientation: 'East',
+user_id: user9.id,
+storey: 6,
+house_type: "flat"
+)
+balcony12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466611886/balcon_small1_vrt8vn.jpg'
+balcony12.save
+
+balcony13 = Balcony.new(
+name: "Jack's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '7 rue des paradoux, 31000, Toulouse',
+city: 'Toulouse',
+department: 31000,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user5.id,
+storey: 4,
+house_type: "flat"
+)
+balcony13.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466611879/balcony_medium2_f27acw.jpg'
+balcony13.save
+
+balcony14 = Balcony.new(
+name: "Jack's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '58 rue des paradoux, 31000, Toulouse',
+city: 'Toulouse',
+department: 31000,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user5.id,
+storey: 4,
+house_type: "flat"
+)
+balcony14.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466611878/balcony_medium1_vnfszu.jpg'
+balcony14.save
+
+balcony15 = Balcony.new(
+name: "Jack's balcony",
+model: 'medium',
+# 'small', 'medium', 'large'
+address: '32 rue des paradoux, 31000, Toulouse',
+city: 'Toulouse',
+department: 31000,
+length: 200,
+width: 60,
+orientation: 'North',
+user_id: user5.id,
+storey: 4,
+house_type: "flat"
+)
+balcony15.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466611879/balcony_medium3_bq7xbu.jpg'
+balcony15.save
 
 ##########################   Balcony_picture  SEED    ###############
 
@@ -522,7 +624,7 @@ description: "It’s easy to grow tomato plants in pots. To get the most from co
 category: "Plant",
 sub_category: "herbs",
 slot: 1,
-price_cents: 9900,
+price_cents: 950,
 volume: 20,
 length: 30,
 width: 30,
@@ -784,7 +886,7 @@ category: "Plant",
 sub_category: "bush",
 plant_category: "bush",
 slot: 1,
-price_cents: 11500,
+price_cents: 9500,
 volume: 20,
 length: 15,
 width:10,
@@ -822,7 +924,7 @@ temperature_max: 45,
 pluviometry: 1,
 sunshine_amount: 700,
 advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-price_cents: 9900,
+price_cents: 950,
 slot: 1,
 color: "green",
 size: 120
