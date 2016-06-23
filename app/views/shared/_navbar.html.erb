@@ -68,7 +68,11 @@
       <ul class="inner-nav pull-right">
         <li> <%= link_to 'Inspiration', inspiration_path %> </li>
         <li> <%= link_to 'Product', items_path %> </li>
-        <li> <%= link_to 'profile', profile_path %> </li>
+        <li> <%= link_to 'Profile', profile_path %> </li>
+        <% if current_user.admin %>
+          <li> <%= link_to 'Admin', admin_root_path %> </li>
+        <% end %>
+
 
         <!-- LOGIN  -->
         <% if user_signed_in? %>
