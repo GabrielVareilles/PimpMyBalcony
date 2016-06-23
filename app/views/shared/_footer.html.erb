@@ -11,7 +11,7 @@
 								<i class="fa fa-smile-o"></i>
 							</div>
 							<h4>Satisfied or refund</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>You may return all or a part of your order within 14 days of receiving it. You will be reimbursed for returned products within 14 days following our receipt of the products.</p>
 						</div>
 					</div>
 					<!-- END ICONBOX -->
@@ -23,7 +23,7 @@
 								<i class="fa fa-truck"></i>
 							</div>
 							<h4>Worldwide Delivery</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>We deliver straight away to the 6 continents : Europe, Asia, Africa, Antarctica, America, Australia thanks to our local partners.</p>
 						</div>
 					</div>
 					<!-- END ICONBOX -->
@@ -35,7 +35,7 @@
 								<i class="fa fa-credit-card"></i>
 							</div>
 							<h4>Secured payment</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>Simple, secure and reliable payment solution. Process payments securely through our website using our reliable payment gateway.</p>
 						</div>
 					</div>
 					<!-- END ICONBOX -->
@@ -46,8 +46,9 @@
 							<div class="icon-box-icon">
 								<i class="fa fa-pagelines"></i>
 							</div>
-							<h4>Sustainable commitment</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<h4>Furniture recycling</h4>
+							<p>We are happy to take your existing oudoor equipment away for you, when we deliver your new purchase for a non-profit fee.<!-- We have partnered with a number of charity organisations who will try to give your old furniture a new life with local families in need of some support. In the case that any item is not reusable, -->It will be disassembled and recycled with the lowest environmental impact.
+</p>
 						</div>
 					</div>
 					<!-- END ICONBOX -->
@@ -65,7 +66,7 @@
 						<div class="widget">
 							<div class="counter p-0 m-b-30">
 								<h2 class="montserrat m-b-5">
-									<span class="counter-timer" data-from="0" data-to="14963">0</span>
+									<span class="counter-timer" data-from="0" data-to="2500">0</span>
 								</h2>
 								<h5>Fans on Facebook</h5>
 							</div>
@@ -81,11 +82,11 @@
 					</div>
 					<!--  -->
 
-					<!-- TWITTER WIDGET -->
+					<!-- Pinterest WIDGET -->
 					<div class="col-sm-3">
 						<div class="widget">
-							<h6 class="montserrat text-uppercase bottom-line">Latest Twitts</h6>
-							<div class="twitter-feed" data-twitter="345170787868762112"></div>
+							<h6 class="montserrat text-uppercase bottom-line">Pinterest inspiration</h6>
+            <a data-pin-do="embedBoard" data-pin-lang="fr" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="100" href="https://www.pinterest.com/pimpmybalco0551/pimp-my-balcony/"></a>
 						</div>
 					</div>
 					<!-- END TWITTER WIDGET -->
@@ -93,33 +94,34 @@
 					<!-- RECENT POSTS WIDGET -->
 					<div class="col-sm-3">
 						<div class="widget">
-							<h6 class="montserrat text-uppercase bottom-line">Recent Posts</h6>
+							<h6 class="montserrat text-uppercase bottom-line">New balcony pimpers</h6>
 							<ul class="recent-posts">
 								<li>
 									<div class="widget-posts-image">
-										<a href="#"><img src="assets/images/blog/widgets/1.jpg" alt=""></a>
+										<%= image_tag "yann.jpg" %>
 									</div>
 									<div class="widget-posts-body">
-										<h6 class="widget-posts-title"><a href="#">Little Heart</a></h6>
-										<div class="widget-posts-meta">October 18, 2015 </div>
+										<h6 class="widget-posts-title"><%= link_to "Little urban gardener", public_balcony_path(Balcony.first)%></h6>
+										<div class="widget-posts-meta">June 24, 2016 </div>
 									</div>
 								</li>
 								<li>
 									<div class="widget-posts-image">
-										<a href="#"><img src="assets/images/blog/widgets/2.jpg" alt=""></a>
+										<%= image_tag "fx.jpg" %>
 									</div>
 									<div class="widget-posts-body">
-										<h6 class="widget-posts-title"><a href="#">The Notebook</a></h6>
-										<div class="widget-posts-meta">October 24, 2015 </div>
+										<h6 class="widget-posts-title"><%= link_to "The grasshopper", public_balcony_path(Balcony.second)%>
+                    </h6>
+										<div class="widget-posts-meta">June 22, 2016 </div>
 									</div>
 								</li>
 								<li>
 									<div class="widget-posts-image">
-										<a href="#"><img src="assets/images/blog/widgets/3.jpg" alt=""></a>
+										<%= image_tag "alexq.png" %>
 									</div>
 									<div class="widget-posts-body">
-										<h6 class="widget-posts-title"><a href="#">Specimen Book</a></h6>
-										<div class="widget-posts-meta">October 28, 2015 </div>
+										<h6 class="widget-posts-title"><%= link_to "Flower power guy", public_balcony_path(Balcony.third)%></h6>
+										<div class="widget-posts-meta">June 20, 2015 </div>
 									</div>
 								</li>
 							</ul>
@@ -132,11 +134,9 @@
 						<div class="widget">
 							<h6 class="montserrat text-uppercase bottom-line">Contact Us</h6>
 							<address class="map-background">
-								<p>10, Waterloo Rd, Romford RM1,<br>
-								London, United Kingdom</p>
-								Phone: 8 800 123 4567<br>
-								Fax: 8 800 123 4567<br>
-								E-mail: <a href="mailto:pimpmybalcony@gmail.com">pimpmybalcony@gmail.com</a>
+								<p>EuraTechnologies, 165 Avenue de Bretagne, 59000 Lille</p>
+								Phone: 0 800 123 4567<br>
+								E-mail: <a href="mailto:pimpmybalcony@gmail.com">hello@pimpmybalcony.com</a>
 							</address>
 						</div>
 					</div>
