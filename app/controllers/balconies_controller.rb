@@ -23,7 +23,7 @@ class BalconiesController < ApplicationController
     @balcony = current_user.balconies.new(balcony_params)
     authorize @balcony
     if @balcony.save
-      render json: @balcony
+      redirect_to complete_path
       flash[:notice] = "Balcony successfuly created, now pick some plants!"
     else
       flash[:alert] = "Balcony not created"
