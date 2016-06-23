@@ -105,13 +105,13 @@
   					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
   						<div class="work-wrapper">
                 <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
-  							<div class="work-overlay">
-  								<div class="work-caption">
-  									<h6 class="work-title"> <%= balcony.name %> </h6>
-  									<span class="work-category"> <%= balcony.model %> </span>
-  								</div>
-  							</div>
-                <%= link_to public_balcony_path(balcony), class: "work-link" %>
+                <div class="work-overlay">
+                  <div class="work-caption">
+                    <h6 class="work-title"> <%= balcony.name %> </h6>
+                    <span class="work-category"> <%= balcony.model %> </span>
+                  </div>
+                </div>
+                <% link_to public_balcony_path(balcony), class: "work-link" %>
   						</div>
   					</article>
             <% end %>
