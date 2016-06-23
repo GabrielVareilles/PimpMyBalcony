@@ -61,7 +61,7 @@
         <% balcony = Balcony.where(user: current_user).last %>
         <%= cl_image_tag balcony.photo, height: 200, width: 200, crop: :fill %>
         <br>
-        <%= link_to "Edit   your balcony", complete_path(balcony), class: "btn btn-outline btn-base" %>
+        <%= link_to "Edit   your balcony", complete_path, class: "btn btn-outline btn-base" %>
         <br>
         <br>
         <%= link_to "Delete your balcony", balcony_path(balcony), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline btn-danger", style: "width: 180px;" %>

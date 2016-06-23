@@ -23,7 +23,7 @@ class BalconiesController < ApplicationController
     @balcony = current_user.balconies.new(balcony_params)
     authorize @balcony
     if @balcony.save
-      redirect_to complete_path
+      render json: @balcony
       flash[:notice] = "Balcony successfuly created, now pick some plants!"
     else
       flash[:alert] = "Balcony not created"
@@ -58,7 +58,7 @@ class BalconiesController < ApplicationController
     @balcony.add_item(@item)
 
     if @balcony.save
-      redirect_to complete_path
+      render json: @balcony
       flash[:notice] = "Item added to your balcony"
     else
       redirect_to complete_path
@@ -71,7 +71,7 @@ class BalconiesController < ApplicationController
     @balcony.remove_item(@item)
 
     if @balcony.save
-      redirect_to complete_path
+      render json: @balcony
       flash[:notice] = "Item removed from your balcony"
     else
       redirect_to complete_path
@@ -84,7 +84,7 @@ class BalconiesController < ApplicationController
       @cart.add_item(item)
     end
     @cart.save
-    redirect_to complete_path
+    render json: @cart
   end
 
   private
