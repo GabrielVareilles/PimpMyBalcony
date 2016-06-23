@@ -128,7 +128,7 @@ user9.save!
 
 balcony1 = Balcony.new(
 name: "Jojo's balcony",
-model: 'large',
+model: 'small',
 address: '12 rue des tours, 59800, Lille',
 city: 'Croix',
 department: 59800,
@@ -144,7 +144,7 @@ balcony1.save
 
 balcony2 = Balcony.new(
 name: "Rene's balcony",
-model: 'large',
+model: 'small',
 # 'small', 'medium', 'large'
 address: '22 rue jonquoy, 75014, Paris',
 city: 'Paris',
@@ -161,7 +161,7 @@ balcony2.save
 
 balcony3 = Balcony.new(
 name: "Roger's balcony",
-model: 'large',
+model: 'small',
 # 'small', 'medium', 'large'
 address: '9 rue Charles François Dupuis, 75003 Paris',
 city: 'Paris',
@@ -179,7 +179,7 @@ balcony3.save
 
 balcony4 = Balcony.new(
 name: "Tintin's balcony",
-model: 'large',
+model: 'medium',
 address: '4 boulevard Léon Bureau, 44200, Nantes',
 city: 'Nantes',
 department: 44200,
@@ -196,7 +196,7 @@ balcony4.save
 
 balcony5 = Balcony.new(
 name: "Jack's balcony",
-model: 'large',
+model: 'medium',
 # 'small', 'medium', 'large'
 address: '7 rue des paradoux, 31000, Toulouse',
 city: 'Toulouse',
@@ -213,7 +213,7 @@ balcony5.save
 
 balcony6 = Balcony.new(
 name: "Billy's balcony",
-model: 'large',
+model: 'medium',
 # 'small', 'medium', 'large'
 address: '27 rue du vieil hôpital, 67000, Strasbourg',
 city: 'Strasbourg',
