@@ -10,7 +10,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
-					<div class="text-center m-b-20">
+					<div class="text-center m-t-40">
 						<h1>How it works?</h1>
 					</div>
 				</div>
@@ -21,30 +21,30 @@
 				<div class="col-sm-4 col-md-4 col-lg-4">
 					<div class="box-icon text-center">
 						<div class="icon-box-icon">
-							<i class="icon-fire icons"></i>
+							<i class="fa fa-pencil" aria-hidden="true"></i>
 						</div>
-						<h4>Branding</h4>
-						<p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo.</p>
+						<h4>Create</h4>
+						<p style = "padding: 0px 60px 0px 60px;"> Create your balcony's profile page, indicate its location, orientation and specificities. </p>
 					</div>
 				</div>
 
 				<div class="col-sm-4 col-md-4 col-lg-4">
 					<div class="box-icon text-center">
 						<div class="icon-box-icon">
-							<i class="icon-wrench icons"></i>
+							<i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
 						</div>
-						<h4>Development</h4>
-						<p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo.</p>
+						<h4>Select</h4>
+						<p style = "padding: 0px 60px 0px 60px;"> Pick up the best fitted items to pimp your balcony and turn your urban space into a fresh garden. </p>
 					</div>
 				</div>
 
 				<div class="col-sm-4 col-md-4 col-lg-4">
 					<div class="box-icon text-center">
 						<div class="icon-box-icon">
-							<i class="icon-earphones-alt icons"></i>
+							<i class="fa fa-pagelines" aria-hidden="true"></i>
 						</div>
-						<h4>Maintenance</h4>
-						<p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo.</p>
+						<h4>Enjoy</h4>
+						<p style = "padding: 0px 60px 0px 60px;">Customize your pot with plants of your choice and receive it all ready to grow, delivered to you.</p>
 					</div>
 				</div>
         <hr>
@@ -72,13 +72,12 @@
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
           <h1 class="p-t-40">Join the community</h1>
-          <p class="lead m-b-40"> and check other member's great balconies</p>
-        <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+          <p class="lead m-b-40"> by other member's great achievement</p>
+          <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
         </div>
       </div><!-- .row -->
     </div>
   </section>
-
 
   <section class="bg-white-dark p-t-10 p-b-0 p-b-0">
 		<!-- WORKS WRAPPER -->
@@ -86,7 +85,7 @@
       <!-- PORTFOLIO FILTERS -->
 			<div class="row">
 				<div class="col-sm-12">
-					<ul id="filters" class="filters p-b-0">
+					<ul id="filters" class="filters p-b-10 p-t-10">
 						<li class="p-b-5"><a href="#" class="current" data-filter="*">All</a></li>
             <li class="p-b-5"><a href="#" data-filter=".small">Small</a></li>
 						<li class="p-b-5"><a href="#" data-filter=".medium">Medium</a></li>
@@ -102,7 +101,7 @@
       		<!-- WORKS GRID -->
   				<div id="works-grid" class="works-grid works-grid-3">
             <!-- PORTFOLIO ITEM -->
-            <% Balcony.all.first(6).each do |balcony| %>
+            <% Balcony.all.each do |balcony| %>
   					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
   						<div class="work-wrapper">
                 <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
@@ -146,9 +145,9 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
-          <h1 class="p-t-40">And pick up the best items</h1>
+          <h1 class="p-t-40">The best items fitted to you</h1>
           <p class="lead m-b-40"> Oh that's Awesome !   </p>
-        <%= link_to "More product here", items_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+        <%= link_to "Full catalogue", items_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
         </div>
       </div><!-- .row -->
     </div>
