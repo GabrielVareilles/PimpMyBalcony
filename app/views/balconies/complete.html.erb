@@ -92,7 +92,7 @@
 </section>
 
 <!-- TEXT TABS CENTER -->
-<section class="divider-bottom" style="padding-bottom: 80px;">
+<section class="divider-bottom" style="padding-bottom: 40px;">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
@@ -150,14 +150,25 @@
 
     <div class="container" style ="background-color: #27CBC0; opacity: 0.8; width:90%; border-radius: 20px; padding: 20px 40px 20px 40px" >
       <div class="row m-b-20">
-        <div class="col-sm-4 col-sm-offset-4 text-center">
+
+        <!-- PRICE -->
+        <div class="col-sm-1 text-center">
+          <h3 style="color:white"><%= 'Total: ' + c_item.price.to_s + ' €' %></h3>
+        </div>
+
+        <!-- TITLE -->
+        <div class="col-sm-4 col-sm-offset-3 text-center">
           <h1 style="color:white"> Your Custom pot </h1>
           <div class="shop-item-title">
-            <h5 style="color:white"><%= 'You can add ' + c_item.slot.to_s + ' plants to your pot' %></h5>
-            <h5 style="color:white"><%= 'Your pot has ' + c_item.plants.size.to_s + ' plants in !' %></h5>
-            <h5 style="color:white"><%= 'Total price: ' + c_item.price.to_s + ' €' %></h5>
+            <% if c_item.slot - c_item.plants.size != 0 %>
+              <h5 style="color:white"><%= 'You can add ' + (c_item.slot - c_item.plants.size).to_s + ' plants to your pot' %></h5>
+            <% else %>
+              <h5 style="color:white"><%= 'Your pot is filled, save it to your balcony :-)' %></h5>
+            <% end %>
           </div>
         </div>
+
+        <!-- EXIT -->
         <div class="col-sm-1 col-sm-offset-3 text-center">
           <h5><%= link_to "X", item_path(c_item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-circle btn-outline btn-gray" %></h5>
         </div>
@@ -171,9 +182,9 @@
 
               <div class="text-center">
                 <ul class="nav-text-tabs" style ="color: white">
-                  <li class="active" style= "color: #E3E4E8"><a href="#tabs-3-tab-1" data-toggle="tab">1.Herbs</a></li>
-                  <li><a href="#tabs-3-tab-2" data-toggle="tab">2.Fruit</a></li>
-                  <li><a href="#tabs-3-tab-3" data-toggle="tab">3.Flower</a></li>
+                  <li class="active" style= "color: #E3E4E8"><a href="#tabs-3-tab-1" data-toggle="herb">1.Herbs</a></li>
+                  <li><a href="#tabs-3-tab-2" data-toggle="fruit">2.Fruit</a></li>
+                  <li><a href="#tabs-3-tab-3" data-toggle="flower">3.Flower</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -184,7 +195,7 @@
                         <% Plant.all.each do |plant| %>
                           <div class="item">
                             <h5 class="p-t-5"><%= plant.name %></h5>
-                            <%= cl_image_tag plant.photo, height: 300, width: 250, crop: :fill %>
+                            <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
                               <h3 class="m-t-10">
                                 <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
                                   <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
@@ -203,7 +214,7 @@
 
                         <% Plant.all.each do |plant| %>
                           <div class="item">
-                            <%= cl_image_tag plant.photo, height: 300, width: 250, crop: :fill %>
+                            <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
                             <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
                               <p class="m-t-10"><%= plant.name %>
                             <% end %>
@@ -221,7 +232,7 @@
 
                         <% Plant.all.each do |plant| %>
                           <div class="item">
-                            <%= cl_image_tag plant.photo, height: 300, width: 250, crop: :fill %>
+                            <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
                             <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
                               <p class="m-t-10"><%= plant.name %>
                             <% end %>
@@ -231,64 +242,55 @@
                     </div>
                     <!-- END CAROUSEL-->
                   </div>
-
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
-      <div class="row multi-columns-row m-t-40">
-        <!-- SHOP ITEM -->
-        <div class="col-sm-2 col-md-2 col-lg-2 m-b-20" style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px;">
-          <div class="shop-item p-t-20">
-            <div class="shop-item-photo">
-              <h4 class="text-center"><%= c_item.name %></h4>
-              <%= cl_image_tag c_item.photo %>
-            </div>
-            <div class="shop-item-title">
+      <div class="container">
+        <div class="row m-b-40">
+          <!-- SHOP ITEM -->
+          <div class="col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1" style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px;">
+            <div class="shop-item p-t-20">
+              <div class="shop-item-photo">
+                <h4 class="text-center"><%= c_item.name %></h4>
+                <%= cl_image_tag c_item.photo, height: 130, width: 150, crop: :fill %>
+              </div>
+              <div class="shop-item-title">
 
-            </div>
-          </div>
-        </div>
-        <% c_item.plants.first(4).each do |plant| %>
-          <div class="col-sm-2 col-md-2 col-lg-2" style="background-color:white; border-radius: 20px;  margin-right:10px; margin-left:10px;">
-            <div class="shop-item">
-              <div class="shop-item-photo text-center">
-                <h5 class="p-t-20"><%= plant.name %></h5>
-                <%= cl_image_tag plant.photo, height: 150, width: 200, crop: :fill %>
               </div>
             </div>
-            <div class="shop-item-title">
-              <%= link_to remove_plant_item_path(c_item, plant: plant.id), method: :post do%>
-                <h3><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i></h3>
-              <% end %>
-            </div>
           </div>
-        <% end %>
-        <!-- END SHOP ITEM -->
-      </div><!-- .row -->
-
-<!-- ########################################################PLANT PICKER###################################################################### -->
-
-
-  </div>
-
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1 class="lead m-b-40" style="color:black"><%= button_to "Add to your balcony", add_item_balcony_path(@balcony, item: c_item.id), class: "btn btn-xs btn-circle btn-black" %></h1>
+          <% c_item.plants.first(4).each do |plant| %>
+            <div class="col-sm-2 col-md-2 col-lg-2" style="background-color:white; border-radius: 20px;  margin-right:10px; margin-left:10px;">
+              <div class="shop-item">
+                <div class="shop-item-photo text-center">
+                  <h5 class="p-t-20"><%= plant.name %></h5>
+                  <%= cl_image_tag plant.photo, height: 100, width: 150, crop: :fill %>
+                </div>
+              </div>
+              <div class="shop-item-title">
+                <%= link_to remove_plant_item_path(c_item, plant: plant.id), method: :post do%>
+                  <h3><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i></h3>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <!-- END SHOP ITEM -->
+        </div><!-- .row -->
       </div>
-    </div><!-- .row -->
 
-
-
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+          <h1 class="lead m-b-20" style="color:black"><%= button_to "Add to your balcony", add_item_balcony_path(@balcony, item: c_item.id), class: "btn btn-lg btn-circle btn-gray" %></h1>
+        </div>
+      </div><!-- .row -->
+  </div>
   <% end %>
-</section>
 
-<!-- ###################################################################################################################################"""########"" -->
-<!-- ################################################################YOUR CUSTOM POT####################################################### -->
+</section>
 
 
 <!-- #################################################################################################ITEM PICKING -->

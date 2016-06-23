@@ -913,12 +913,17 @@ item29.save
 # itemX.save
 
 ##########################   Plant  SEED    ###############
+#
+##E3E4E8">
+# herb
+# fruit
+# flower
 
 plant1 = Plant.new(
 name: "Tomato plants",
 scientific_name: "Tomato ruby",
 description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
-category: "Plant",
+category: "fruit",
 temperature_min: 10,
 temperature_max: 45,
 pluviometry: 1,
@@ -936,7 +941,7 @@ plant2 = Plant.new(
 name: "Mint herbs",
 scientific_name: "Holywood Chewing gum",
 description: "Mints are a genus (Mentha) of perennial herbaceous plants of the family Lamiaceae (Labiatae), subfamily Nepetoideae, tribe Menthae, including many species, many of which are grown as aromatic and spice plants, ornamental or medicinal.",
-category: "Plant",
+category: "herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -953,7 +958,7 @@ plant2.save
 plant3 = Plant.new(
 name: "Hibiscus flowers",
 description: "These are plants known since ancient times: it was cultivated in Egypt and Southeast Asia for their ornamental character, but for their edible fruit. Many species also have medicinal properties. Imported to Europe in the twelfth century by the Moors of Spain, some species were subsequently introduced in America in the seventeenth century by slaves.",
-category: "Plant",
+category: "herb",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 2,
@@ -971,7 +976,7 @@ plant4 = Plant.new(
 name: "Strawberry plants",
 scientific_name: "Fragaria × ananassa",
 description: "Fresh strawberries grown in gardens or on local farms can be harvested at the peak of ripeness, offering superior flavor, quality, and appearance. We offer three main types — short-day or June-bearing, day-neutral, and alpine strawberries. Choose from disease-free, dormant bare-root plants of the first two types, seeds of the second two types, and certified-organic plugs of day-neutral varieties.",
-category: "Plant",
+category: "fruit",
 temperature_min: 10,
 temperature_max: 35,
 pluviometry: 1,
@@ -990,7 +995,7 @@ plant5 = Plant.new(
 name: "Basil herbs",
 scientific_name: "Basilicus pistus",
 description: "Grow fresh basil herbs at home with zero effort. No green thumb required!",
-category: "Plant",
+category: "herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -1009,7 +1014,7 @@ plant6 = Plant.new(
 name: "Dill herbs",
 scientific_name: "Anethum graveolens",
 description: "The compact plants has a lot of large, succulent, dark green leaves with purple-bluish tint",
-category: "Plant",
+category: "herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -1027,7 +1032,7 @@ plant7 = Plant.new(
 name: "Chives herbs",
 scientific_name: "Allium schoenoprasum",
 description: "They are one of the first herbs to pop up in the spring garden, they are in season (and blooming!) right now, and they are pretty much the easiest herb to grow.",
-category: "Plant",
+category: "herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -1136,7 +1141,7 @@ plant7.save
 plant8 = Plant.new(
 name: "Hortensia flowers",
 description: "These are plants known since ancient times: it was cultivated in Egypt and Southeast Asia for their ornamental character, but for their edible fruit. Many species also have medicinal properties. Imported to Europe in the twelfth century by the Moors of Spain, some species were subsequently introduced in America in the seventeenth century by slaves.",
-category: "Plant",
+category: "flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 3,
@@ -1153,7 +1158,7 @@ plant8.save
 plant9 = Plant.new(
 name: "Daisy flowers",
 description: "For a spectacular show during cool weather, plant marguerite daisy. Often confused with Shasta daisy, marguerite is more mounded and shrubby. Different types also come in pink with a bloom that more resembles purple coneflower.",
-category: "Plant",
+category: "flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 3,
@@ -1170,7 +1175,7 @@ plant9.save
 plant10 = Plant.new(
 name: " flowers",
 description: "A charming, deciduous grass that forms a compact, low mound and produces long-lasting, soft, pinkish, brush-like flowers in late summer that resemble squirrel tails. The bright green leaves turn yellow in autumn. It’s a fairly undistinguished plant until the flowers appear, so use it alongside spring bulbs or early-flowering perennials.",
-category: "Plant",
+category: "flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 3,
