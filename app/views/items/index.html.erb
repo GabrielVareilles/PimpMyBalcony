@@ -108,23 +108,23 @@
 				<div id="works-grid" class="works-grid works-grid-4">
 
           <!-- PORTFOLIO ITEM -->
-          <% Item.all.each do |product| %>
-  					<article class="work-item <%= product.category.downcase %>" style="padding: 20px 20px 40px 20px;">
+          <% Item.all.each do |item| %>
+  					<article class="work-item <%= item.category.downcase %>" style="padding: 20px 20px 40px 20px;">
   						<div class="work-wrapper">
-                <%= cl_image_tag product.photo, height: 500, width: 720, crop: :fill %>
+                <%= cl_image_tag item.photo, height: 500, width: 720, crop: :fill %>
   							<div class="work-overlay">
   								<div class="work-caption">
   									<div class="work-title" style="text-align:center;">
-                      <h5><%= humanized_money_with_symbol(product.price) %> </h5>
-                        <%= link_to add_item_carts_path(item: product.id), method: :post do %>
+                      <h5><%= humanized_money_with_symbol(item.price) %> </h5>
+                        <%= link_to(add_item_carts_path(item: item.id),html_options = { method: :post, class: "dynamic-add-to-cart-item", remote: true}) do %>
                             <i class="icon-basket-loaded icons" aria-hidden="true" style="color:white; width: 100px;"></i>
                         <% end %>
                     </div>
                   </div>
                 </div>
   						</div>
-              <div class="work-title p-t-20" style="text-align:center;">
-                <h5><%= link_to product.name, item_path(product.id) %></h5>
+              <div class="work-title p-t-20" data-id="<%='additem' + item.id.to_s%>" style="text-align:center;">
+                <h5><%= link_to item.name, item_path(item.id) %></h5>
               </div>
   					</article>
           <% end %>

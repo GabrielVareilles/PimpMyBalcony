@@ -27,8 +27,8 @@
 //= require wow.js
 //= require cloudinary
 //= require custom.min.js
-
 //= require masonry.pkgd
+
 
 // at the end
 //= require_tree .

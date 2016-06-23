@@ -105,13 +105,13 @@
   					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
   						<div class="work-wrapper">
                 <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
-  							<div class="work-overlay">
-  								<div class="work-caption">
-  									<h6 class="work-title"> <%= balcony.name %> </h6>
-  									<span class="work-category"> <%= balcony.model %> </span>
-  								</div>
-  							</div>
-                <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
+                <div class="work-overlay">
+                  <div class="work-caption">
+                    <h6 class="work-title"> <%= balcony.name %> </h6>
+                    <span class="work-category"> <%= balcony.model %> </span>
+                  </div>
+                <% link_to public_balcony_path(balcony), class: "work-link" %>
+                </div>
   						</div>
   					</article>
             <% end %>
@@ -147,7 +147,7 @@
         <div class="col-sm-8 col-sm-offset-2 text-center">
           <h1 class="p-t-40">The best items fitted to you</h1>
           <p class="lead m-b-40"> Oh that's Awesome !   </p>
-        <%= link_to "Full catalogue", items_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+        <%= link_to "Full catalogue", items_path, class: "btn btn-base btn-lg"  %>
         </div>
       </div><!-- .row -->
     </div>
@@ -164,7 +164,6 @@
                <div class="item">
                  <%= cl_image_tag pot.photo, height: 250, width: 250, crop: :fill %>
                  <p class="m-t-10 text-center"><%= pot.name %></p>
-                 <%= button_to "Show", item_path(pot.id), class: "btn btn-round btn-base center-block" %>
                </div>
              <% end %>
            </div>

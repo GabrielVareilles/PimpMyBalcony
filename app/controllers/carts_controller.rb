@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     @cart.add_item(@item)
 
     if @cart.save
-      redirect_to(:back)
+      render json: @item
       flash[:notice] = "Item added to your cart"
     else
       redirect_to items_path
@@ -20,7 +20,7 @@ class CartsController < ApplicationController
     @cart.remove_item(@item)
 
     if @cart.save
-      redirect_to(:back)
+      render json: @item
       flash[:notice] = "Item removed from your cart"
     else
       flash[:alert] = "Item not removed to your cart"
@@ -30,7 +30,7 @@ class CartsController < ApplicationController
   def clear_cart
     @cart.remove_all_items
     @cart.save
-    redirect_to(:back)
+    render json: @cart
   end
 
   def destroy

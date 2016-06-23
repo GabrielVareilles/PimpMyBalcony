@@ -53,11 +53,9 @@
   		<div class="loader">Loading...</div>
   	</div> -->
 	  <!-- END PRELOADER -->
-
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
     <%= yield %>
-
     <%= render 'shared/footer' %>
 
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
