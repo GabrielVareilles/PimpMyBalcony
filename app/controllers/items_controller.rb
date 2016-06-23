@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
     @item.remove_plant(@plant)
 
     if @item.save
-      redirect_to complete_path
+      redirect_to complete_path << '#anchor_1'
       flash[:notice] = "Plant removed from your item"
     else
       redirect_to complete_path

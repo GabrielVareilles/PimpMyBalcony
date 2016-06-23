@@ -101,7 +101,7 @@
       		<!-- WORKS GRID -->
   				<div id="works-grid" class="works-grid works-grid-3">
             <!-- PORTFOLIO ITEM -->
-            <% Balcony.all.first(6).each do |balcony| %>
+            <% Balcony.all.each do |balcony| %>
   					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
   						<div class="work-wrapper">
                 <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
