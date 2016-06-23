@@ -1,9 +1,21 @@
 
-<!-- BANNER  -->
-<section id="toto" class=" navtip module-hero bg-black-alfa-30  color-white parallax " data-background="assets/Sky.jpeg">
-  <div class="hero-caption">
-  </div>
-</section>
+<section data-jarallax-original-styles="background-image: url(&quot;<%= image_path('Sky.jpeg')%>&quot;);" style="background-image: none; background-attachment: scroll; background-size: auto auto;" class="module-sm bg-black-alfa-30 color-white parallax" data-background="<%= image_path('Sky.jpeg')%>">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12 text-center">
+
+            <h3 class="montserrat text-uppercase m-b-10">Profile page</h3>
+            <ol class="breadcrumb text-xs">
+              <li><a href="#">Profile</a></li>
+              <li class="active">Profile page</li>
+            </ol>
+
+          </div>
+        </div>
+
+      </div>
+    <div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -100;"><div style="background-position: 50% 50%; background-size: 100% auto; background-repeat: no-repeat no-repeat; background-image: url(&quot;assets/images/module-1.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 1853px; height: 1235.33px; overflow: hidden; pointer-events: none; margin-left: 0px; margin-top: -320.667px; visibility: visible; transform: translate3d(0px, -79.45px, 0px);"></div></div></section>
 
 <!-- USER INFORMATION -->
 <div class="container m-t-60 m-b-20 ">
@@ -54,14 +66,12 @@
   <div class="row">
 		<div class="col-sm-4">
       <div class="text-center center">
-        <%= cl_image_tag Balcony.find_by_user_id(@user).photo, height: 200, width: 200, crop: :fill %>
+        <% balcony = Balcony.where(user: current_user).last %>
+        <%= cl_image_tag balcony.photo, height: 200, width: 200, crop: :fill %>
         <br>
+        <%= link_to "Edit   your balcony", complete_path(balcony), class: "btn btn-outline btn-base" %>
         <br>
-        <%= link_to "show your balcony", profile_path(@user), class: "btn btn-sm btn-round btn-primary" %>
-        <br>
-        <%= link_to "Edit your balcony", profile_path(@user), class: "btn btn-sm btn-round btn-base" %>
-        <br>
-        <%= link_to "delete your balcony", profile_path(@user), class: "btn btn-sm btn-round btn-danger" %>
+        <%= link_to "Delete your balcony", balcony_path(balcony), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline btn-danger" %>
       </div>
     </div>
     <div class="col-sm-8">
@@ -71,7 +81,6 @@
       <p><b class = "margin">department:</b> <%= Balcony.find_by_user_id(@user).department %> </p><hr>
 
       <br>
-      <%= link_to "Delete", balcony_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
       <br>
     </div>
   </div>
@@ -81,50 +90,50 @@
 <!-- END BALCONY INFORMATION -->
 <hr>
 <!-- ORDER INFORMATION -->
-
-<div class="container m-t-60 m-b-60">
-  <div class="row">
-		<div class="col-sm-4">
-      <h1>YOUR ORDERS</h1>
-      <br>
-        <div class="col-sm-8">
-          <div class="container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Order reference</th>
-                  <th>date</th>
-                  <th>items</th>
-                  <th>amount</th>
-                  <th>state</th>
-                  <th>delivery</th>
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
-
-              <% count = 0 %>
-              <% Order.where(user_id: current_user.id).all.each do |order| %>
-                <% count += 1 %>
-                <tbody>
+<% unless Order.where(user_id: current_user.id).empty? %>
+  <div class="container m-t-60 m-b-60">
+    <div class="row">
+  		<div class="col-sm-4">
+        <h1>YOUR ORDERS</h1>
+        <br>
+          <div class="col-sm-8">
+            <div class="container">
+              <table class="table">
+                <thead>
                   <tr>
-                    <td><%= count %></td>
-                    <td><%= order.id%></td>
-                    <td><%= order.created_at%> </td>
-                    <td>Awesome stuff</td>
-                    <td><%= order.amount%></td>
-                    <td><%= order.state %></td>
-                    <td>pending</td>
+                    <th>#</th>
+                    <th>Order reference</th>
+                    <th>date</th>
+                    <th>items</th>
+                    <th>amount</th>
+                    <th>state</th>
+                    <th>delivery</th>
+                    <th colspan="3"></th>
                   </tr>
-                </tbody>
-              <% end %>
-            </table>
+                </thead>
+
+                <% count = 0 %>
+                <% Order.where(user_id: current_user.id).all.each do |order| %>
+                  <% count += 1 %>
+                  <tbody>
+                    <tr>
+                      <td><%= count %></td>
+                      <td><%= order.id%></td>
+                      <td><%= order.created_at%> </td>
+                      <td>Awesome stuff</td>
+                      <td><%= order.amount%></td>
+                      <td><%= order.state %></td>
+                      <td>pending</td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+            </div>
           </div>
-        </div>
+      </div>
     </div>
   </div>
-</div>
-
+<% end %>
 
 
 
