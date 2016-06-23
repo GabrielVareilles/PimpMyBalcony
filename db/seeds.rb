@@ -129,9 +129,9 @@ user9.save!
 balcony1 = Balcony.new(
 name: "Jojo's balcony",
 model: 'large',
-address: '50 avenue roger Salengro, 59170, Croix',
+address: '12 rue des tours, 59800, Lille',
 city: 'Croix',
-department: 59170,
+department: 59800,
 length: 100,
 width: 30,
 orientation: 'south',
@@ -250,7 +250,7 @@ name: "Mickael Oneil's balcony",
 model: 'large',
 # 'small', 'medium', 'large'
 address: '92 avenue About, 59240, Dunkerque',
-city: 'Dunerque',
+city: 'Dunkerque',
 department: 59240,
 length: 200,
 width: 60,
@@ -283,9 +283,9 @@ balcony10 = Balcony.new(
 name: "Arlette's balcony",
 model: 'small',
 # 'small', 'medium', 'large'
-address: '2 rue Garibaldi, 69006 Lyon',
-city: 'Lyon',
-department: 69006,
+address: '4 rue Marcel Proust, 45000 Orléans',
+city: 'Orléans',
+department: 45000,
 length: 400,
 width: 600,
 orientation: 'East',
@@ -300,9 +300,9 @@ balcony11 = Balcony.new(
 name: "Arlette's balcony",
 model: 'small',
 # 'small', 'medium', 'large'
-address: '28 rue Garibaldi, 69006 Lyon',
-city: 'Lyon',
-department: 69006,
+address: '22 rue Buirette, 51100 Reims',
+city: 'Reims',
+department: 51100,
 length: 400,
 width: 600,
 orientation: 'East',
@@ -317,9 +317,9 @@ balcony12 = Balcony.new(
 name: "Arlette's balcony",
 model: 'small',
 # 'small', 'medium', 'large'
-address: '28 rue Garibaldi, 69006 Lyon',
-city: 'Lyon',
-department: 69006,
+address: '120 rue Foch, 34000 Montpellier',
+city: 'Montpellier',
+department: 34000,
 length: 400,
 width: 600,
 orientation: 'East',
@@ -334,9 +334,9 @@ balcony13 = Balcony.new(
 name: "Jack's balcony",
 model: 'medium',
 # 'small', 'medium', 'large'
-address: '7 rue des paradoux, 31000, Toulouse',
-city: 'Toulouse',
-department: 31000,
+address: '13 rue Faventines, 26000, Valence',
+city: 'Valence',
+department: 26000,
 length: 200,
 width: 60,
 orientation: 'North',
@@ -351,9 +351,9 @@ balcony14 = Balcony.new(
 name: "Jack's balcony",
 model: 'medium',
 # 'small', 'medium', 'large'
-address: '58 rue des paradoux, 31000, Toulouse',
-city: 'Toulouse',
-department: 31000,
+address: '61 Rue du Porteau, 86000, Poitiers',
+city: 'Poitiers',
+department: 86000,
 length: 200,
 width: 60,
 orientation: 'North',
@@ -368,9 +368,9 @@ balcony15 = Balcony.new(
 name: "Jack's balcony",
 model: 'medium',
 # 'small', 'medium', 'large'
-address: '32 rue des paradoux, 31000, Toulouse',
-city: 'Toulouse',
-department: 31000,
+address: '54 Rue de Pessac, 33000, Bordeaux',
+city: 'Bordeaux',
+department: 33000,
 length: 200,
 width: 60,
 orientation: 'North',
@@ -570,7 +570,7 @@ item10.save
 
 
 item11 = Item.new(
-name: "Ground box black fiber",
+name: "Ground natural wood box",
 description: "The groundbox wicker basket is a nice object measuring 60 cm width.",
 category: "Pot",
 sub_category: "Ground box",
@@ -582,7 +582,7 @@ length: 60,
 width: 60,
 weight: 4.5,
 )
-item11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466517108/panierosier_sl1das.jpg'
+item11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466671746/groundbox9_b0ujmk.jpg'
 item11.save
 
 item12 = Item.new(
@@ -598,7 +598,7 @@ length: 13,
 width: 20,
 weight: 2.5,
 )
-item12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466433786/groundboxsolo_zg6qti.jpg'
+item12.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466667981/zukeg28anqvc3l7w5g9l.jpg'
 item12.save
 
 item13 = Item.new(
@@ -918,7 +918,7 @@ plant1 = Plant.new(
 name: "Tomato plants",
 scientific_name: "Tomato ruby",
 description: "It’s easy to grow tomato plants in pots. To get the most from container-grown tomatoes, you need to match the eventual size of your plant tomato plants to the overall size of your container. For instance, smaller varieties are well suited to hanging baskets or window boxes, whereas you might want to choose a sturdier planter or 5-gallon bucket for larger types.",
-category: "Plant",
+category: "Fruit",
 temperature_min: 10,
 temperature_max: 45,
 pluviometry: 1,
@@ -936,7 +936,7 @@ plant2 = Plant.new(
 name: "Mint herbs",
 scientific_name: "Holywood Chewing gum",
 description: "Mints are a genus (Mentha) of perennial herbaceous plants of the family Lamiaceae (Labiatae), subfamily Nepetoideae, tribe Menthae, including many species, many of which are grown as aromatic and spice plants, ornamental or medicinal.",
-category: "Plant",
+category: "Herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -953,7 +953,7 @@ plant2.save
 plant3 = Plant.new(
 name: "Hibiscus flowers",
 description: "These are plants known since ancient times: it was cultivated in Egypt and Southeast Asia for their ornamental character, but for their edible fruit. Many species also have medicinal properties. Imported to Europe in the twelfth century by the Moors of Spain, some species were subsequently introduced in America in the seventeenth century by slaves.",
-category: "Plant",
+category: "Flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 2,
@@ -971,7 +971,7 @@ plant4 = Plant.new(
 name: "Strawberry plants",
 scientific_name: "Fragaria × ananassa",
 description: "Fresh strawberries grown in gardens or on local farms can be harvested at the peak of ripeness, offering superior flavor, quality, and appearance. We offer three main types — short-day or June-bearing, day-neutral, and alpine strawberries. Choose from disease-free, dormant bare-root plants of the first two types, seeds of the second two types, and certified-organic plugs of day-neutral varieties.",
-category: "Plant",
+category: "Fruit",
 temperature_min: 10,
 temperature_max: 35,
 pluviometry: 1,
@@ -990,7 +990,7 @@ plant5 = Plant.new(
 name: "Basil herbs",
 scientific_name: "Basilicus pistus",
 description: "Grow fresh basil herbs at home with zero effort. No green thumb required!",
-category: "Plant",
+category: "Herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -1009,7 +1009,7 @@ plant6 = Plant.new(
 name: "Dill herbs",
 scientific_name: "Anethum graveolens",
 description: "The compact plants has a lot of large, succulent, dark green leaves with purple-bluish tint",
-category: "Plant",
+category: "Herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -1027,7 +1027,7 @@ plant7 = Plant.new(
 name: "Chives herbs",
 scientific_name: "Allium schoenoprasum",
 description: "They are one of the first herbs to pop up in the spring garden, they are in season (and blooming!) right now, and they are pretty much the easiest herb to grow.",
-category: "Plant",
+category: "Herb",
 temperature_min: 4,
 temperature_max: 25,
 pluviometry: 4,
@@ -1042,78 +1042,78 @@ plant7.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v146
 plant7.save
 
 
-# plant8 = Plant.new(
-# name: "Lemon tree",
-# scientific_name: "Citrus",
-# description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
-# category: "Plant",
-# temperature_min: 10,
-# temperature_max: 40,
-# pluviometry: 2,
-# sunshine_amount: 4,
-# advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-# price_cents: 12000,
-# slot: 1,
-# color: "green",
-# size: 15
-# )
-# plant8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466439020/citrus_wl14vw.jpg'
-# plant8.save
+plant8 = Plant.new(
+name: "Tulip",
+scientific_name: "Tulipus",
+description: "You'll love this fabulous assortment of tulip bulbs, so new they have yet to be named. Every single flower is different - in variety, color and form. Our special tulip breeder has selected many thousands of new seedlings and included the best in this mixture.",
+category: "Flower",
+temperature_min: 10,
+temperature_max: 40,
+pluviometry: 2,
+sunshine_amount: 4,
+advises: "This spectacular mix will bloom mid to late spring and are great for cutting.",
+price_cents: 800,
+slot: 1,
+color: "green",
+size: 15
+)
+plant8.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466673130/tulip_o35qn6.jpg'
+plant8.save
 
-# plant9 = Plant.new(
-# name: "Grapefruit",
-# scientific_name: "Citrus × paradisi)",
-# description: "The grapefruit (Citrus × paradisi) is a subtropical citrus tree known for its sour to semi-sweet fruit. Grapefruit is a hybrid originating in Barbados as an accidental cross between two introduced species, sweet orange and pomelo",
-# category: "Plant",
-# temperature_min: 10,
-# temperature_max: 40,
-# pluviometry: 2,
-# sunshine_amount: 4,
-# advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-# price_cents: 15000,
-# slot: 1,
-# color: "green",
-# size: 15
-# )
-# plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436958/pamplemousse_ojw2vf.jpg'
-# plant9.save
+plant9 = Plant.new(
+name: "Sage blue",
+scientific_name: "Salvia azurea",
+description: "The bright blue flowers of Blue Sage bloom for an extended period in late summer. Native to southern and western prairie states, it makes its home in rocky prairies, shaded limestone glades, and open woodlands.",
+category: "Flower",
+temperature_min: 10,
+temperature_max: 40,
+pluviometry: 2,
+sunshine_amount: 4,
+advises: "Salvia azurea is tough as nails and makes an excellent choice for dry sites.",
+price_cents: 1250,
+slot: 1,
+color: "green",
+size: 15
+)
+plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466679854/sage_blue_lqv7mp.jpg'
+plant9.save
 
-# plant10 = Plant.new(
-# name: "palmier",
-# scientific_name: "chrysalidocarpus-lutescens",
-# description: "Pimp My Ride trees from Lemon Citrus Tree are not grown from seed, they are grafted from mature trees unto a dwarf root stock. This allows you to see blossoms and fruit as early as one year old! Our trees are very hardy, of the best quality and have a three year warranty!",
-# category: "Plant",
-# temperature_min: 10,
-# temperature_max: 35,
-# pluviometry: 2,
-# sunshine_amount: 3,
-# advises: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-# price_cents: 9500,
-# slot: 1,
-# color: "green",
-# size: 15
-# )
-# plant10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
-# plant10.save
+plant10 = Plant.new(
+name: "oleander",
+scientific_name: "oleandus",
+description: "Large clusters of large fragrant soft rosy white double flowers, often with one or more petals streaked or flecked with white, are born over a long period on this reliable old favorite.",
+category: "Flower",
+temperature_min: 10,
+temperature_max: 35,
+pluviometry: 2,
+sunshine_amount: 3,
+advises: "Oleanders also make excellent container specimens that are easily overwintered indoors in cooler climates.",
+price_cents: 9500,
+slot: 1,
+color: "green",
+size: 15
+)
+plant10.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466436938/chrysalidocarpus_rxexvn.jpg'
+plant10.save
 
 
-# plant11 = Plant.new(
-# name: "Buxus tree",
-# scientific_name: "Buxus",
-# description: "Pimp My Ride Buxus sempervirens (common box) standards make superb specimen topiary plants. Box topiary standards can be grown in containers/planters or in the ground as specimens plants.",
-# category: "Plant",
-# temperature_min: 10,
-# temperature_max: 35,
-# pluviometry: 2,
-# sunshine_amount: 3,
-# advises: "Select a container at least 45cm (18in) in diameter and use a loam-based compost, such as John Innes No 3. Make sure plants never dry out, even in winter.",
-# price_cents: 11500,
-# slot: 1,
-# color: "green",
-# size: 15
-# )
-# plant11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466437027/buis_ioavfr.jpg'
-# plant11.save
+plant11 = Plant.new(
+name: "Raspberry bush",
+scientific_name: "Raspus",
+description: "Pimp My Ride Dorman Red is a good raspberry for the deep South. Produces good quantities of large, firm, juicy, red fruit, very good either fresh or frozen.",
+category: "Fruit",
+temperature_min: 10,
+temperature_max: 35,
+pluviometry: 2,
+sunshine_amount: 3,
+advises: "Thrives in hot temperatures, drought and disease resistant. Ripens mid June. ",
+price_cents: 1050,
+slot: 1,
+color: "green",
+size: 15
+)
+plant11.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v1466681727/raspberry_tdnt38.jpg'
+plant11.save
 
 # plant12 = Plant.new(
 # name: "Bamboo",
@@ -1136,7 +1136,7 @@ plant7.save
 plant8 = Plant.new(
 name: "Hortensia flowers",
 description: "These are plants known since ancient times: it was cultivated in Egypt and Southeast Asia for their ornamental character, but for their edible fruit. Many species also have medicinal properties. Imported to Europe in the twelfth century by the Moors of Spain, some species were subsequently introduced in America in the seventeenth century by slaves.",
-category: "Plant",
+category: "Flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 3,
@@ -1153,7 +1153,7 @@ plant8.save
 plant9 = Plant.new(
 name: "Daisy flowers",
 description: "For a spectacular show during cool weather, plant marguerite daisy. Often confused with Shasta daisy, marguerite is more mounded and shrubby. Different types also come in pink with a bloom that more resembles purple coneflower.",
-category: "Plant",
+category: "Flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 3,
@@ -1168,9 +1168,9 @@ plant9.remote_photo_url = 'http://res.cloudinary.com/dun7rljns/image/upload/v146
 plant9.save
 
 plant10 = Plant.new(
-name: " flowers",
+name: " Graminae flowers",
 description: "A charming, deciduous grass that forms a compact, low mound and produces long-lasting, soft, pinkish, brush-like flowers in late summer that resemble squirrel tails. The bright green leaves turn yellow in autumn. It’s a fairly undistinguished plant until the flowers appear, so use it alongside spring bulbs or early-flowering perennials.",
-category: "Plant",
+category: "Flower",
 temperature_min: 0,
 temperature_max: 35,
 pluviometry: 3,
