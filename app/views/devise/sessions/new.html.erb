@@ -1,43 +1,37 @@
 <!-- BANNER  -->
-<section data-jarallax-original-styles="background-image: url(&quot;<%= image_path('Sky.jpeg')%>&quot;);" style="background-image: none; background-attachment: scroll; background-size: auto auto;" class="module-sm bg-black-alfa-30 color-white parallax" data-background="<%= image_path('Sky.jpeg')%>">
+<section data-jarallax-original-styles="background-image: url(&quot;<%= image_path('Sky.jpeg')%>&quot;);" style="background-size: 100% auto;" class="module-sm bg-black-alfa-30 color-white parallax" data-background="<%= image_path('background_green.jpg')%>">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h3 class="montserrat text-uppercase m-t-40">WELCOME BACK</h3>
+        <h3 class="montserrat text-uppercase"></h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4 p-t-40 p-b-40" style ="padding-right: 40px; padding-left:40px;" >
+
+       <h2 class= "text-center"><%= t('.sign_in', :default => "Sign in") %></h2>
+
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email, class: "form-control input-lg" %></div>
+
+           <div><%= f.label :password %><br />
+          <%= f.password_field :password, class: "form-control input-lg"  %></div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
+          <br>
+
+          <div><%= f.submit t('.sign_in', :default => "Sign in"), class: "btn btn-block btn-round btn-base m-b-10" %></div>
+        <% end %>
+        <p class="text-center">You don't have an account ? click sign up</p>
+      <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
 </section>
 
-  <div class="wrapper" style="background-image: url(<%= image_tag "background_green.jpg"%>)">
-  <!-- LOGIN -->
-    <section class ="p-t-40 p-b-40">
-      <div class="container">
 
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-4">
-
-           <h2 class= "text-center"><%= t('.sign_in', :default => "Sign in") %></h2>
-
-            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-              <div><%= f.label :email %><br />
-              <%= f.email_field :email, class: "form-control input-lg" %></div>
-
-               <div><%= f.label :password %><br />
-              <%= f.password_field :password, class: "form-control input-lg"  %></div>
-
-              <% if devise_mapping.rememberable? -%>
-                <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-              <% end -%>
-              <br>
-
-              <div><%= f.submit t('.sign_in', :default => "Sign in"), class: "btn btn-block btn-round btn-base m-b-10" %></div>
-            <% end %>
-          <%= render "devise/shared/links" %>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
     <!-- END LOGIN

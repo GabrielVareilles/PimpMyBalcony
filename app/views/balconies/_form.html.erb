@@ -1,11 +1,9 @@
 <%= simple_form_for @balcony do |f| %>
   <%= f.input :model, collection: ['small', 'medium', 'large'] %>
-  <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Start typing your address...' } %>
-  <%= f.input :city, input_html: { id: 'locality' } %>
-  <%= f.input :department, input_html: { id: 'postal_code' } %>
-  <%= f.input :length %>
-  <%= f.input :orientation %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit 'save settings', class: "btn btn-lg btn-circle btn-primary" %>
+  <%= f.input :address, input_html: { id: 'user_input_autocomplete_address', placeholder: 'Type your address here' } %>
+  <%= f.input :city, input_html: { id: 'locality' }, placeholder: 'Paris' %>
+  <%= f.input :department, input_html: { id: 'postal_code' }, placeholder: '75010' %>
+  <%= f.input :length, label: 'length (cm)', placeholder: '100 cm'%>
+  <%= f.input :orientation, collection: ['North', 'West', 'South', 'East'] %>
+  <%= f.submit 'save settings', class: "m-t-20 btn btn-block btn-outline btn-lg btn-base" %>
 <% end %>
