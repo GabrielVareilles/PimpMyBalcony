@@ -13,3 +13,4 @@ $(".dynamic-add-to-cart-item").on("ajax:success", function (e, data, status, xhr
 );
 }).on("ajax:error", function (e, xhr, status, error) {
 });
+
