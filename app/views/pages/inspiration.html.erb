@@ -6,55 +6,14 @@
     <ul class="slides">
 
       <!--  -->
-      <li class="bg-black-alfa-40" style="background-image:url(<%= image_path('Carrousel_1.jpeg')%>)">
+      <li class="" style="background-image:url(<%= image_path('banner_inspiration.jpg')%>)">
         <!-- HERO TEXT -->
         <div class="hero-caption">
           <div class="hero-text">
             <div class="container">
               <div class="row">
                 <div class="col-sm-12 text-center">
-                  <h1 class="montserrat text-uppercase text-super-xl m-b-40">Awesome items</h1>
-                  <h2 class="montserrat text-uppercase text-xl">Adapted to your balcony</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- END HERO TEXT -->
-      </li>
-      <!--  -->
-
-      <!--  -->
-      <li class="bg-black-alfa-40" style="background-image:url(<%= image_path('Carrousel_2.jpeg')%>)">
-        <!-- HERO TEXT -->
-        <div class="hero-caption">
-          <div class="hero-text">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 text-center">
-                  <h2 class="montserrat text-uppercase m-b-40">Flower power</h2>
-                  <h1 class="montserrat text-uppercase text-super-xl m-b-40"> -20 % on flowers</h1>
-                  <p>* by using the coupon code "flower-power", available until july 20th</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- END HERO TEXT -->
-      </li>
-      <!--  -->
-
-
-      <li class="bg-black-alfa-40" id="tata" style="background-image:url(<%= image_path('Carrousel_3.jpeg')%>)">
-        <!-- HERO TEXT -->
-        <div class="hero-caption">
-          <div class="hero-text">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 text-center">
-                  <h2 class="montserrat text-uppercase m-b-40">Get inspired</h2>
-                  <h1 class="montserrat text-uppercase text-xxxxxl m-b-40">New Pots</h1>
-                  <p>Discover our new range of custom pot for your balcony</p>
+                  <h1 class="montserrat text-uppercase text-super-xl m-b-40">Get inspired</h1>
                 </div>
               </div>
             </div>
@@ -67,147 +26,185 @@
   </div>
   <!-- END HERO -->
 
-<!-- PORTFOLIO -->
-    <section class="module bg-white-dark p-b-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
-            <div class="module-header text-center">
-              <h2 class="montserrat text-uppercase">Get inspired</h2>
-              <p class="lead divider-line">Have a look on our member's pimped balconies</p>
-             </div>
-          </div>
+<!-- BY OUR MEMBER-->
+  <section class="bg-white-dark p-t-80 p-b-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="module-header text-center">
+            <h2 class="montserrat text-uppercase">By our member</h2>
+            <p class="lead divider-line">Have a look on our member's pimped balconies</p>
+           </div>
         </div>
       </div>
-    </section>
-<!-- END PORTFOLIO -->
-
-
-<!-- GALLERY -->
-<section class="module">
-<div class="container">
-  <div class="gallery gallery-3">
-    <% Balcony.all.first(6).each do |balcony| %>
-     <div class="gallery-item">
-        <!-- PORTFOLIO ITEM -->
-          <article class="work-item <%= balcony.model %>">
-            <div class="work-wrapper">
-              <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
-              <div class="work-overlay">
-                <div class="work-caption">
-                  <h6 class="work-title"> <%= balcony.name %> </h6>
-                  <span class="work-category"> <%= balcony.model %> </span>
-                </div>
-              </div>
-              <%= link_to '#', public_balcony_path(balcony), class: "work-link" %>
-            </div>
-          </article>
-    <!-- END PORTFOLIO ITEM -->
     </div>
-    <% end %>
+  </section>
+<!-- BY OUR MEMBER -->
 
+<!-- IMAGE CAROUSEL -->
+ <section class="divider-bottom">
+   <div class="container">
+     <div class="row">
+       <div class="col-sm-12">
+         <!-- START CARROUSSEL-->
+         <div class="box-carousel p-t-40" data-carousel-options='{"items":"2", "navigation": true}'>
+           <% Balcony.all.each do |balcony| %>
+             <div class="item">
+              <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
+              <p class="m-t-10 text-center"><%= balcony.user.first_name %>'s balcony</p>
+              <%= link_to "Show", public_balcony_path(balcony), class: "btn btn-outline btn-base center-block" %>
+             </div>
+           <% end %>
+         </div>
+         <!-- END CAROUSEL-->
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- END IMAGE CAROUSEL -->
 
-  </div><!-- .gallery -->
-</div>
-</section>
-    <!-- END GALLERY -->
-
-
-
- <!-- IMAGE CAROUSEL -->
-    <section class="module divider-bottom">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-sm-12">
-
-            <h5 class="montserrat text-uppercase bottom-line">Discover Pinterest inspiring balconies</h5>
-            <!-- IMAGE CAROUSEL -->
-            <div class="images-carousel" data-carousel-options='{"items":"3", "navigation": true}'>
-            <%= image_tag("balcony15.jpg") %>
-            <%= image_tag("balcony3.jpg") %>
-            <%= image_tag("balcony15.jpg") %>
-            <%= image_tag("balcony3.jpg") %>
-            <%= image_tag("balcony15.jpg") %>
-            <%= image_tag("balcony3.jpg") %>
+ <!-- BY OUR PRODUCT-->
+   <section class="bg-white-dark p-t-80 p-b-0">
+     <div class="container">
+       <div class="row">
+         <div class="col-sm-6 col-sm-offset-3">
+           <div class="module-header text-center">
+             <h2 class="montserrat text-uppercase">By our product</h2>
+             <p class="lead divider-line"> Happy hunting! </p>
             </div>
-            <!-- END IMAGE CAROUSEL -->
+         </div>
+       </div>
+     </div>
+   </section>
+ <!-- BY OUR PRODUCT -->
 
-          </div>
-        </div>
+ <!-- PORTFOLIO -->
+  <section class="module-xs">
+  	<div class="container">
 
+  	<!-- PORTFOLIO FILTERS -->
+  	<div class="row">
+      <div class="col-sm-12">
+        <ul id="filters" class="filters p-t-20 bg-white-dark">
+          <li><a href="#" class="current" data-filter="*">All</a></li>
+          <li><a href="#" data-filter=".pot">Pot</a></li>
+          <li><a href="#" data-filter=".plant">Plant</a></li>
+          <li><a href="#" data-filter=".deco">Deco</a></li>
+        </ul>
       </div>
-    </section>
-    <!-- END IMAGE CAROUSEL -->
+  	</div>
+  	<!-- END PORTFOLIO FILTERS -->
 
+  	<div class="works-grid-wrapper">
+  		<!-- WORKS GRID -->
+  		<div id="works-grid" class="works-grid works-grid-masonry works-grid-gutter works-grid-4">
+        <% Item.all.first(16).each do |product| %>
+  			<!-- PORTFOLIO ITEM -->
+    			<article class="work-item brand p-t-20 p-b-20 <%= product.category.downcase %>">
+    				<div class="work-wrapper">
+    					<%= cl_image_tag product.photo %>
+    					<div class="work-overlay">
+    						<div class="work-caption">
+                  <div class="work-title" style="text-align:center;">
+                  </div>
+    						</div>
+    					</div>
+              <%= link_to "", item_path(product.id), class: "work-link" %>
+    				</div>
+    			</article>
+  			<!-- END PORTFOLIO ITEM -->
+        <% end %>
+      </div>
+  		<!-- END WORKS GRID -->
+    </div>
+    </div>
+  </section>
+  <!-- END PORTFOLIO -->
 
-<!-- PORTFOLIO -->
-    <section class="module bg-white-dark p-b-0">
+  <!-- BY OUR PRODUCT-->
+    <section class="bg-white-dark p-t-80 p-b-0">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
             <div class="module-header text-center">
-              <h2 class="montserrat text-uppercase">balconies products</h2>
-              <p class="lead divider-line">Have a look on our catalogue</p>
+              <h2 class="montserrat text-uppercase">By social networks</h2>
+              <p class="lead divider-line"> Plenty of friends to make! </p>
              </div>
           </div>
         </div>
       </div>
     </section>
-<!-- END PORTFOLIO -->
-
-
- <!-- GALLERY -->
-<section class="module">
-  <div class="container">
-    <div class="gallery gallery-6">
-
-    <!-- SHOP ITEM -->
-        <% Item.all.first(9).each do |product| %>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-          <div class="shop-item">
-            <div class="shop-item-photo">
-              <%= cl_image_tag product.photo, height: 400, width: 720, crop: :fill %>
-              <div class="shop-item-tools">
-                <div>
-                  <div>
-                    <a href="#" title="Add to cart"><i class="icon-basket-loaded icons"></i></a>
-                    <a href="#" title="View item"><i class="icon-eye icons"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="shop-item-title">
-              <h5><%= link_to product.name, items_path %></h5>
-              <h5><%= product.price %>,00 € </h5>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <!-- END SHOP ITEM -->
-
-    </div><!-- .gallery -->
-
-  <div class="module-header text-center">
-           <%= link_to "See More products", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
-  </div>
- </div>
-</section>
+  <!-- BY OUR PRODUCT -->
 
 
   <!-- Pinterest -->
-  <a data-pin-do="embedBoard" data-pin-lang="fr" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pimpmybalco0551/pimp-my-balcony/"></a>
 
-  <!-- https://developers.pinterest.com/docs/widgets/getting-started/ -->
+  <div class = "center-block m-b-40">
+    <div class= "container">
+      <div class="row text-center">
+        <div class="col-sm-5">
+            <%= image_tag "icon.png", style: "height: 400px;" %>
+        </div>
+        <div class="col-sm-5" style ="margin-top: 30px;">
+            <a data-pin-do="embedBoard" data-pin-lang="fr" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/pimpmybalco0551/pimp-my-balcony/"></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <script type="text/javascript">
-  (function(d){
-      var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
-      p.type = 'text/javascript';
-      p.async = true;
-      p.src = '//assets.pinterest.com/js/pinit.js';
-      f.parentNode.insertBefore(p, f);
-  }(document));
-  </script>
+  <hr>
+  <br>
+
+  <section>
+  <div class="container">
+
+    <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466993/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466991/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466985/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466984/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466979/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466977/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466973/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466967/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466953/"></a>
+      </div>
+
+      <div class="grid-item">
+          <a data-pin-do="embedPin" data-pin-lang="fr" data-pin-width="small" href="https://www.pinterest.com/pin/439241769890466950/"></a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
 
   <!-- END GALLERY -->>
