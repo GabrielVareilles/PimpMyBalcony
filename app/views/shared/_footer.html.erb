@@ -82,11 +82,11 @@
 					</div>
 					<!--  -->
 
-					<!-- TWITTER WIDGET -->
+					<!-- Pinterest WIDGET -->
 					<div class="col-sm-3">
 						<div class="widget">
-							<h6 class="montserrat text-uppercase bottom-line">Latest Twitts</h6>
-							<div class="twitter-feed" data-twitter="345170787868762112"></div>
+							<h6 class="montserrat text-uppercase bottom-line">Pinterest inspiration</h6>
+            <a data-pin-do="embedBoard" data-pin-lang="fr" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="100" href="https://www.pinterest.com/pimpmybalco0551/pimp-my-balcony/"></a>
 						</div>
 					</div>
 					<!-- END TWITTER WIDGET -->
@@ -101,7 +101,7 @@
 										<%= image_tag "yann.jpg" %>
 									</div>
 									<div class="widget-posts-body">
-										<h6 class="widget-posts-title"><a href="#">Little urban garden</a></h6>
+										<h6 class="widget-posts-title"><%= link_to "Little urban gardener", public_balcony_path(Balcony.first)%></h6>
 										<div class="widget-posts-meta">June 24, 2016 </div>
 									</div>
 								</li>
@@ -110,8 +110,8 @@
 										<%= image_tag "fx.jpg" %>
 									</div>
 									<div class="widget-posts-body">
-										<h6 class="widget-posts-title">
-                    <a href="#">The grasshopper</a></h6>
+										<h6 class="widget-posts-title"><%= link_to "The grasshopper", public_balcony_path(Balcony.second)%>
+                    </h6>
 										<div class="widget-posts-meta">June 22, 2016 </div>
 									</div>
 								</li>
@@ -120,8 +120,7 @@
 										<%= image_tag "alexq.png" %>
 									</div>
 									<div class="widget-posts-body">
-										<h6 class="widget-posts-title">
-                    <a href="#">Flower power</a></h6>
+										<h6 class="widget-posts-title"><%= link_to "Flower power guy", public_balcony_path(Balcony.third)%></h6>
 										<div class="widget-posts-meta">June 20, 2015 </div>
 									</div>
 								</li>
@@ -136,8 +135,7 @@
 							<h6 class="montserrat text-uppercase bottom-line">Contact Us</h6>
 							<address class="map-background">
 								<p>EuraTechnologies, 165 Avenue de Bretagne, 59000 Lille</p>
-								Phone: 8 800 123 4567<br>
-								Fax: 8 800 123 4567<br>
+								Phone: 0 800 123 4567<br>
 								E-mail: <a href="mailto:pimpmybalcony@gmail.com">hello@pimpmybalcony.com</a>
 							</address>
 						</div>
