@@ -1,35 +1,35 @@
 <!-- BANNER  -->
-<section data-jarallax-original-styles="background-image: url(&quot;<%= image_path('Sky.jpeg')%>&quot;);" style="background-image: none; background-attachment: scroll; background-size: auto auto;" class="module-sm bg-black-alfa-30 color-white parallax" data-background="<%= image_path('Sky.jpeg')%>">
+<section data-jarallax-original-styles="background-image: url(&quot;<%= image_path('Sky.jpeg')%>&quot;);" style="background-size: 100% auto;" class="module-sm bg-black-alfa-30 color-white parallax" data-background="<%= image_path('pot-background.jpeg')%>">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h3 class="montserrat text-uppercase m-t-40">WELCOME</h3>
+        <h3 class="montserrat text-uppercase"></h3>
+      </div>
+    </div>
+
+    <div class="row">
+  		<div class="col-sm-4 col-sm-offset-4 p-t-40 p-b-40 col-xs-12" style ="padding-right: 40px; padding-left:40px;">
+          <div class="text-center center-block">
+          <h2><%= t('.sign_up', :default => "Sign up") %></h2>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div><%= f.label :email %><br />
+            <%= f.email_field :email, class: "form-control input-lg" %>
+            </div>
+
+            <div><%= f.label :password %><br />
+            <%= f.password_field :password, class: "form-control input-lg" %>
+            </div>
+
+            <div><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, class: "form-control input-lg"%>
+            </div> <br />
+
+            <div><%= f.submit t('.sign_up', :default => "Sign up"),class: "btn btn-block btn-round btn-base p-b-40" %></div><br />
+          <% end %>
+        <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
   </div>
-</section>
-
-<div class="container m-t-60 m-b-60 ">
-  <div class="row">
-		<div class="col-sm-4 col-sm-offset-4 col-xs-12">
-        <div class="text-center center-block">
-        <h2><%= t('.sign_up', :default => "Sign up") %></h2>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
-
-          <div><%= f.label :email %><br />
-          <%= f.email_field :email, class: "form-control input-lg" %></div>
-
-          <div><%= f.label :password %><br />
-          <%= f.password_field :password, class: "form-control input-lg" %></div>
-
-          <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, class: "form-control input-lg"%></div> <br />
-
-          <div><%= f.submit t('.sign_up', :default => "Sign up"),class: "btn btn-block btn-round btn-base" %></div>
-        <% end %>
-      <%= render "devise/shared/links" %>
-      </div>
-    </div>
-  </div>
-</div>
