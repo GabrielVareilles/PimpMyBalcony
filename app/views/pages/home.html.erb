@@ -73,7 +73,7 @@
         <div class="col-sm-8 col-sm-offset-2 text-center">
           <h1 class="p-t-40">Join the community</h1>
           <p class="lead m-b-40"> by other member's great achievement</p>
-          <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg video-pop-up smoothscroll"  %>
+          <%= link_to "More inspiration here", inspiration_path, class: "btn btn-base btn-lg"  %>
         </div>
       </div><!-- .row -->
     </div>
@@ -101,7 +101,7 @@
       		<!-- WORKS GRID -->
   				<div id="works-grid" class="works-grid works-grid-3">
             <!-- PORTFOLIO ITEM -->
-            <% Balcony.all.each do |balcony| %>
+            <% Balcony.first(9).each do |balcony| %>
   					<article class="work-item <%= balcony.model %>" style="padding: 10px 0px 0px 10px;">
   						<div class="work-wrapper">
                 <%= cl_image_tag balcony.photo, height: 400, width: 720, crop: :fill %>
@@ -110,7 +110,7 @@
                     <h6 class="work-title"> <%= balcony.name %> </h6>
                     <span class="work-category"> <%= balcony.model %> </span>
                   </div>
-                <% link_to public_balcony_path(balcony), class: "work-link" %>
+                  <%= link_to "", public_balcony_path(balcony.id), class: "work-link" %>
                 </div>
   						</div>
   					</article>
