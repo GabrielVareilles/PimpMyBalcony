@@ -13,7 +13,6 @@
 //= require jquery.zoom.js
 //= require appear.js
 //= require contact.js
-//= require custom.min.js
 //= require gmap3.js
 //= require imagesloaded.pkgd.js
 //= require isotope.pkgd.js
@@ -27,6 +26,7 @@
 //= require twitterFetcher.js
 //= require wow.js
 //= require cloudinary
+//= require custom.min.js
 
 // at the end
 //= require_tree .
