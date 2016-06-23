@@ -29,7 +29,7 @@
         <% end %>
         <br>
         <br>
-        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-sm btn-round btn-base" %>
+        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline btn-base" %>
       </div>
     </div>
     <div class="col-sm-8">
@@ -71,7 +71,8 @@
         <br>
         <%= link_to "Edit   your balcony", complete_path(balcony), class: "btn btn-outline btn-base" %>
         <br>
-        <%= link_to "Delete your balcony", balcony_path(balcony), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline btn-danger" %>
+        <br>
+        <%= link_to "Delete your balcony", balcony_path(balcony), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline btn-danger", style: "width: 180px;" %>
       </div>
     </div>
     <div class="col-sm-8">
