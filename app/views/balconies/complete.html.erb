@@ -181,15 +181,17 @@
             <div class="col-sm-12">
 
               <div class="text-center">
-                <ul class="nav-text-tabs" style ="color: white">
-                  <li class="active" style= "color: #E3E4E8"><a href="#tabs-3-tab-1" data-toggle="herb">1.Herbs</a></li>
-                  <li><a href="#tabs-3-tab-2" data-toggle="fruit">2.Fruit</a></li>
-                  <li><a href="#tabs-3-tab-3" data-toggle="flower">3.Flower</a></li>
+                <ul id= "custom-nav-tabs" class="nav-text-tabs" style ="color: white">
+                  <li class="active" style= "color: #E3E4E8"><a href="#tabs-3-tab-0" data-toggle="tab">All</a></li>
+                  <li><a href="#tabs-3-tab-1" data-toggle="tab">Herbs</a></li>
+                  <li><a href="#tabs-3-tab-2" data-toggle="tab">Fruit</a></li>
+                  <li><a href="#tabs-3-tab-3" data-toggle="tab">Flower</a></li>
                 </ul>
 
                 <div class="tab-content">
-                  <!-- START TAB 1-->
-                  <div id="tabs-3-tab-1" class="tab-pane active">
+
+                  <!-- START TAB 0-->
+                  <div id="tabs-3-tab-0" class="tab-pane active">
                     <!-- START CARROUSSEL-->
                     <div class="box-carousel" data-carousel-options='{"items":"6", "navigation": true}' style="background-color:white; border-radius: 20px; padding: 0px 30px 0px 30px; padding-top: 20px;">
                         <% Plant.all.each do |plant| %>
@@ -207,38 +209,62 @@
                     <!-- END CAROUSEL-->
                   </div>
 
+                  <!-- START TAB 1-->
+                  <div id="tabs-3-tab-1" class="tab-pane">
+                    <!-- START CARROUSSEL-->
+                    <div class="box-carousel" data-carousel-options='{"items":"6", "navigation": true}' style="background-color:white; border-radius: 20px; padding: 0px 30px 0px 30px; padding-top: 20px;">
+                        <% Plant.where(category:"herb").each do |plant| %>
+                        <div class="item">
+                          <h5 class="p-t-5"><%= plant.name %></h5>
+                          <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
+                            <h3 class="m-t-10">
+                              <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
+                                <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
+                              <% end %>
+                            </h3>
+                        </div>
+                      <% end %>
+                    </div>
+                    <!-- END CAROUSEL-->
+                  </div>
+
                   <!-- START TAB 2-->
                   <div id="tabs-3-tab-2" class="tab-pane">
                     <!-- START CARROUSSEL-->
                     <div class="box-carousel" data-carousel-options='{"items":"6", "navigation": true}' style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px; padding-top: 20px;">
 
-                        <% Plant.all.each do |plant| %>
+                        <% Plant.where(category:"fruit").each do |plant| %>
                           <div class="item">
+                            <h5 class="p-t-5"><%= plant.name %></h5>
                             <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
-                            <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
-                              <p class="m-t-10"><%= plant.name %>
-                            <% end %>
-                            </p>
+                              <h3 class="m-t-10">
+                                <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
+                                  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
+                                <% end %>
+                              </h3>
                           </div>
                         <% end %>
-                    </div>
+                      </div>
                     <!-- END CAROUSEL-->
-                  </div>
+                    </div>
+
 
                   <!-- START TAB 3-->
-                  <div id="tabs-3-tab3" class="tab-pane">
+                  <div id="tabs-3-tab-3" class="tab-pane">
                     <!-- START CARROUSSEL-->
                     <div class="box-carousel" data-carousel-options='{"items":"6", "navigation": true}' style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px; padding-top: 20px;">
 
-                        <% Plant.all.each do |plant| %>
-                          <div class="item">
-                            <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
-                            <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
-                              <p class="m-t-10"><%= plant.name %>
-                            <% end %>
-                            </p>
-                          </div>
-                        <% end %>
+                        <% Plant.where(category:"flower").each do |plant| %>
+                        <div class="item">
+                          <h5 class="p-t-5"><%= plant.name %></h5>
+                          <%= cl_image_tag plant.photo, height: 200, width: 250, crop: :fill %>
+                            <h3 class="m-t-10">
+                              <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
+                                <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
+                              <% end %>
+                            </h3>
+                        </div>
+                      <% end %>
                     </div>
                     <!-- END CAROUSEL-->
                   </div>
@@ -293,28 +319,108 @@
 </section>
 
 
-<!-- #################################################################################################ITEM PICKING -->
-<section class=" m-t-40 bg-white-dark">
+<!-- PRODUCT SELECTION -->
+
+<!-- LE COEUR DU REACTEUR 2 -->
+<section class="p-t-40 p-b-20 p-b-0">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <h3 class="montserrat text-uppercase m-t-40">The balcony boutique</h3>
-        <!-- PORTFOLIO FILTERS -->
-        <div class="row">
-          <div class="col-sm-12">
-            <ul id="filters" class="filters p-t-20 bg-white-dark">
-              <li class="p-b-5"><a href="#" class="current" data-filter="*">All</a></li>
-              <li><a href="#" data-filter=".plant">Plant</a></li>
-              <li><a href="#" data-filter=".deco">Accessories</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h1 class="p-t-40">2. Add your Deco   </h1>
+        <p class="lead m-b-40"> That is also part of pimping  </p>
       </div>
-    </div>
+    </div><!-- .row -->
   </div>
 </section>
 
-  <!-- PORTFOLIO -->
+<!-- TEXT TABS CENTER -->
+<section class="divider-bottom" style="padding-bottom: 40px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <!-- TABS -->
+        <div class="text-center">
+          <ul class="nav-text-tabs">
+            <li class="active"><a href="#tabs-3-tab-1" data-toggle="tab">DECO</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- START TAB 1-->
+            <div id="tabs-3-tab-1" class="tab-pane active">
+              <p class ="m-b-0 m-t-0">Select any deco item</p><br>
+              <!-- START CARROUSSEL-->
+              <div class="box-carousel" data-carousel-options='{"items":"5", "navigation": true}'>
+                <% Item.all.where(category: "Deco").each do |pot| %>
+                  <div class="item">
+                    <%= cl_image_tag pot.photo, height: 250, width: 250, crop: :fill %>
+                    <p class="m-t-10"><%= pot.name %></p>
+                    <p class="m-t-10">
+                    <%= link_to duplicate_item_path(pot, name: current_user.first_name), method: :post do %>
+                      <h3><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
+                    <% end %>
+                    </p>
+                  </div>
+                <% end %>
+              </div>
+              <!-- END CAROUSEL-->
+            </div>
+            <!-- END TAB 1-->
+          </div>
+        </div>
+        <!-- END TABS -->
+      </div>
+
+      <!-- Array ICON -->
+      <div class="col-sm-12">
+        <div class="text-center">
+          <h1><i class="fa fa-arrow-circle-down" aria-hidden="true" style="color: #27CBC0; height: 100px; width:100px;"></i></h1>
+        </div>
+      </div>
+
+
+    </div><!-- .row -->
+  </div>
+</section>
+<!-- END TEXT TABS CENTER -->
+<!-- END LE COEUR DU REACTEUR -->
+
+
+<!-- FINAL RECAP -->
+<section class="p-t-40 p-b-20 p-b-0 bg-white-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h1 class="p-t-40">This is it !    </h1>
+        <p class="lead m-b-40"> Purchase your balcony items or save it for future!  </p>
+      </div>
+    </div><!-- .row -->
+  </div>
+</section>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <br>
+      <h1 class="text-center">Your balcony detail</h1>
+        <% unless @balcony.items == nil %>
+        <ul>
+          <% @balcony.items.each do |item| %>
+            <li><p>Item: <%=  item.name %>: <%= humanized_money_with_symbol(item.price) %></li>
+            <li><p>Total Amount: <%= humanized_money_with_symbol(10) %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      <br>
+      <%= link_to "return to homepage", root_path, class: "btn btn-lg btn-outline btn-base" %>
+
+     </div>
+  </div><!-- .row -->
+
+</div>
+
+<!-- PORTFOLIO -->
 <section class=" m-t-40 p-b-0">
   <div class="container">
 
@@ -382,6 +488,7 @@
 
     </div><!-- .row -->
   </div>
+
 <!-- PROGRESSBAR -->
   <div class="container text-center">
     <%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-success" %>
