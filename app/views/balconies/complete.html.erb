@@ -84,14 +84,16 @@
 
       <div class="col-sm-8 col-sm-offset-2 text-center">
         <h1 class="p-t-40"> Your balcony items </h1>
-        <p class="lead m-b-40"> this is the list of your items</p>
+        <!-- <p class="lead m-b-40"></p> -->
       </div>
 
       <div class="row">
         <% @balcony.items.each do |item| %>
           <div class="col-sm-8 col-sm-offset-2 text-center">
             <%= cl_image_tag item.photo, height: 90, width: 120, crop: :fill %>
-            <h5><%= link_to "Remove Item", remove_item_balcony_path(@balcony, item: item.id), method: :post %></h5>
+            <%= link_to remove_item_balcony_path(@balcony, item: item.id), method: :post  do %>
+              <h3><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i></h3>
+            <% end %>
             <br>
           </div>
         <% end %>
@@ -148,7 +150,7 @@
                     <%= cl_image_tag pot.photo, height: 250, width: 250, crop: :fill %>
                     <p class="m-t-10"><%= pot.name %></p>
                     <p class="m-t-10">
-                    <%= link_to duplicate_item_path(pot, name: current_user.first_name) do %>
+                    <%= link_to duplicate_item_path(pot, name: current_user.first_name), method: :post do %>
                       <h3><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
                     <% end %>
                     </p>
@@ -185,14 +187,14 @@
         <div class="col-sm-2 col-md-2 col-lg-2 m-b-20" style="background-color:white; border-radius: 20px; margin-right:10px; margin-left:10px;">
           <div class="shop-item">
             <div class="shop-item-photo">
+              <h4 class="text-center"><%= c_item.name %></h4>
               <%= cl_image_tag c_item.photo %>
             </div>
             <div class="shop-item-title">
-              <h5><%= c_item.name %></h5>
               <h5><%= 'your pot has ' + c_item.slot.to_s + ' slot' %></h5>
               <h5><%= 'your pot has ' + c_item.plants.size.to_s + ' plants in !' %></h5>
               <h5><%= 'Total price: ' + c_item.price.to_s + ' €' %></h5>
-              <%= link_to "Delete", item_path(c_item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link" %>
+              <h5><%= link_to "Delete", item_path(c_item), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-circle btn-outline btn-warning" %></h5>
             </div>
           </div>
         </div>
@@ -201,7 +203,7 @@
             <div class="shop-item">
               <div class="shop-item-photo text-center">
                 <h5><%= plant.name %></h5>
-                <%= cl_image_tag plant.photo %>
+                <%= cl_image_tag plant.photo, height: 150, width: 200, crop: :fill %>
               </div>
             </div>
             <div class="shop-item-title">
@@ -237,7 +239,7 @@
                         <% Plant.all.each do |plant| %>
                           <div class="item">
                             <%= plant.name %>
-                            <%= cl_image_tag plant.photo, height: 250, width: 250, crop: :fill %>
+                            <%= cl_image_tag plant.photo, height: 300, width: 250, crop: :fill %>
                               <h3 class="m-t-10">
                                 <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
                                   <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></h3>
@@ -257,7 +259,7 @@
 
                         <% Plant.all.each do |plant| %>
                           <div class="item">
-                            <%= cl_image_tag plant.photo, height: 250, width: 250, crop: :fill %>
+                            <%= cl_image_tag plant.photo, height: 300, width: 250, crop: :fill %>
                             <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
                               <p class="m-t-10"><%= plant.name %>
                             <% end %>
@@ -276,7 +278,7 @@
 
                         <% Plant.all.each do |plant| %>
                           <div class="item">
-                            <%= cl_image_tag plant.photo, height: 250, width: 250, crop: :fill %>
+                            <%= cl_image_tag plant.photo, height: 300, width: 250, crop: :fill %>
                             <%= link_to add_plant_item_path(c_item, plant: plant.id), method: :post do %>
                               <p class="m-t-10"><%= plant.name %>
                             <% end %>
@@ -299,7 +301,7 @@
 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1 class="lead m-b-40" style="color:white"><%= button_to "Add to your balcony", add_item_balcony_path(@balcony, item: c_item.id), class: "btn btn-xs btn-circle btn-black" %></h1>
+        <h1 class="lead m-b-40" style="color:black"><%= button_to "Add to your balcony", add_item_balcony_path(@balcony, item: c_item.id), class: "btn btn-xs btn-circle btn-black" %></h1>
       </div>
     </div><!-- .row -->
 
