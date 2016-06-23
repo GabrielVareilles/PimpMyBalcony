@@ -24,10 +24,10 @@ $(".dynamic-add-to-cart-item").on("ajax:success", function (e, data, status, xhr
 });
 
 $(document).ready(function() {
-  $('#refresh').click(function() {
+  $('.refresh').click(function() {
       setTimeout(function() {
         location.reload();
-      }, 1000);
+      }, 100);
   });
 });
 

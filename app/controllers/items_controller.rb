@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
                     })
     my_pot.remote_photo_url = @item.photo.to_s
     if my_pot.save
-      redirect_to complete_path
+      render json: my_pot
     else
       redirect_to complete_path
     end
@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
       @item.add_plant(@plant)
 
       if @item.save
-        redirect_to complete_path
+        render json: @item
         flash[:notice] = "Plant added to your item"
       else
         redirect_to complete_path
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
     @item.remove_plant(@plant)
 
     if @item.save
-      redirect_to complete_path << '#anchor_1'
+      render json: @item
       flash[:notice] = "Plant removed from your item"
     else
       redirect_to complete_path
