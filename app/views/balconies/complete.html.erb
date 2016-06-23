@@ -203,13 +203,13 @@
 <!-- END LE COEUR DU REACTEUR -->
 
 <!-- #############################################################YOUR CUSTOM POT############################################################## -->
-<section class=" p-t-30 p-b-20" style = "background-color: #27CBC0; opacity: 0.7">
+<section class=" p-t-30 p-b-20" style = "background-color: #F8F8F8; opacity: 0.7">
   <% c_item = Item.where(category: 'Custom').where("name LIKE '%#{current_user.first_name}%'").last %>
   <% unless c_item.nil? %>
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
-          <h1 style="color:white"> Your Custom pot </h1>
+          <h1 style="color:black"> Your Custom pot </h1>
           <p class="lead m-b-40" style="color:white"> Assemble your custom pot and add it to your balcony</p>
         </div>
       </div><!-- .row -->
