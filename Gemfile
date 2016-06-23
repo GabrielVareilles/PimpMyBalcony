@@ -28,6 +28,8 @@ gem 'money-rails'
 gem 'coffee-script'
 gem 'stripe'
 
+gem 'jquery-masonry-rails'
+
 
 
 group :development, :test do
