@@ -41,7 +41,7 @@ class BalconiesController < ApplicationController
 
   def update
     if @balcony.update(balcony_params)
-      redirect_to private_balcony_path(@balcony)
+      redirect_to complete_path
       flash[:notice] = "Balcony successfuly edited"
     else
       render :edit

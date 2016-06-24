@@ -442,7 +442,7 @@ description: "The look very graphic of the rectangular fiber planter can just as
 category: "Pot",
 sub_category: "Window box",
 plant_category: "flowers",
-slot: 2,
+slot: 3,
 price_cents: 4900,
 volume: 30,
 length: 60,

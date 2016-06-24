@@ -15,15 +15,15 @@
             <%= devise_error_messages! %>
 
             <div><%= f.label :email %><br />
-            <%= f.email_field :email, class: "form-control input-lg" %>
+            <%= f.email_field :email, class: "form-control input-lg black-text", style: "color: black !important" %>
             </div>
 
             <div><%= f.label :password %><br />
-            <%= f.password_field :password, class: "form-control input-lg" %>
+            <%= f.password_field :password, class: "form-control input-lg black-text", style: "color: black !important" %>
             </div>
 
             <div><%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, class: "form-control input-lg"%>
+            <%= f.password_field :password_confirmation, class: "form-control input-lg black-text", style: "color: black !important" %>
             </div> <br />
 
             <div><%= f.submit t('.sign_up', :default => "Sign up"),class: "btn btn-block btn-round btn-base p-b-40" %></div><br />
