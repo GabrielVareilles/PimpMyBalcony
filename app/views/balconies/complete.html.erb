@@ -30,11 +30,11 @@
       <% if !@balcony.photo.url %>
         <% case @balcony.model %>
         <% when 'small' %>
-          <%= cl_image_tag("Balcony_small_e5bs0y.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
+          <%= cl_image_tag("Balcony_small_rl1sde.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
         <% when 'medium' %>
-          <%= cl_image_tag("Balcony_medium_aldzgn.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
+          <%= cl_image_tag("Balcony_medium_k8wytr.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
         <% else %>
-          <%= cl_image_tag("Balcony_large_nextht.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
+          <%= cl_image_tag("Balcony_large_xsz7bp.jpg", height: 300, width: 300, crop: :fill, radius:5) %>
         <% end %>
 
       <% else %>
@@ -405,19 +405,19 @@
 </section>
 
 <!-- YOUR BALCONY ITEMS -->
-<section class="p-t-40 p-b-20 p-b-0 bg-white-dark">
+<section class="p-t-20 p-b-20 p-b-0 bg-white-dark">
   <div class="container">
     <div class="row">
       <% @balcony.items.each do |item| %>
-        <div class="col-xs-2 text-center">
+        <div class="col-xs-2 text-center" style="background-color:white; border-radius: 20px; padding: 0px 30px 0px 30px; padding-top: 20px; margin: 0px 20px 0px 20px">
           <%= cl_image_tag item.photo, height: 160, width: 130, crop: :fill,radius: 20 %>
           <%= link_to remove_item_balcony_path(@balcony, item: item.id), method: :post, remote: true  do %>
             <h4><%= item.name %></h4>
             <h3><i class="fa fa-minus-circle fa-lg refresh" style="bottom: 0px;" aria-hidden="true"></i></h3>
             <% if item.category == "Custom" %>
-            <h5>Pimped <i class="fa fa-pied-piper-pp fa-lg" aria-hidden="true"> Pot</i></h5>
+            <h5>Pimped <i class="fa fa-pied-piper-pp fa-lg m-b-10" aria-hidden="true"> Pot</i></h5>
               <% item.plants.each do |plant| %>
-                <h5 class="text-left"><%= plant.name %> x 1</h5>
+                <h5 class="text-center "><%= plant.name %> x 1</h5>
               <% end %>
             <% end %>
           <% end %>
@@ -428,8 +428,8 @@
 
 <!-- PROGRESSBAR -->
   <div class="container text-center">
-    <%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-lg btn-circle btn-base refresh", remote: true %>
-    <%= link_to "Save and return to home", root_path, class: "btn btn-lg btn-circle btn-outline btn-info" %>
+    <%= button_to "Add balcony to cart", add_collection_to_cart_balcony_path(@balcony), class: "btn btn-lg btn-circle btn-base refresh m-t-30", remote: true %>
+    <%= link_to "Save and return to home", root_path, class: "btn btn-lg btn-circle btn-outline btn-info m-t-20" %>
   </div>
 </section>
 
